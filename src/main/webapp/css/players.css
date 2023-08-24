@@ -1,0 +1,151 @@
+.main {
+  position: relative;
+  width: calc(100vw - 280px);
+  height: 100vh;
+}
+
+.tabs {
+  background-color: #ffffff;
+  height: 90px;
+  border-bottom: #d0d0d0 solid 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.tabs button {
+  float: left;
+  outline: none;
+  cursor: pointer;
+  margin-left: 8px;
+  margin-right: 8px;
+  background-color: #fff;
+  font-size: 24px;
+  padding: 28px;
+}
+
+.tabs button:hover {
+  font-weight: bold;
+  background: #eee;
+}
+
+.tabs button.active {
+  color: #ff5c5c;
+  border-top: #ff5c5c solid 3px;
+  font-weight: bold;
+}
+
+.tab-content {
+  display: none;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: calc(100% - 278px);
+  padding-bottom: 32px;
+}
+
+.filters {
+  height: 140px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.filters button {
+  height: 75px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 2px solid #ff5c5c;
+  color: #ff5c5c;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 10px;
+  font-weight: 500;
+
+}
+  
+.filters button:hover {
+  color: #ffffff;
+  background-color: #ff5c5c;
+
+}
+
+.filters button:hover i{ 
+  color: #fff;
+}
+
+.filters i {
+  color: #ff5c5c;
+  padding: 10px;
+}
+
+.filters .order {
+  height: 75px;
+  width: 150px;
+  background-color: #ff5c5c;
+  color: white;
+}
+
+.filters .order i {
+  color: white;
+}
+
+
+.filters input {
+  background-color: #eee;
+  border: rgb(85, 83, 85) solid 2px;
+  height: 75px;
+  width: 750px;
+  padding: 16px;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.tbl-statistics {
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 90%;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  text-align: center;
+}
+
+.tbl-statistics td,
+.tbl-statistics th {
+  border-left: #d0d0d0 solid 1px;
+  border-right: #d0d0d0 solid 1px;
+}
+
+.tbl-statistics tr {
+  height: 28px;
+}
+
+tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.tbl-statistics td:first-child {
+  text-align: left;
+  padding-left: 16px;
+  width: 25%;
+}
+
+.tbl-statistics th {
+  background-color: #ff5c5c;
+  color: #fff;
+}
+
+.tbl-statistics tr:first-child {
+  border-top: #d0d0d0 solid 1px;
+}
+
+.tbl-statistics tr:last-child {
+  border-bottom: #d0d0d0 solid 1px;
+}

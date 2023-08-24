@@ -1,0 +1,170 @@
+.main {
+  position: relative;
+  width: calc(100vw - 280px);
+  height: 100vh;
+  padding: 48px;
+}
+
+.left {
+  position: relative;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  width: calc((100% - 32px) / 3);
+  height: calc(100%);
+  overflow: scroll;
+  float: left;
+}
+
+.dashboard-heading {
+  font-size: 36px;
+}
+
+.left .dashboard-heading {
+  text-align: center;
+}
+
+.tbl-dashboard {
+  text-align: center;
+  padding: 8px;
+  margin: 0 auto;
+  height: calc((100% - 227px) / 2);
+}
+
+.tbl-dashboard td:first-child {
+  text-align: left;
+  padding: 0px;
+}
+
+.tbl-dashboard td {
+  text-align: center;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.text-btn {
+  text-align: center;
+}
+
+.btn-view-more {
+  height: 75px;
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid #ff5c5c;
+  color: #ff5c5c;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn-view-more:hover {
+  color: #ffffff;
+  background-color: #ff5c5c;
+}
+
+.left .btn-view-more {
+  margin: 0 auto;
+  display: block;
+}
+
+.text-btn {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.left .text-btn {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.right {
+  float: left;
+  position: relative;
+  margin-left: 32px;
+  width: calc((100% - 32px) / 3 * 2);
+  height: calc(100%);
+}
+
+.row {
+  background: white;
+  width: 100%;
+  height: calc((100% - 64px) / 3);
+  border-radius: 20px;
+  padding: 32px;
+  margin-bottom: 32px;
+  overflow: scroll;
+}
+
+.right .dashboard-heading {
+  text-align: left;
+}
+
+.right h2 {
+  text-align: left;
+
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.float-container {
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.float-child {
+  width: 50%;
+  float: left;
+  padding: 16px;
+}
+
+.float-child-left {
+  width: 67%;
+  float: left;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.float-child-right {
+  width: 33%;
+  float: left;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-align: center;
+}
+
+.float-child p {
+  text-align: center;
+}
+
+.team-name {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.score {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.age-group {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.right .text-btn {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.right .btn-view-more {
+  margin: 0 auto;
+  display: block;
+}
+
+.right .result {
+  padding-left: 16px;
+}

@@ -1,0 +1,335 @@
+.main {
+  position: relative;
+  width: calc(100vw - 280px);
+  height: 100vh;
+  padding: 48px;
+}
+
+.tab-content {
+  display: none;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: calc(100% - 240px);
+}
+
+.profile-heading {
+  height: 180px;
+  width: 100%;
+  background-color: #fff;
+  padding: 32px;
+  text-align: center;
+  border-radius: 20px;
+  overflow: scroll;
+}
+
+.profile-heading button {
+  background-color: #fff;
+  cursor: pointer;
+  float: left;
+  height: 40px;
+  font-size: 24px;
+}
+
+.profile-heading h1 {
+  font-size: 40px;
+}
+
+.profile-heading h2 {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.tabs {
+  overflow: hidden;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs button {
+  background-color: #ececec;
+  float: left;
+  outline: none;
+  cursor: pointer;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  font-size: 24px;
+  padding: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.tabs button:hover {
+  font-weight: bold;
+  background: #eee;
+}
+
+.tabs button.active {
+  color: #ff5c5c;
+  border-bottom: #ff5c5c solid 3px;
+  font-weight: bold;
+}
+
+.tbl-team {
+  float: left;
+  height: 150px;
+  position: relative;
+  width: calc(50% - 80px);
+  background-color: #fff;
+  padding: 16px;
+  margin-bottom: 32px;
+  border-radius: 20px;
+  overflow: scroll;
+}
+
+.align-left {
+  margin-left: 64px;
+}
+
+.align-right {
+  margin-left: 32px;
+}
+
+.float-child-left {
+  width: 60%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 118px;
+  padding-left: 16px;
+}
+
+.float-child-right {
+  width: 40%;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 118px;
+}
+
+.tab-content h2 {
+  float: left;
+}
+
+.tab-content h2 .team-name {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.tab-content h2 .age-group {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.tab-content h2 .location {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.select-menu {
+  width: 380px;
+  margin: 0px auto;
+}
+
+.select-menu .select-btn {
+  display: flex;
+  height: 55px;
+  background: #fff;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 8px;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-btn i {
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.select-menu.active .select-btn i {
+  transform: rotate(-180deg);
+}
+
+.select-menu .options {
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.select-menu.active .options {
+  display: block;
+}
+
+.options .option {
+  display: flex;
+  height: 55px;
+  cursor: pointer;
+  padding: 0 16px;
+  border-radius: 8px;
+  align-items: center;
+  background: #fff;
+}
+
+.options .option:hover {
+  background: #f2f2f2;
+}
+
+.option .option-text {
+  font-size: 18px;
+  color: #333;
+}
+
+.statistics-content{
+  display: none;
+  padding-top: 18px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  text-align: center;
+}
+
+td,
+th {
+  border-left: #d0d0d0 solid 1px;
+  border-right: #d0d0d0 solid 1px;
+
+}
+
+tr:first-child {
+  border-top: #d0d0d0 solid 1px;
+}
+
+tr:last-child {
+  border-bottom: #d0d0d0 solid 1px;
+}
+
+tr {
+  height: 28px;
+  background-color: #fff;
+}
+
+th {
+  background-color: #ff5c5c;
+  color: #fff;
+}
+
+tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+tr:nth-child(even) {
+  background-color: #fff;
+}
+
+td:first-child {
+  text-align: left;
+  padding-left: 16px;
+  width: 25%;
+}
+
+
+.tbl-matches {
+  background: white;
+  width: calc(100% - 128px);
+  height: 220px;
+  border-radius: 20px;
+  padding: 32px;
+  margin-left: 64px;
+  margin-bottom: 32px;
+  overflow: scroll;
+}
+
+.tbl-matches h2 {
+  text-align: left;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.tbl-matches .float-container {
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tbl-matches .float-child {
+  width: 50%;
+  float: left;
+  padding: 16px;
+}
+
+.tbl-matches .float-child-left {
+  width: 67%;
+  float: left;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.tbl-matches .float-child-right {
+  width: 33%;
+  float: left;
+  margin: auto 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+}
+
+.tbl-matches .float-child p {
+  text-align: center;
+}
+
+.tbl-matches .team-name {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.tbl-matches .score {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.tbl-matches .age-group {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tbl-matches .result {
+  padding-left: 16px;
+}
+
+.tbl-matches .btn-view-match {
+  height: 75px;
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid #ff5c5c;
+  color: #ff5c5c;
+  background-color: white;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+}
+
+.tbl-matches .btn-view-match:hover {
+  color: #ffffff;
+  background-color: #ff5c5c;
+}
