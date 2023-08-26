@@ -17,30 +17,30 @@
 	<div class="container">
 		<nav>
 			<ul>
-				<li><a href="index.jsp" class="logo"> <span
+				<li><a href="Dashboard" class="logo"> <span
 						class="nav-item">CricketDB</span>
 				</a></li>
-				<li class="selected"><a href="index.jsp" class="nav-list">
+				<li class="selected"><a href="Dashboard" class="nav-list">
 						<i class="fas fa-solid fa-table-columns"></i> <span
 						class="nav-item">Dashboard</span>
 				</a></li>
-				<li><a href="players" class="nav-list"> <i
+				<li><a href="Players" class="nav-list"> <i
 						class="fas fa-solid fa-person-running"></i> <span class="nav-item">Players</span>
 				</a></li>
-				<li><a href="teams.jsp" class="nav-list"> <i
+				<li><a href="Teams" class="nav-list"> <i
 						class="fas fa-solid fa-people-group"></i> <span class="nav-item">Teams</span>
 				</a></li>
-				<li><a href="matches.jsp" class="nav-list"> <i
+				<li><a href="Matches" class="nav-list"> <i
 						class="fas fa-solid fa-calendar-days"></i> <span class="nav-item">Matches</span>
 				</a></li>
-				<li><a href="management.jsp" class="nav-list"> <i
+				<li><a href="Management" class="nav-list"> <i
 						class="fas fa-solid fa-chart-line"></i> <span class="nav-item">Management</span>
 				</a></li>
 			</ul>
 		</nav>
 		<section class="main">
 			<div class="left">
-				<h1 class="dashboard-heading">Batsman In-Form</h1>
+				<h1 class="dashboard-heading">Highest Scores</h1>
 				<table class="tbl-dashboard">
 					<tr>
 						<th>Player Name</th>
@@ -68,7 +68,7 @@
 						<td>(0)</td>
 					</tr>
 				</table>
-				<h1 class="dashboard-heading">Bowlers In-Form</h1>
+				<h1 class="dashboard-heading">Best Bowling Figures</h1>
 				<table class="tbl-dashboard">
 					<tr>
 						<th>Player Name</th>
@@ -97,7 +97,7 @@
 					</tr>
 				</table>
 				<p class="text-btn">View the full list of in-form players.</p>
-				<button class="btn-view-more" type="button" onclick="openInForm()"
+				<button class="btn-view-more" type="button" onclick="window.location.href='Players'"
 					id="In-Form-Button">View More</button>
 			</div>
 			<div class="right">
@@ -126,7 +126,7 @@
 						<div class="float-child-right">
 							<p class="text-btn">View the full list of live matches.</p>
 							<button class="btn-view-more" type="button"
-								onclick="openMatches()">View More</button>
+								onclick="window.location.href='Matches'">View More</button>
 						</div>
 					</div>
 				</div>
@@ -156,7 +156,7 @@
 						<div class="float-child-right">
 							<p class="text-btn">View the full list of recent results.</p>
 							<button class="btn-view-more" type="button"
-								onclick="openMatches()">View More</button>
+								onclick="window.location.href='Matches'">View More</button>
 						</div>
 					</div>
 				</div>
@@ -185,7 +185,7 @@
 						<div class="float-child-right">
 							<p class="text-btn">View the full list of upcoming fixtures</p>
 							<button class="btn-view-more" type="button"
-								onclick="openMatches()">View More</button>
+								onclick="window.location.href='Matches'">View More</button>
 						</div>
 					</div>
 				</div>

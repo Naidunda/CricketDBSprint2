@@ -4,21 +4,90 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 	<display-name>CricketDB</display-name>
+	
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>players.jsp</welcome-file>
+		<welcome-file>player-profile.jsp</welcome-file>
+		<welcome-file>teams.jsp</welcome-file>
+		<welcome-file>team-profile.jsp</welcome-file>
+		<welcome-file>matches.jsp</welcome-file>
+		<welcome-file>match-scorecard.jsp</welcome-file>
 	</welcome-file-list>
-
+	
+	<servlet>
+		<servlet-name>GetIndividualPlayerStats</servlet-name>
+		<servlet-class>app.controller.getIndividualPlayerStats</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetIndividualPlayerStats</servlet-name>
+		<url-pattern>/IndvidualPlayerStats</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetDashboard</servlet-name>
+		<servlet-class>app.controller.getDashboard</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetDashboard</servlet-name>
+		<url-pattern></url-pattern>
+		<url-pattern>/Dashboard</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>GetPlayers</servlet-name>
 		<servlet-class>app.controller.getPlayerStatistics</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>GetPlayers</servlet-name>
-		<url-pattern>/players</url-pattern>
+		<url-pattern>/Players</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>GetPlayerProfile</servlet-name>
+		<servlet-class>app.controller.getPlayerProfile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetPlayerProfile</servlet-name>
+		<url-pattern>/Player-Profile</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetTeams</servlet-name>
+		<servlet-class>app.controller.getTeams</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetTeams</servlet-name>
+		<url-pattern>/Teams</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetTeamProfile</servlet-name>
+		<servlet-class>app.controller.getTeamProfile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetTeamProfile</servlet-name>
+		<url-pattern>/Team-Profile</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetMatches</servlet-name>
+		<servlet-class>app.controller.getMatches</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetMatches</servlet-name>
+		<url-pattern>/Matches</url-pattern>
+	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>GetMatchScorecard</servlet-name>
+		<servlet-class>app.controller.getMatchScorecard</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetMatchScorecard</servlet-name>
+		<url-pattern>/Match-Scorecard</url-pattern>
+	</servlet-mapping>
+	
 	<listener>
 		<listener-class>app.connection.ContextListener</listener-class>
 	</listener>

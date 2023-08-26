@@ -25,23 +25,23 @@
 	<div class="container">
 		<nav>
 			<ul>
-				<li><a href="index.jsp" class="logo"> <span
+				<li><a href="Dashboard" class="logo"> <span
 						class="nav-item">CricketDB</span>
 				</a></li>
-				<li><a href="index.jsp" class="nav-list"> <i
+				<li><a href="Dashboard" class="nav-list"> <i
 						class="fas fa-solid fa-table-columns"></i> <span class="nav-item">Dashboard</span>
 				</a></li>
-				<li class="selected"><a href="players.jsp" class="nav-list">
+				<li class="selected"><a href="Players" class="nav-list">
 						<i class="fas fa-solid fa-person-running"></i> <span
 						class="nav-item">Players</span>
 				</a></li>
-				<li><a href="teams.jsp" class="nav-list"> <i
+				<li><a href="Teams" class="nav-list"> <i
 						class="fas fa-solid fa-people-group"></i> <span class="nav-item">Teams</span>
 				</a></li>
-				<li><a href="matches.jsp" class="nav-list"> <i
+				<li><a href="Matches" class="nav-list"> <i
 						class="fas fa-solid fa-calendar-days"></i> <span class="nav-item">Matches</span>
 				</a></li>
-				<li><a href="management.jsp" class="nav-list"> <i
+				<li><a href="Management" class="nav-list"> <i
 						class="fas fa-solid fa-chart-line"></i> <span class="nav-item">Management</span>
 				</a></li>
 			</ul>
@@ -86,7 +86,7 @@
 					<tbody>
 						<c:forEach var="item" items="${b}">
 							<tr>
-								<td><a href="player-profile.html">${item.p_player_name}</a></td>
+								<td><a href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
 								<td>${item.p_matches}</td>
 								<td>${item.p_runs_scored}</td>
 								<td>${item.p_high_score}</td>
@@ -120,8 +120,9 @@
 					</tr>
 					<tbody>
 						<c:forEach var="item" items="${b}">
+						<form action = "player">
 							<tr>
-								<td><a href="player-profile.html">${item.p_player_name}</a></td>
+								<td><a href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
 								<td>${item.p_matches}</td>
 								<td>${item.p_batting_innings}</td>
 								<td>${item.p_not_outs}</td>
@@ -155,7 +156,7 @@
 					<tbody>
 						<c:forEach var="item" items="${b}">
 							<tr>
-								<td><a href="player-profile.html">${item.p_player_name}</a></td>
+								<td><a href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
 								<td>${item.p_matches}</td>
 								<td>${item.p_bowling_innings}</td>
 								<td>${item.p_balls_bowled}</td>
@@ -183,7 +184,7 @@
 					<tbody>
 						<c:forEach var="item" items="${b}">
 							<tr>
-								<td><a href="player-profile.html">${item.p_player_name}</a></td>
+								<td><a href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
 								<td>${item.p_matches}</td>
 								<td>${item.p_run_outs}</td>
 								<td>${item.p_catches}</td>
