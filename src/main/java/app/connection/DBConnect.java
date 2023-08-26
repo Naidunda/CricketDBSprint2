@@ -24,11 +24,11 @@ public class DBConnect {
 			String driver = "jdbc:ucanaccess://C:/Users/joshu/eclipse-workspace/CricketDB/CricketDB.accdb";
 			conn = DriverManager.getConnection(driver);
 			System.out.print("Connection successful");
-			JOptionPane.showMessageDialog(null, "Connection successful");
+//			JOptionPane.showMessageDialog(null, "Connection successful");
 
 		} catch (Exception e) {
 			System.out.print("Cannot connect to database.\n" + e);
-			JOptionPane.showMessageDialog(null, "Cannot connect to database.\n"+e);
+//			JOptionPane.showMessageDialog(null, "Cannot connect to database.\n"+e);
 		}
 	}
 
@@ -42,7 +42,7 @@ public class DBConnect {
 			resultSet = stmt.executeQuery(selectSql);
 		} catch (SQLException e) {
 			System.out.print("Error:.\n" + e);
-			JOptionPane.showMessageDialog(null, "Error:.\n"+e);
+//			JOptionPane.showMessageDialog(null, "Error:.\n"+e);
 		}
 
 		return resultSet;
@@ -56,7 +56,7 @@ public class DBConnect {
 			System.out.println("Database insert completed successfully ");
 		} catch (SQLException e) {
 			System.out.print("Error:.\n" + e);
-			JOptionPane.showMessageDialog(null, "Error:.\n"+e);
+//			JOptionPane.showMessageDialog(null, "Error:.\n"+e);
 		}
 	}
 }
