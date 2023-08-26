@@ -3,7 +3,7 @@ package app.model.dto;
 import java.io.Serializable;
 
 public class PlayerStatisticsDTO implements Serializable {
-	private String p_id;
+	private String p_player_id;
 	private String p_player_name;
 	private int p_matches;
 	private int p_batting_innings;
@@ -11,7 +11,7 @@ public class PlayerStatisticsDTO implements Serializable {
 	private int p_runs_scored;
 	private int p_balls_faced;
 	private String p_batting_strike_rate;
-	private int p_high_score;
+	private String p_high_score;
 	private String p_batting_average;
 	private int p_fifties;
 	private int p_hundreds;
@@ -30,11 +30,11 @@ public class PlayerStatisticsDTO implements Serializable {
 	private int p_catches;
 	private int p_stumpings;
 	
-	public String getP_id() {
-		return p_id;
+	public String getP_player_id() {
+		return p_player_id;
 	}
-	public void setP_id(String p_id) {
-		this.p_id = p_id;
+	public void setP_player_id(String p_player_id) {
+		this.p_player_id = p_player_id;
 	}
 	public String getP_player_name() {
 		return p_player_name;
@@ -78,10 +78,10 @@ public class PlayerStatisticsDTO implements Serializable {
 	public void setP_batting_strike_rate(String p_batting_strike_rate) {
 		this.p_batting_strike_rate = p_batting_strike_rate;
 	}
-	public int getP_high_score() {
+	public String getP_high_score() {
 		return p_high_score;
 	}
-	public void setP_high_score(int p_high_score) {
+	public void setP_high_score(String p_high_score) {
 		this.p_high_score = p_high_score;
 	}
 	public String getP_batting_average() {
@@ -189,7 +189,7 @@ public class PlayerStatisticsDTO implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "PlayerStatisticsDTO [p_id=" + p_id + ", p_player_name=" + p_player_name + ", p_matches=" + p_matches
+		return "PlayerStatisticsDTO [p_player_id=" + p_player_id + ", p_player_name=" + p_player_name + ", p_matches=" + p_matches
 				+ ", p_batting_innings=" + p_batting_innings + ", p_not_outs=" + p_not_outs + ", p_runs_scored="
 				+ p_runs_scored + ", p_balls_faced=" + p_balls_faced + ", p_batting_strike_rate="
 				+ p_batting_strike_rate + ", p_high_score=" + p_high_score + ", p_batting_average=" + p_batting_average
