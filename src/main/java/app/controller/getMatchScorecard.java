@@ -1,30 +1,23 @@
 package app.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import app.model.dao.PlayerStatisticsDAO;
-import app.model.dto.PlayerStatisticsDTO;
-
-
 /**
- * Servlet implementation class getPlayerStatistics
+ * Servlet implementation class getMatchScorecard
  */
-@WebServlet("/getPlayerStatistics")
-public class getPlayerStatistics extends HttpServlet {
+@WebServlet("/getMatchScorecard")
+public class getMatchScorecard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getPlayerStatistics() {
+    public getMatchScorecard() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,13 +26,15 @@ public class getPlayerStatistics extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		try {
-			ArrayList<PlayerStatisticsDTO> players = new PlayerStatisticsDAO().getPlayerStatistics();
-			request.setAttribute("playerstatistics", players);
-			request.getRequestDispatcher("WEB-INF/pages/players.jsp").forward(request, response);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		request.getRequestDispatcher("WEB-INF/pages/match-scorecard.jsp").forward(request, response);
 	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
 }
