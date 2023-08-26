@@ -27,9 +27,9 @@ public class PlayerStatisticsDAO {
 
 			temp_id = rs1.getString("Player_ID");
 
-			player.setP_id(temp_id);
+			player.setP_player_id(temp_id);
 
-			ResultSet rs2 = dbconnect.executeSelect("SELECT Player_Name FROM tblPlayers WHERE Player_ID = " + temp_id);
+			ResultSet rs2 = dbconnect.executeSelect("SELECT Player_Name FROM tblPlayers WHERE Player_ID = \"" + temp_id + "\"");
 
 			if (rs2.next()) {
 				player.setP_player_name(rs2.getString("Player_Name"));
@@ -50,7 +50,7 @@ public class PlayerStatisticsDAO {
 			player.setP_not_outs(rs1.getInt("Not_Outs"));
 			player.setP_runs_scored(rs1.getInt("Runs_Scored"));
 			player.setP_balls_faced(rs1.getInt("Balls_Faced"));
-			player.setP_high_score(rs1.getInt("High_Score"));
+			player.setP_high_score(rs1.getString("High_Score"));
 			player.setP_fifties(rs1.getInt("Fifties"));
 			player.setP_hundreds(rs1.getInt("Hundreds"));
 			player.setP_fours(rs1.getInt("Fours"));
@@ -72,7 +72,6 @@ public class PlayerStatisticsDAO {
 					player.setP_not_outs(rs1.getInt("Not_Outs") + player.getP_not_outs());
 					player.setP_runs_scored(rs1.getInt("Runs_Scored") + player.getP_runs_scored());
 					player.setP_balls_faced(rs1.getInt("Balls_Faced") + player.getP_balls_faced());
-					player.setP_high_score(rs1.getInt("High_Score") + player.getP_high_score());
 					player.setP_fifties(rs1.getInt("Fifties") + player.getP_fifties());
 					player.setP_hundreds(rs1.getInt("Hundreds") + player.getP_hundreds());
 					player.setP_fours(rs1.getInt("Fours") + player.getP_fours());
@@ -85,8 +84,14 @@ public class PlayerStatisticsDAO {
 					player.setP_run_outs(rs1.getInt("Run_Outs") + player.getP_run_outs());
 					player.setP_catches(rs1.getInt("Catches") + player.getP_catches());
 					player.setP_stumpings(rs1.getInt("Stumpings") + player.getP_stumpings());
-
-					if (!(rs1.getString("Best_Figures").equals("NA"))) {
+					
+					
+					if(rs1.getString("Best_Figures").equals("NA") || player.getP_best_figures().equals("NA")) {
+						if(!(rs1.getString("Best_Figures").equals("NA")) && player.getP_best_figures().equals("NA")) {
+							player.setP_best_figures(rs1.getString("Best_Figures"));
+						}
+					} else if (!(rs1.getString("Best_Figures").equals("NA") && player.getP_best_figures().equals("NA"))){
+						
 						Scanner newBestFigure = new Scanner(rs1.getString("Best_Figures")).useDelimiter("/");
 
 						int newWickets = Integer.parseInt(newBestFigure.next());
@@ -102,6 +107,23 @@ public class PlayerStatisticsDAO {
 						} else if (oldWickets == newWickets) {
 							if (newRuns < oldRuns) {
 								player.setP_best_figures(rs1.getString("Best_Figures"));
+							}
+						}
+					}
+					
+					if(rs1.getString("High_Score").equals("NA") || player.getP_high_score().equals("NA")) {
+						if(!(rs1.getString("High_Score").equals("NA")) &&  player.getP_high_score().equals("NA")) {
+							player.setP_high_score(rs1.getString("High_Score"));
+						}
+					} else if(!(rs1.getString("High_Score").equals("NA") && player.getP_high_score().equals("NA"))){
+						int oldHighScore = Integer.parseInt(player.getP_high_score().replace("*", ""));
+						int newHighScore = Integer.parseInt(rs1.getString("High_Score").replace("*", ""));
+
+						if (newHighScore > oldHighScore) {
+							player.setP_high_score(rs1.getString("High_Score"));
+						} else if (newHighScore == oldHighScore) {
+							if (rs1.getString("High_Score").contains("*")) {
+								player.setP_high_score(rs1.getString("High_Score"));
 							}
 						}
 					}
@@ -151,15 +173,4 @@ public class PlayerStatisticsDAO {
 
 		return players;
 	}
-
-//	public static void main(String[] args) {
-//
-//		try {
-//			ArrayList<PlayerStatisticsDTO> players = new PlayerStatisticsDAO().getPlayerStatistics();
-//			System.out.println(players);
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			JOptionPane.showMessageDialog(null, "Error:.\n" + e);
-//		}
-//	}
 }
