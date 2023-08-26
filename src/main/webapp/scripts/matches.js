@@ -29,7 +29,3 @@ function sortBy(){
     document.getElementById("SortBy").classList.remove('fa-arrow-down-z-a');
   }
 }
-
-function openMatchScorecard() {
-  window.location.href='match-scorecard.html';
-}

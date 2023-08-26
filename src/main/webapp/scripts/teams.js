@@ -19,10 +19,6 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 } 
 
-function openTeamProfile() {
-  window.location.href='team-profile.html';
-}
-
 function sortBy(){
 
   if  ( document.getElementById("SortBy").classList.contains('fa-arrow-down-a-z') ){

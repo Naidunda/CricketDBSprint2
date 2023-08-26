@@ -24,6 +24,8 @@ function selectionMenu(evt) {
     selectBtn = optionMenu.querySelector(".select-btn"),
     options = optionMenu.querySelectorAll(".option"),
     sBtn_text = optionMenu.querySelector(".sBtn-text");
+    
+    console.log(sBtn_text.value);
 
   optionMenu.classList.toggle("active");
 
@@ -34,12 +36,4 @@ function selectionMenu(evt) {
       optionMenu.classList.remove("active");
     });
   });
-}
-
-function openTeamProfile() {
-  window.location.href='team-profile.html';
-}
-
-function openMatchScorecard() {
-  window.location.href='match-scorecard.html';
 }

@@ -43,7 +43,3 @@ function selectionMenu(evt) {
       });
     });
   }
-
-  function openMatchScorecard() {
-    window.location.href='match-scorecard.html';
-  }
