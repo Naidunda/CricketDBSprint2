@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-	
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set value="${requestScope.playerstatistics}" var="b"></c:set>
+<c:set value="${requestScope.playerstatistics}" var="a"></c:set>
+<c:set value="${requestScope.sortby}" var="b"></c:set>
+<c:set value="${requestScope.direction}" var="d"></c:set>
+<c:set value="${requestScope.search}" var="e"></c:set>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,9 +35,10 @@
 				<li><a href="Dashboard" class="nav-list"> <i
 						class="fas fa-solid fa-table-columns"></i> <span class="nav-item">Dashboard</span>
 				</a></li>
-				<li class="selected"><a href="Players" class="nav-list">
-						<i class="fas fa-solid fa-person-running"></i> <span
-						class="nav-item">Players</span>
+				<li class="selected"><a
+					href="Players?sortBy=Player+Name&direction=fa-arrow-down-a-z&search="
+					class="nav-list"> <i class="fas fa-solid fa-person-running"></i>
+						<span class="nav-item">Players</span>
 				</a></li>
 				<li><a href="Teams" class="nav-list"> <i
 						class="fas fa-solid fa-people-group"></i> <span class="nav-item">Teams</span>
@@ -55,17 +60,51 @@
 				<button class="tab-links" onclick="openTab(event, 'Fielders')">Fielders</button>
 			</div>
 			<div class="filters">
-				<button type="button">
-					<i class="fa-solid fa-sort"></i>Sort By
-				</button>
+
+
+				<div class="select-menu">
+					<div class="select-btn" onclick="selectionMenu(event)">
+						<span class="sBtn-text"><c:out value="${b}"/></span> <i
+							class="fa-solid fa-chevron-down"></i>
+					</div>
+
+					<ul class="options">
+						<li class="option"><span class="option-text">Player
+								Name</span></li>
+						<li class="option"><span class="option-text">Matches</span></li>
+
+						<li class="option"><span class="option-text">Runs
+								Scored</span></li>
+						<li class="option"><span class="option-text">High
+								Score</span></li>
+						<li class="option"><span class="option-text">Batting
+								Average</span></li>
+
+						<li class="option"><span class="option-text">Wickets
+								Taken</span></li>
+						<li class="option"><span class="option-text">Best
+								Figures</span></li>
+						<li class="option"><span class="option-text">Bowling
+								Average</span></li>
+
+						<li class="option"><span class="option-text">Catches</span></li>
+						<li class="option"><span class="option-text">Stumpings</span></li>
+					</ul>
+				</div>
+
 				<button type="button" class="order" onClick="sortBy()">
-					<i id="SortBy" class="fa-solid fa-arrow-down-a-z"></i>
+					<i id="directionToggle" class="fa-solid <c:out value="${d}"/>"></i>
 				</button>
-				<button type="button">
-					<i class="fa-solid fa-filter"></i>Filter
-				</button>
-				<input type="text" placeholder="Search..">
+				
+				<form action="Players?" id = "playerSearchFrom" method="get">
+					<input type="hidden" id="sortby" name="sortBy" value="<c:out value="${b}"/>">
+					<input type="hidden" id="direction" name="direction" value="<c:out value="${d}"/>">
+					<input type="text" id="search" placeholder="Search..." name="search" value = "<c:out value="${e}"/>"> 
+					
+					<input type="submit" id="submitQuery"/>
+				</form>
 			</div>
+
 			<!--Tab Content-->
 			<div id="All" class="tab-content" style="display: block">
 				<table class="tbl-statistics">
@@ -84,9 +123,10 @@
 						<th>St</th>
 					</tr>
 					<tbody>
-						<c:forEach var="item" items="${b}">
+						<c:forEach var="item" items="${a}">
 							<tr>
-								<td><a href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
+								<td><a
+									href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
 								<td>${item.p_matches}</td>
 								<td>${item.p_runs_scored}</td>
 								<td>${item.p_high_score}</td>
@@ -119,21 +159,22 @@
 						<th>6s</th>
 					</tr>
 					<tbody>
-						<c:forEach var="item" items="${b}">
-						<form action = "player">
-							<tr>
-								<td><a href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
-								<td>${item.p_matches}</td>
-								<td>${item.p_batting_innings}</td>
-								<td>${item.p_not_outs}</td>
-								<td>${item.p_high_score}</td>
-								<td>${item.p_batting_average}</td>
-								<td>${item.p_batting_strike_rate}</td>
-								<td>${item.p_fifties}</td>
-								<td>${item.p_hundreds}</td>
-								<td>${item.p_fours}</td>
-								<td>${item.p_sixes}</td>
-							</tr>
+						<c:forEach var="item" items="${a}">
+							<form action="player">
+								<tr>
+									<td><a
+										href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
+									<td>${item.p_matches}</td>
+									<td>${item.p_batting_innings}</td>
+									<td>${item.p_not_outs}</td>
+									<td>${item.p_high_score}</td>
+									<td>${item.p_batting_average}</td>
+									<td>${item.p_batting_strike_rate}</td>
+									<td>${item.p_fifties}</td>
+									<td>${item.p_hundreds}</td>
+									<td>${item.p_fours}</td>
+									<td>${item.p_sixes}</td>
+								</tr>
 						</c:forEach>
 					</tbody>
 				</table>
@@ -154,9 +195,10 @@
 						<th>5W</th>
 					</tr>
 					<tbody>
-						<c:forEach var="item" items="${b}">
+						<c:forEach var="item" items="${a}">
 							<tr>
-								<td><a href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
+								<td><a
+									href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
 								<td>${item.p_matches}</td>
 								<td>${item.p_bowling_innings}</td>
 								<td>${item.p_balls_bowled}</td>
@@ -182,9 +224,10 @@
 						<th>St</th>
 					</tr>
 					<tbody>
-						<c:forEach var="item" items="${b}">
+						<c:forEach var="item" items="${a}">
 							<tr>
-								<td><a href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
+								<td><a
+									href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
 								<td>${item.p_matches}</td>
 								<td>${item.p_run_outs}</td>
 								<td>${item.p_catches}</td>
