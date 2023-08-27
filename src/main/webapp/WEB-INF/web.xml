@@ -87,8 +87,4 @@
 		<servlet-name>GetMatchScorecard</servlet-name>
 		<url-pattern>/Match-Scorecard</url-pattern>
 	</servlet-mapping>
-	
-	<listener>
-		<listener-class>app.connection.ContextListener</listener-class>
-	</listener>
 </web-app>
