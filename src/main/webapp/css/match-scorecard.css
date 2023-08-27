@@ -40,7 +40,7 @@
     display: none;
     overflow: hidden;
     overflow-y: scroll;
-    height: calc(100% - 278px);
+    height: calc(100% - 188px);
     padding-top: 32px;
     padding-bottom: 32px;
     padding-left: 256px;
@@ -108,4 +108,53 @@
   p a{
     padding-left: 16px;
     font-size: 20px;
+  }
+
+
+  .scorecard {
+    border-collapse: collapse;
+    margin-bottom: 32px;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    text-align: center;
+  }
+  
+  .scorecard td,
+  .scorecard th {
+    font-size: 14px;
+    border-left: #d0d0d0 solid 1px;
+    border-right: #d0d0d0 solid 1px;
+    width: auto;
+  }
+  
+  .scorecard tr {
+    height: 28px;
+  }
+  
+  .scorecard tr:nth-child(odd) {
+    background-color: #eee;
+  }
+  
+.scorecard tr:nth-child(even) {
+    background-color: #fff;
+  }
+  
+  .scorecard td:first-child {
+    text-align: left;
+    padding-left: 16px;
+    width: 25%;
+  }
+  
+  .scorecard th {
+    background-color: #ff5c5c;
+    color: #fff;
+  }
+  
+  .scorecard tr:first-child {
+    border-top: #d0d0d0 solid 1px;
+  }
+  
+  .scorecard tr:last-child {
+    border-bottom: #d0d0d0 solid 1px;
   }
