@@ -34,7 +34,7 @@
 				<li><a href="Dashboard" class="nav-list"> <i
 						class="fas fa-solid fa-table-columns"></i> <span class="nav-item">Dashboard</span>
 				</a></li>
-				<li class="selected"><a href="Players" class="nav-list"> <i
+				<li class="selected"><a href="Players?sortBy=Player+Name&direction=asc&search=" class="nav-list"> <i
 						class="fas fa-solid fa-person-running"></i> <span class="nav-item">Players</span>
 				</a></li>
 				<li><a href="Teams" class="nav-list"> <i
@@ -167,7 +167,7 @@
 						</div>
 						<div class="float-child-right">
 							<button type="button" class="btn-view-team"
-								onClick="window.location.href='Team-Profile?${item.t_team_id}'">View
+								onClick="window.location.href='Team-Profile?teamID=${item.t_team_id}'">View
 								Team</button>
 						</div>
 					</div>

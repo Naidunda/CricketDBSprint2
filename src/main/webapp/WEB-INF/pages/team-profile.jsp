@@ -34,7 +34,7 @@
 				<li><a href="Dashboard" class="nav-list"> <i
 						class="fas fa-solid fa-table-columns"></i> <span class="nav-item">Dashboard</span>
 				</a></li>
-				<li><a href="Players" class="nav-list"> <i
+				<li><a href="Players?sortBy=Player+Name&direction=asc&search=" class="nav-list"> <i
 						class="fas fa-solid fa-person-running"></i> <span class="nav-item">Players</span>
 				</a></li>
 				<li class="selected"><a href="Teams" class="nav-list"> <i

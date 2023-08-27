@@ -27,7 +27,7 @@
             </a>
           </li>
           <li>
-            <a href="Players" class="nav-list">
+            <a href="Players?sortBy=Player+Name&direction=asc&search=" class="nav-list">
               <i class="fas fa-solid fa-person-running"></i>
               <span class="nav-item">Players</span>
             </a>
@@ -88,7 +88,7 @@
                 </div>
               </div>
               <div class="float-child-right">
-                <button class="btn-view-match" type="button" onClick = "window.location.href='Match-Scorecard?'">View Match</button>
+                <button class="btn-view-match" type="button" onClick = "window.location.href='Match-Scorecard?isLive=false'">View Match</button>
               </div>
             </div>
           </div>
