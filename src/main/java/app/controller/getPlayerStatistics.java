@@ -33,10 +33,22 @@ public class getPlayerStatistics extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String sortBy = request.getParameter("sortBy");
+		String direction = request.getParameter("direction");
+		String search = request.getParameter("search");
 
 		try {
-			ArrayList<PlayerStatisticsDTO> players = new PlayerStatisticsDAO().getPlayerStatistics();
+			ArrayList<PlayerStatisticsDTO> players = new PlayerStatisticsDAO().getPlayerStatistics(search);
+			
+			if (sortBy.equals("Player Name")) {
+				players.sort((o1, o2) -> o1.getP_player_name().compareTo(o2.getP_player_name()));
+			}
+			
 			request.setAttribute("playerstatistics", players);
+			request.setAttribute("sortby", sortBy);
+			request.setAttribute("direction", direction);
+			request.setAttribute("search", search);
+			
 			request.getRequestDispatcher("WEB-INF/pages/players.jsp").forward(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();
