@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import app.model.dao.PlayerStatisticsDAO;
 import app.model.dao.PlayersDAO;
 import app.model.dto.PlayerSeasonsDTO;
 import app.model.dto.PlayerStatisticsDTO;

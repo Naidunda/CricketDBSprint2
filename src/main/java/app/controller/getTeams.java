@@ -10,11 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import app.model.dao.PlayerStatisticsDAO;
-import app.model.dao.PlayersDAO;
 import app.model.dao.TeamsDAO;
-import app.model.dto.PlayerStatisticsDTO;
-import app.model.dto.PlayersDTO;
 import app.model.dto.TeamsDTO;
 
 /**
@@ -38,7 +34,7 @@ public class getTeams extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-			ArrayList<TeamsDTO> teams = new TeamsDAO().getTeamsInformation();
+			ArrayList<TeamsDTO> teams = new TeamsDAO().getTeamsInformation("");
 			request.setAttribute("teamsinformation", teams);
 			
 		

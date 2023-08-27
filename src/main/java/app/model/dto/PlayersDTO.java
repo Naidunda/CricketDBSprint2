@@ -1,7 +1,6 @@
 package app.model.dto;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 public class PlayersDTO implements Serializable{
 	private String p_player_id;

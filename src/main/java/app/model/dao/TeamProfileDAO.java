@@ -2,11 +2,7 @@ package app.model.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import app.connection.DBConnect;
 import app.model.dto.PlayerStatisticsDTO;

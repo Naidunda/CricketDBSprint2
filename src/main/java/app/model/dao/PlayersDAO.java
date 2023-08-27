@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
-import java.util.Calendar;
 
 import app.connection.DBConnect;
 import app.model.dto.PlayerSeasonsDTO;
@@ -316,8 +314,6 @@ public class PlayersDAO {
 			
 			seasons.add(season);
 		}
-		
-		System.out.println(seasons);
 		return seasons;
 		
 	}
