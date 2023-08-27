@@ -1,3 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set value="${requestScope.topwickettakers}" var="a"></c:set>
+<c:set value="${requestScope.topscorers}" var="b"></c:set>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +32,7 @@
 						<i class="fas fa-solid fa-table-columns"></i> <span
 						class="nav-item">Dashboard</span>
 				</a></li>
-				<li><a href="Players" class="nav-list"> <i
+				<li><a href="Players?sortBy=Player+Name&direction=fa-arrow-down-a-z&search=" class="nav-list"> <i
 						class="fas fa-solid fa-person-running"></i> <span class="nav-item">Players</span>
 				</a></li>
 				<li><a href="Teams" class="nav-list"> <i
@@ -40,63 +48,39 @@
 		</nav>
 		<section class="main">
 			<div class="left">
-				<h1 class="dashboard-heading">Highest Scores</h1>
+				<h1 class="dashboard-heading">Most Total Runs</h1>
 				<table class="tbl-dashboard">
 					<tr>
 						<th>Player Name</th>
 						<th>Runs Scored</th>
 						<th>Balls Faced</th>
 					</tr>
-					<tr>
-						<td><a href="player-profile.html">Temp Name</a></td>
-						<td>100</td>
-						<td>(100)</td>
-					</tr>
-					<tr>
-						<td><a href="player-profile.html">Temp Name</a></td>
-						<td>0</td>
-						<td>(0)</td>
-					</tr>
-					<tr>
-						<td><a href="player-profile.html">Temp Name</a></td>
-						<td>0</td>
-						<td>(0)</td>
-					</tr>
-					<tr>
-						<td><a href="player-profile.html">Temp Name</a></td>
-						<td>0</td>
-						<td>(0)</td>
-					</tr>
+					<tbody>
+					<c:forEach end = "3" var="item" items="${b}">
+						<tr>
+    						<td><a href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
+							<td>${item.p_runs_scored}</td>
+							<td>${item.p_balls_faced}</td>
+						</tr>
+					</c:forEach>
+					</tbody>
 				</table>
-				<h1 class="dashboard-heading">Best Bowling Figures</h1>
+				<h1 class="dashboard-heading">Most Wickets Taken</h1>
 				<table class="tbl-dashboard">
 					<tr>
 						<th>Player Name</th>
 						<th>Wickets Taken</th>
 						<th>Runs Conceded</th>
 					</tr>
-					<tr>
-						<td><a href="player-profile.html">Temp Name</a></td>
-						<td>0</td>
-						<td>0</td>
-					</tr>
-					<tr>
-						<td><a href="player-profile.html">Temp Name</a></td>
-						<td>0</td>
-						<td>0</td>
-					</tr>
-					<tr>
-						<td><a href="player-profile.html">Temp Name</a></td>
-						<td>0</td>
-						<td>0</td>
-					</tr>
-					<tr>
-						<td><a href="player-profile.html">Temp Name</a></td>
-						<td>0</td>
-						<td>0</td>
-					</tr>
+					<c:forEach end = "3" var="item" items="${a}">
+						<tr>
+    						<td><a href="Player-Profile?playerID=${item.p_player_id}&season=All-Time">${item.p_player_name}</a></td>
+							<td>${item.p_wickets_taken}</td>
+							<td>${item.p_runs_conceded}</td>
+						</tr>
+					</c:forEach>
 				</table>
-				<p class="text-btn">View the full list of in-form players.</p>
+				<p class="text-btn">View the all player statistics.</p>
 				<button class="btn-view-more" type="button" onclick="window.location.href='Players'"
 					id="In-Form-Button">View More</button>
 			</div>
