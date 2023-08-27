@@ -28,7 +28,7 @@ public class DBConnect {
 
 		} catch (Exception e) {
 			System.out.print("Cannot connect to database.\n" + e);
-//			JOptionPane.showMessageDialog(null, "Cannot connect to database.\n"+e);
+			JOptionPane.showMessageDialog(null, "Cannot connect to database.\n"+e);
 		}
 	}
 
