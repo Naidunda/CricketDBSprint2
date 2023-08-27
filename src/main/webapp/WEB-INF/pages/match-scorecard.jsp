@@ -29,7 +29,7 @@
           </a>
         </li>
         <li>
-          <a href="Players" class="nav-list">
+          <a href="Players?sortBy=Player+Name&direction=asc&search=" class="nav-list">
             <i class="fas fa-solid fa-person-running"></i>
             <span class="nav-item">Players</span>
           </a>
@@ -47,7 +47,7 @@
           </a>
         </li>
         <li>
-          <a href="Management" class="nav-list">
+          <a href="management" class="nav-list">
             <i class="fas fa-solid fa-chart-line"></i>
             <span class="nav-item">Management</span>
           </a>
@@ -169,11 +169,88 @@
         </div>
       </div>
       <div id="First-Innings" class="tab-content">
-
+        <h1>Team Name</h1>
+        <h2>50 ovs maximum</h2>
+        <table class = "scorecard">
+          <tr>
+            <th>Batsman Name</th>
+            <th></th>
+            <th>R</th>
+            <th>B</th>
+            <th>4's</th>
+            <th>6's</th>
+            <th>SR</th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+        </table>
+        <h1>Team Name</h1>
+        <table class = "scorecard">
+          <tr>
+            <th>Bowler Name</th>
+            <th>Ov</th>
+            <th>M</th>
+            <th>R</th>
+            <th>W</th>
+            <th>Eco</th>
+            <th>Wi</th>
+            <th>NB</th>
+          </tr>
+        </table>
       </div>
       <div id="Second-Innings" class="tab-content">
-
-      </div>
+        <h1>Team Name</h1>
+        <h2>50 ovs maximum</h2>
+        <table class = "scorecard">
+          <tr>
+            <th>Batsman Name</th>
+            <th></th>
+            <th>R</th>
+            <th>B</th>
+            <th>4's</th>
+            <th>6's</th>
+            <th>SR</th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+        </table>
+        <h1>Team Name</h1>
+        <table class = "scorecard">
+          <tr>
+            <th>Bowler Name</th>
+            <th>Ov</th>
+            <th>M</th>
+            <th>R</th>
+            <th>W</th>
+            <th>Eco</th>
+            <th>Wi</th>
+            <th>NB</th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+        </table>
     </section>
   </div>
 </body>
