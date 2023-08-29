@@ -95,7 +95,6 @@
   color: white;
 }
 
-
 .filters input {
   background-color: #eee;
   border: #ff5c5c solid 2px;
@@ -105,6 +104,67 @@
   font-size: 20px;
   margin: 16px;
 }
+
+.select-menu {
+	float:left;
+	width: 380px;
+	margin: 10px;
+}
+
+.select-menu .select-btn {
+	display: flex;
+	height: 75px;
+	background: #fff;
+	padding: 20px;
+	font-size: 18px;
+	font-weight: 400;
+	border-radius: 8px;
+	align-items: center;
+	cursor: pointer;
+	justify-content: space-between;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-btn i {
+	font-size: 18px;
+	transition: 0.3s;
+}
+
+.select-menu.active .select-btn i {
+	transform: rotate(-180deg);
+}
+
+.select-menu .options {
+	position: relative;
+	padding: 20px;
+	margin-top: 10px;
+	border-radius: 8px;
+	background: #fff;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	display: none;
+}
+
+.select-menu.active .options {
+	display: block;
+}
+
+.options .option {
+	display: flex;
+	height: 55px;
+	cursor: pointer;
+	border-radius: 8px;
+	align-items: center;
+	background: #fff;
+}
+
+.options .option:hover {
+	background: #f2f2f2;
+}
+
+.option .option-text {
+	font-size: 18px;
+	color: #333;
+} 
 
 #submitQuery {
   height: 75px;
@@ -167,64 +227,3 @@ tr:nth-child(even) {
   border-bottom: #d0d0d0 solid 1px;
 }
 
-.select-menu {
-	float:left;
-	width: 380px;
-	margin: 10px;
-}
-
-.select-menu .select-btn {
-	display: flex;
-	height: 75px;
-	background: #fff;
-	padding: 20px;
-	font-size: 18px;
-	font-weight: 400;
-	border-radius: 8px;
-	align-items: center;
-	cursor: pointer;
-	justify-content: space-between;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.select-btn i {
-	font-size: 18px;
-	transition: 0.3s;
-}
-
-.select-menu.active .select-btn i {
-	transform: rotate(-180deg);
-}
-
-.select-menu .options {
-	position: relative;
-	padding: 20px;
-	margin-top: 10px;
-	border-radius: 8px;
-	background: #fff;
-	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-	display: none;
-}
-
-.select-menu.active .options {
-	display: block;
-}
-
-.options .option {
-	display: flex;
-	height: 55px;
-	cursor: pointer;
-	border-radius: 8px;
-	align-items: center;
-	background: #fff;
-}
-
-.options .option:hover {
-	background: #f2f2f2;
-}
-
-.option .option-text {
-	font-size: 18px;
-	color: #333;
-} #333;
-}

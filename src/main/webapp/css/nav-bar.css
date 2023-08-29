@@ -23,7 +23,7 @@ nav {
   font-weight: 700;
 }
 
-a {
+nav a {
   position: relative;
   font-size: 14px;
   display: table;
