@@ -47,26 +47,11 @@ function selectionMenu(evt) {
   
     options.forEach((option) => {
       option.addEventListener("click", () => {
-
-
         let selectedOption = option.querySelector(".option-text").innerText;
         sBtn_text.innerText = selectedOption;
-        document.getElementById(selectedOption).style.display = "block";
         optionMenu.classList.remove("active");
-        
-        
+        document.getElementById("sortby").setAttribute('value', sBtn_text.innerText);
       });
     });
-    
-    document.getElementById("sortby").setAttribute('value', sBtn_text.innerText);
   }
   
-  
-  function submitQuery(){
-  	
-  	document.getElementById("playerSearchFrom").setAttribute('value', sBtn_text.innerText);  
-  	document.getElementById("playerSearchFrom").setAttribute('value', sBtn_text.innerText);  
-	document.getElementById("playerSearchFrom").setAttribute('value', sBtn_text.innerText);  
-  
- 	document.getElementById("playerSearchFrom").submit(); 
-  }

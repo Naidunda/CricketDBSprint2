@@ -21,11 +21,36 @@ function openTab(evt, tabName) {
 
 function sortBy(){
 
-  if  ( document.getElementById("SortBy").classList.contains('fa-arrow-down-a-z') ){
-    document.getElementById("SortBy").classList.add('fa-arrow-down-z-a');
-    document.getElementById("SortBy").classList.remove('fa-arrow-down-a-z');
+  if  ( document.getElementById("directionToggle").classList.contains('fa-arrow-down-a-z') ){
+    document.getElementById("directionToggle").classList.add('fa-arrow-down-z-a');
+    document.getElementById("directionToggle").classList.remove('fa-arrow-down-a-z');
+    
+    document.getElementById("direction").setAttribute('value', 'fa-arrow-down-z-a');
+    
   } else {
-    document.getElementById("SortBy").classList.add('fa-arrow-down-a-z');
-    document.getElementById("SortBy").classList.remove('fa-arrow-down-z-a');
+    document.getElementById("directionToggle").classList.add('fa-arrow-down-a-z');
+    document.getElementById("directionToggle").classList.remove('fa-arrow-down-z-a');
+    
+    document.getElementById("direction").setAttribute('value', 'fa-arrow-down-a-z');
+
   }
 }
+
+function selectionMenu(evt) {
+  const optionMenu = document.querySelector(".select-menu"),
+    selectBtn = optionMenu.querySelector(".select-btn"),
+    options = optionMenu.querySelectorAll(".option"),
+    sBtn_text = optionMenu.querySelector(".sBtn-text");
+
+  optionMenu.classList.toggle("active");
+
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
+      let selectedOption = option.querySelector(".option-text").innerText;
+      sBtn_text.innerText = selectedOption;
+      optionMenu.classList.remove("active");
+      document.getElementById("sortby").setAttribute('value', sBtn_text.innerText);
+    });
+  });
+}
+  

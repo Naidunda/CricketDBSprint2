@@ -40,10 +40,10 @@
 					class="nav-list"> <i class="fas fa-solid fa-person-running"></i>
 						<span class="nav-item">Players</span>
 				</a></li>
-				<li><a href="Teams" class="nav-list"> <i
+				<li><a href="Teams?sortBy=Team+Name&direction=fa-arrow-down-a-z&search=" class="nav-list"> <i
 						class="fas fa-solid fa-people-group"></i> <span class="nav-item">Teams</span>
 				</a></li>
-				<li><a href="Matches" class="nav-list"> <i
+				<li><a href="Matches?sortBy=Date&direction=fa-arrow-down-a-z&search=" class="nav-list"> <i
 						class="fas fa-solid fa-calendar-days"></i> <span class="nav-item">Matches</span>
 				</a></li>
 				<li><a href="Management" class="nav-list"> <i
@@ -60,8 +60,6 @@
 				<button class="tab-links" onclick="openTab(event, 'Fielders')">Fielders</button>
 			</div>
 			<div class="filters">
-
-
 				<div class="select-menu">
 					<div class="select-btn" onclick="selectionMenu(event)">
 						<span class="sBtn-text"><c:out value="${b}"/></span> <i
@@ -91,16 +89,13 @@
 						<li class="option"><span class="option-text">Stumpings</span></li>
 					</ul>
 				</div>
-
 				<button type="button" class="order" onClick="sortBy()">
 					<i id="directionToggle" class="fa-solid <c:out value="${d}"/>"></i>
 				</button>
-				
 				<form action="Players?" id = "playerSearchFrom" method="get">
 					<input type="hidden" id="sortby" name="sortBy" value="<c:out value="${b}"/>">
 					<input type="hidden" id="direction" name="direction" value="<c:out value="${d}"/>">
-					<input type="text" id="search" placeholder="Search..." name="search" value = "<c:out value="${e}"/>"> 
-					
+					<input type="text" id="search" placeholder="Search Player Name..." name="search" value = "<c:out value="${e}"/>"> 
 					<input type="submit" id="submitQuery"/>
 				</form>
 			</div>
