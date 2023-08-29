@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import app.model.dao.PlayersDAO;
 import app.model.dao.TeamProfileDAO;
+import app.model.dto.MatchesDTO;
 import app.model.dto.PlayerStatisticsDTO;
 import app.model.dto.PlayersDTO;
 import app.model.dto.TeamsDTO;
@@ -45,6 +47,9 @@ public class getTeamProfile extends HttpServlet {
 			
 			ArrayList<PlayersDTO> playerInformation = new TeamProfileDAO().getPlayerInformation(teamID);
 			request.setAttribute("playerinformation", playerInformation);
+			
+			ArrayList<MatchesDTO> matches = new TeamProfileDAO().getMatchInforation(teamID);
+			request.setAttribute("matchinformation", matches);
 			
 			request.getRequestDispatcher("WEB-INF/pages/team-profile.jsp").forward(request, response);
 		} catch (SQLException e) {

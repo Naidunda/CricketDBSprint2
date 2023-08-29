@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import app.model.dao.PlayersDAO;
+import app.model.dto.MatchesDTO;
 import app.model.dto.PlayerSeasonsDTO;
 import app.model.dto.PlayerStatisticsDTO;
 import app.model.dto.PlayersDTO;
@@ -60,6 +61,8 @@ public class getPlayerProfile extends HttpServlet {
 			ArrayList<PlayerSeasonsDTO> seasonsPlayed = new PlayersDAO().getSeasonsPlayed(playerID);
 			request.setAttribute("seasonsPlayed", seasonsPlayed);
 			
+			ArrayList<MatchesDTO> matches = new PlayersDAO().getMatchInforation(playerID);
+			request.setAttribute("matchinformation", matches);
 			
 			request.getRequestDispatcher("WEB-INF/pages/player-profile.jsp").forward(request, response);
 		} catch (SQLException e) {

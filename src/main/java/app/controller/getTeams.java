@@ -32,11 +32,40 @@ public class getTeams extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String sortBy = request.getParameter("sortBy");
+		String direction = request.getParameter("direction");
+		String search = request.getParameter("search");
+		
 		
 		try {
-			ArrayList<TeamsDTO> teams = new TeamsDAO().getTeamsInformation("");
-			request.setAttribute("teamsinformation", teams);
+			ArrayList<TeamsDTO> teams = new TeamsDAO().getTeamsInformation(search);
 			
+			request.setAttribute("teamsinformation", teams);
+			request.setAttribute("sortby", sortBy);
+			request.setAttribute("direction", direction);
+			request.setAttribute("search", search);
+			
+			if (sortBy.equals("Team Name")) {
+	
+				if(direction.equals("fa-arrow-down-a-z")) {
+					teams.sort((o1, o2) -> o1.getT_team_name().compareTo(o2.getT_team_name()));
+				} else {
+					teams.sort((o1, o2) -> o2.getT_team_name().compareTo(o1.getT_team_name()));
+				}
+			}else if(sortBy.equals("Age Group")){
+				if(direction.equals("fa-arrow-down-a-z")) {
+					teams.sort((o1, o2) -> o1.getT_age_group().compareTo(o2.getT_age_group()));
+				} else {
+					teams.sort((o1, o2) -> o2.getT_age_group().compareTo(o1.getT_age_group()));
+				}
+			} else if (sortBy.equals("Location")) {
+				if(direction.equals("fa-arrow-down-a-z")) {
+					teams.sort((o1, o2) -> o1.getT_location().compareTo(o2.getT_location()));
+				} else {
+					teams.sort((o1, o2) -> o2.getT_location().compareTo(o1.getT_location()));
+				}
+			}
+				
 		
 			request.getRequestDispatcher("WEB-INF/pages/teams.jsp").forward(request, response);
 		} catch (SQLException e) {

@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import app.model.dao.MatchesDAO;
 import app.model.dao.PlayerStatisticsDAO;
+import app.model.dto.FixturesDTO;
+import app.model.dto.MatchesDTO;
 import app.model.dto.PlayerStatisticsDTO;
 
 /**
@@ -43,6 +46,17 @@ public class getDashboard extends HttpServlet {
 			
 			bowlers.sort((o1, o2) -> Integer.compare(o2.getP_wickets_taken(),o1.getP_wickets_taken()));
 			request.setAttribute("topwickettakers", bowlers);
+			
+			
+			ArrayList<MatchesDTO> matches = new MatchesDAO().getMatchInformation("");
+			ArrayList<FixturesDTO> fixtures = new MatchesDAO().getFixtureInformation("");
+			
+			matches.sort((o1, o2) -> o2.getM_match_date().compareTo(o1.getM_match_date()));
+			fixtures.sort((o1, o2) -> o1.getF_match_date().compareTo(o2.getF_match_date()));
+			
+			
+			request.setAttribute("matchinformation", matches);
+			request.setAttribute("fixtureinformation", fixtures);
 			
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 
