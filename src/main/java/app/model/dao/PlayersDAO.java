@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 import app.connection.DBConnect;
+import app.model.dto.MatchesDTO;
 import app.model.dto.PlayerSeasonsDTO;
 import app.model.dto.PlayerStatisticsDTO;
 import app.model.dto.PlayersDTO;
@@ -25,9 +26,11 @@ public class PlayersDAO {
 		if (rs.next()) {
 			PlayersDTO player = new PlayersDTO();
 
+			player.setP_player_id(p_player_id);
+
 			player.setP_player_name(rs.getString("Player_Name"));
 
-			DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			player.setP_dob(dateFormat.format(rs.getDate("DOB")));
 
 			player.setP_batting_hand(rs.getString("Batting_Hand"));
@@ -58,7 +61,7 @@ public class PlayersDAO {
 
 			ResultSet rs2 = dbconnect
 					.executeSelect("SELECT * FROM tblTeams WHERE Team_ID = \"" + rs1.getString("Team_ID") + "\";");
-			
+
 			if (rs2.next()) {
 				team.setT_team_id(rs2.getString("Team_ID"));
 				team.setT_team_name(rs2.getString("Team_Name"));
@@ -71,25 +74,26 @@ public class PlayersDAO {
 		return teams;
 	}
 
-	public ArrayList<PlayerStatisticsDTO>getAllPlayerStatistics(String p_player_id) throws SQLException {
-		
+	public ArrayList<PlayerStatisticsDTO> getAllPlayerStatistics(String p_player_id) throws SQLException {
+
 		ArrayList<PlayerStatisticsDTO> players = new ArrayList<PlayerStatisticsDTO>();
-		
+
 		DBConnect dbconnect = new DBConnect();
-		
-		ResultSet rs1 = dbconnect.executeSelect("SELECT * FROM tblPlayerStatistics WHERE Player_ID = \"" + p_player_id +"\"");
-		
-			
+
+		ResultSet rs1 = dbconnect
+				.executeSelect("SELECT * FROM tblPlayerStatistics WHERE Player_ID = \"" + p_player_id + "\"");
+
 		PlayerStatisticsDTO player = new PlayerStatisticsDTO();
 		player.setP_player_id(p_player_id);
-			
-		ResultSet rs2 = dbconnect.executeSelect("SELECT Player_Name FROM tblPlayers WHERE Player_ID = \"" + p_player_id +"\"");
-		
-		if(rs2.next()) {
+
+		ResultSet rs2 = dbconnect
+				.executeSelect("SELECT Player_Name FROM tblPlayers WHERE Player_ID = \"" + p_player_id + "\"");
+
+		if (rs2.next()) {
 			player.setP_player_name(rs2.getString("Player_Name"));
 		}
-		
-		if(rs1.next()) {
+
+		if (rs1.next()) {
 			player.setP_matches(rs1.getInt("Matches"));
 			player.setP_batting_innings(rs1.getInt("Batting_Innings"));
 			player.setP_not_outs(rs1.getInt("Not_Outs"));
@@ -111,9 +115,7 @@ public class PlayersDAO {
 			player.setP_stumpings(rs1.getInt("Stumpings"));
 		}
 
-
-
-		while(rs1.next()) {
+		while (rs1.next()) {
 			player.setP_matches(rs1.getInt("Matches") + player.getP_matches());
 			player.setP_batting_innings(rs1.getInt("Batting_Innings") + player.getP_batting_innings());
 			player.setP_not_outs(rs1.getInt("Not_Outs") + player.getP_not_outs());
@@ -131,14 +133,13 @@ public class PlayersDAO {
 			player.setP_run_outs(rs1.getInt("Run_Outs") + player.getP_run_outs());
 			player.setP_catches(rs1.getInt("Catches") + player.getP_catches());
 			player.setP_stumpings(rs1.getInt("Stumpings") + player.getP_stumpings());
-				
-				
-			if(rs1.getString("Best_Figures").equals("NA") || player.getP_best_figures().equals("NA")) {
-				if(!(rs1.getString("Best_Figures").equals("NA")) && player.getP_best_figures().equals("NA")) {
+
+			if (rs1.getString("Best_Figures").equals("NA") || player.getP_best_figures().equals("NA")) {
+				if (!(rs1.getString("Best_Figures").equals("NA")) && player.getP_best_figures().equals("NA")) {
 					player.setP_best_figures(rs1.getString("Best_Figures"));
 				}
-			} else if (!(rs1.getString("Best_Figures").equals("NA") && player.getP_best_figures().equals("NA"))){
-					
+			} else if (!(rs1.getString("Best_Figures").equals("NA") && player.getP_best_figures().equals("NA"))) {
+
 				Scanner newBestFigure = new Scanner(rs1.getString("Best_Figures")).useDelimiter("/");
 
 				int newWickets = Integer.parseInt(newBestFigure.next());
@@ -153,16 +154,16 @@ public class PlayersDAO {
 					player.setP_best_figures(rs1.getString("Best_Figures"));
 				} else if (oldWickets == newWickets) {
 					if (newRuns < oldRuns) {
-							player.setP_best_figures(rs1.getString("Best_Figures"));
+						player.setP_best_figures(rs1.getString("Best_Figures"));
 					}
 				}
 			}
-				
-			if(rs1.getString("High_Score").equals("NA") || player.getP_high_score().equals("NA")) {
-				if(!(rs1.getString("High_Score").equals("NA")) &&  player.getP_high_score().equals("NA")) {
+
+			if (rs1.getString("High_Score").equals("NA") || player.getP_high_score().equals("NA")) {
+				if (!(rs1.getString("High_Score").equals("NA")) && player.getP_high_score().equals("NA")) {
 					player.setP_high_score(rs1.getString("High_Score"));
 				}
-			} else if(!(rs1.getString("High_Score").equals("NA") && player.getP_high_score().equals("NA"))){
+			} else if (!(rs1.getString("High_Score").equals("NA") && player.getP_high_score().equals("NA"))) {
 				int oldHighScore = Integer.parseInt(player.getP_high_score().replace("*", ""));
 				int newHighScore = Integer.parseInt(rs1.getString("High_Score").replace("*", ""));
 
@@ -175,7 +176,6 @@ public class PlayersDAO {
 				}
 			}
 		}
-
 
 		DecimalFormat f = new DecimalFormat("##.0");
 
@@ -202,8 +202,7 @@ public class PlayersDAO {
 		}
 
 		if ((player.getP_balls_bowled() / 6) != 0) {
-			player.setP_economy(
-					f.format((double) player.getP_runs_conceded() / (player.getP_balls_bowled() / 6)) + "");
+			player.setP_economy(f.format((double) player.getP_runs_conceded() / (player.getP_balls_bowled() / 6)) + "");
 		} else {
 			player.setP_economy("NA");
 		}
@@ -220,23 +219,25 @@ public class PlayersDAO {
 		return players;
 	}
 
-
-	public ArrayList<PlayerStatisticsDTO> getSeasonPlayerStatistics(String p_player_id, String p_season) throws SQLException { 
+	public ArrayList<PlayerStatisticsDTO> getSeasonPlayerStatistics(String p_player_id, String p_season)
+			throws SQLException {
 		ArrayList<PlayerStatisticsDTO> players = new ArrayList<PlayerStatisticsDTO>();
-  
+
 		DBConnect dbconnect = new DBConnect();
-		ResultSet rs1 = dbconnect.executeSelect("SELECT * FROM tblPlayerStatistics WHERE Player_ID = \"" +p_player_id + "\" AND Season = \"" + p_season + "\";");
-		
+		ResultSet rs1 = dbconnect.executeSelect("SELECT * FROM tblPlayerStatistics WHERE Player_ID = \"" + p_player_id
+				+ "\" AND Season = \"" + p_season + "\";");
+
 		PlayerStatisticsDTO player = new PlayerStatisticsDTO();
 		player.setP_player_id(p_player_id);
-		
-		ResultSet rs2 = dbconnect.executeSelect("SELECT Player_Name FROM tblPlayers WHERE Player_ID = \"" + p_player_id +"\"");
-		
-		if(rs2.next()) {
+
+		ResultSet rs2 = dbconnect
+				.executeSelect("SELECT Player_Name FROM tblPlayers WHERE Player_ID = \"" + p_player_id + "\"");
+
+		if (rs2.next()) {
 			player.setP_player_name(rs2.getString("Player_Name"));
 		}
-		
-		if(rs1.next()) {
+
+		if (rs1.next()) {
 			player.setP_matches(rs1.getInt("Matches"));
 			player.setP_batting_innings(rs1.getInt("Batting_Innings"));
 			player.setP_not_outs(rs1.getInt("Not_Outs"));
@@ -257,7 +258,7 @@ public class PlayersDAO {
 			player.setP_catches(rs1.getInt("Catches"));
 			player.setP_stumpings(rs1.getInt("Stumpings"));
 		}
-		
+
 		DecimalFormat f = new DecimalFormat("##.0");
 
 		if (player.getP_balls_faced() != 0) {
@@ -283,8 +284,7 @@ public class PlayersDAO {
 		}
 
 		if ((player.getP_balls_bowled() / 6) != 0) {
-			player.setP_economy(
-					f.format((double) player.getP_runs_conceded() / (player.getP_balls_bowled() / 6)) + "");
+			player.setP_economy(f.format((double) player.getP_runs_conceded() / (player.getP_balls_bowled() / 6)) + "");
 		} else {
 			player.setP_economy("NA");
 		}
@@ -300,21 +300,92 @@ public class PlayersDAO {
 
 		return players;
 	}
-	
+
 	public ArrayList<PlayerSeasonsDTO> getSeasonsPlayed(String p_player_id) throws SQLException {
 		ArrayList<PlayerSeasonsDTO> seasons = new ArrayList<PlayerSeasonsDTO>();
-		
+
 		DBConnect dbconnect = new DBConnect();
 		ResultSet rs = dbconnect.executeSelect("SELECT Player_ID, Season FROM tblPlayerStatistics WHERE Player_ID = \"" + p_player_id + "\" ORDER BY Season DESC;");
-		
-		while(rs.next()) {
+
+		while (rs.next()) {
 			PlayerSeasonsDTO season = new PlayerSeasonsDTO();
 			season.setP_player_id(rs.getString("Player_ID"));
 			season.setP_season(rs.getInt("Season") + "");
-			
+
 			seasons.add(season);
 		}
 		return seasons;
-		
+	}
+
+	public ArrayList<MatchesDTO> getMatchInforation(String p_player_id) throws SQLException {
+
+		ArrayList<MatchesDTO> matches = new ArrayList<MatchesDTO>();
+
+		DBConnect dbconnect = new DBConnect();
+		ResultSet rs = dbconnect.executeSelect(
+				"SELECT tblMatches.Match_ID, Match_Date, Format, Team_1_ID, Team_2_ID, Toss_Winner_ID, Toss_Decision, Is_Result, Win_Type, Won_By, Match_Winner_ID, Innings_1_Total, Innings_1_Overs, Innings_1_Wickets, Innings_2_Total, Innings_2_Overs, Innings_2_Wickets "
+						+ "FROM tblMatches, tblPlayerMatches "
+						+ "WHERE Val(tblMatches.Match_ID) = Val(tblPlayerMatches.Match_ID) AND tblPlayerMatches.Player_ID = \""+p_player_id+"\";");
+
+		while (rs.next()) {
+			MatchesDTO match = new MatchesDTO();
+
+			match.setM_match_id(rs.getString("Match_ID"));
+			match.setM_match_date(rs.getDate("Match_Date"));
+			match.setM_format(rs.getString("Format"));
+
+			match.setM_team_1_id(rs.getString("Team_1_ID"));
+			match.setM_team_2_id(rs.getString("Team_2_ID"));
+
+			match.setM_toss_winner_id(rs.getString("Toss_Winner_ID"));
+			match.setM_toss_decision(rs.getString("Toss_Decision"));
+
+			match.setM_is_result(rs.getBoolean("Is_Result"));
+			match.setM_win_type(rs.getString("Win_Type"));
+			match.setM_won_by(rs.getInt("Won_By"));
+			match.setM_match_winner_id(rs.getString("Match_Winner_ID"));
+
+			match.setM_innings_1_total(rs.getInt("Innings_1_Total"));
+			match.setM_innings_1_overs(rs.getString("Innings_1_Overs"));
+			match.setM_innings_1_wickets(rs.getInt("Innings_1_Wickets"));
+
+			match.setM_innings_2_total(rs.getInt("Innings_2_Total"));
+			match.setM_innings_2_overs(rs.getString("Innings_2_Overs"));
+			match.setM_innings_2_wickets(rs.getInt("Innings_2_Wickets"));
+
+			ResultSet rs2 = dbconnect.executeSelect(
+					"SELECT Team_Name FROM tblTeams WHERE Team_ID = " + match.getM_toss_winner_id() + ";");
+
+			if (rs2.next() && match.getM_is_result() == true) {
+				String tempStr = rs2.getString("Team_Name") + " won by " + match.getM_won_by() + " ";
+				if (match.getM_win_type().equals("By runs")) {
+					tempStr += "runs.";
+				} else {
+					tempStr += "wickets.";
+				}
+				match.setM_win_message(tempStr);
+			} else {
+				match.setM_win_message("Match Cancelled");
+			}
+
+			ResultSet rs3 = dbconnect.executeSelect(
+					"SELECT Team_Name, Age_Group FROM tblTeams WHERE Team_ID = " + match.getM_team_1_id());
+
+			if (rs3.next()) {
+				match.setM_team_1_team_name(rs3.getString("Team_Name"));
+				match.setM_team_1_age_group(rs3.getString("Age_Group"));
+			}
+
+			ResultSet rs4 = dbconnect.executeSelect(
+					"SELECT Team_Name, Age_Group FROM tblTeams WHERE Team_ID = " + match.getM_team_2_id());
+
+			if (rs4.next()) {
+				match.setM_team_2_team_name(rs4.getString("Team_Name"));
+				match.setM_team_2_age_group(rs4.getString("Age_Group"));
+			}
+
+			matches.add(match);
+		}
+		return matches;
 	}
 }
