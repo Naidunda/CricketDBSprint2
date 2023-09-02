@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import app.model.dao.PlayersDAO;
 import app.model.dao.TeamProfileDAO;
 import app.model.dto.MatchesDTO;
 import app.model.dto.PlayerStatisticsDTO;
@@ -39,8 +38,8 @@ public class getTeamProfile extends HttpServlet {
 		String teamID =  request.getParameter("teamID");
 		
 		try {
-			ArrayList<TeamsDTO> teams = new TeamProfileDAO().getTeamsInformation(teamID);
-			request.setAttribute("teamsinformation", teams);
+			TeamsDTO team = new TeamProfileDAO().getTeamsInformation(teamID);
+			request.setAttribute("teamsinformation", team);
 			
 			ArrayList<PlayerStatisticsDTO> playerStatistics = new TeamProfileDAO().getPlayerStatistics(teamID);
 			request.setAttribute("playerstatistics", playerStatistics);
