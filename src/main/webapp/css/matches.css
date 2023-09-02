@@ -4,6 +4,7 @@
 	height: 100vh;
 }
 
+/* Tab Links & Tab Content */
 .tabs {
 	background-color: #ffffff;
 	height: 90px;
@@ -45,6 +46,7 @@
 	margin-left: 96px;
 }
 
+/* Filters */
 .filters {
   height: auto;
   width: 100%;
@@ -106,6 +108,7 @@
   margin: 16px;
 }
 
+/* Drop-Down Menu */
 .select-menu {
 	float:left;
 	width: 380px;
@@ -182,6 +185,7 @@
   background-color: #ff5c5c;
 }
 
+/* Matches Tab-Content*/
 .tbl-matches {
 	background: white;
 	width: calc(100% - 200px);
@@ -274,6 +278,7 @@
 	background-color: #ff5c5c;
 }
 
+/* Fixtures Tab-Content*/
 .tbl-fixtures {
 	float: left;
 	background: white;

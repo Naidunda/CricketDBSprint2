@@ -1,13 +1,14 @@
 .main {
-    position: relative;
-    width: calc(100% - 280px);
-    height: 100vh;
-    padding-top:32px;
-    padding-bottom:32px;
-    padding-left: 64px; 
-    padding-right: 64px;
-  }
-  
+	position: relative;
+	width: calc(100% - 280px);
+	height: 100vh;
+	padding-top: 32px;
+	padding-bottom: 32px;
+	padding-left: 64px;
+	padding-right: 64px;
+}
+
+/* Tab Links & Tab Content */
 .tabs {
 	overflow: hidden;
 	height: 90px;
@@ -41,7 +42,6 @@
 	font-weight: bold;
 }
 
-
 .tab-content {
 	display: none;
 	overflow: scroll;
@@ -51,118 +51,117 @@
 	width: calc(100%);
 }
 
-  /*Summary*/
-  h1 {
-    font-size: 36px;
-    padding-bottom: 8px;
-  }
-  h2{
-    font-size: 24px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-  }
+/*Summary*/
+h1 {
+	font-size: 36px;
+	padding-bottom: 8px;
+}
 
-  .scorecard-content{
-    width: 100%;
-    background-color: #fff;
-    margin-bottom: 16px;
-  }
+h2 {
+	font-size: 24px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
 
-  .float-container {
-    width: 100%;
-    height: 60px;
-    padding: 0px;
+.scorecard-content {
+	width: 100%;
+	background-color: #fff;
+	margin-bottom: 16px;
+}
 
-    display: flex;
-    align-items:center;
-    justify-content:center;
-  }
-  
-  .float-child {
-    width: 50%;
-    float: left;
-  }
+.float-container {
+	width: 100%;
+	height: 60px;
+	padding: 0px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
-  .left-align{
-    text-align: left;
-  }
+.float-child {
+	width: 50%;
+	float: left;
+}
 
-  .right-align{
-    text-align: right;
-    padding-right: 16px;
-  }
+.left-align {
+	text-align: left;
+}
 
-  p{
-    font-size: 20px;
-  }
-  
-  p a{
-    padding-left: 16px;
-    font-size: 20px;
-  }
-  
-  .tab-content p{
-  	font-size: 16px;
-  	margin-bottom: 8px;
-  }
-  
-  .tab-content p a{
-  	font-size: 16px;
-  }
+.right-align {
+	text-align: right;
+	padding-right: 16px;
+}
 
-  .scorecard table{
-    height: 60px;
-    font-size: 20px;
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
-  }
+p {
+	font-size: 20px;
+}
 
-  .scorecard {
-    border-collapse: collapse;
-    margin-bottom: 8px;
-    width: 100%;
-    overflow-y: scroll;
-    overflow-x: scroll;
-    text-align: center;
-  }
-  
- 
-  .scorecard td,
-  .scorecard th {
-    font-size: 14px;
-    border-left: #d0d0d0 solid 1px;
-    border-right: #d0d0d0 solid 1px;
-    width: auto;
-  }
-  
-  .scorecard tr {
-    height: 28px;
-  }
-  
-  .scorecard tr:nth-child(odd) {
-    background-color: #eee;
-  }
-  
+p a {
+	padding-left: 16px;
+	font-size: 20px;
+}
+
+.tab-content p {
+	font-size: 16px;
+	margin-bottom: 8px;
+}
+
+.tab-content p a {
+	font-size: 16px;
+}
+
+/* Batting & Bowling Scorecards */
+.scorecard table {
+	height: 60px;
+	font-size: 20px;
+	width: 100%;
+	table-layout: fixed;
+	text-align: center;
+}
+
+.scorecard {
+	border-collapse: collapse;
+	margin-bottom: 8px;
+	width: 100%;
+	overflow-y: scroll;
+	overflow-x: scroll;
+	text-align: center;
+}
+
+.scorecard td, .scorecard th {
+	font-size: 14px;
+	border-left: #d0d0d0 solid 1px;
+	border-right: #d0d0d0 solid 1px;
+	width: auto;
+}
+
+.scorecard tr {
+	height: 28px;
+}
+
+.scorecard tr:nth-child(odd) {
+	background-color: #eee;
+}
+
 .scorecard tr:nth-child(even) {
-    background-color: #fff;
-  }
-  
-  .scorecard td:first-child {
-    text-align: left;
-    padding-left: 16px;
-    width: 25%;
-  }
-  
-  .scorecard th {
-    background-color: #ff5c5c;
-    color: #fff;
-  }
-  
-  .scorecard tr:first-child {
-    border-top: #d0d0d0 solid 1px;
-  }
-  
-  .scorecard tr:last-child {
-    border-bottom: #d0d0d0 solid 1px;
-  }
+	background-color: #fff;
+}
+
+.scorecard td:first-child {
+	text-align: left;
+	padding-left: 16px;
+	width: 25%;
+}
+
+.scorecard th {
+	background-color: #ff5c5c;
+	color: #fff;
+}
+
+.scorecard tr:first-child {
+	border-top: #d0d0d0 solid 1px;
+}
+
+.scorecard tr:last-child {
+	border-bottom: #d0d0d0 solid 1px;
+}

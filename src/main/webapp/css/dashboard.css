@@ -1,3 +1,4 @@
+/* Entire Web Page */
 .main {
   position: relative;
   width: calc(100vw - 280px);
@@ -5,45 +6,14 @@
   padding: 48px;
 }
 
-.left {
-  position: relative;
-  background-color: #fff;
-  border-radius: 20px;
-  padding: 32px;
-  width: calc((100% - 32px) / 3);
-  height: calc(100%);
-  overflow: scroll;
-  float: left;
-}
-
 .dashboard-heading {
   font-size: 36px;
 }
 
-.left .dashboard-heading {
-  text-align: center;
-}
-
-.tbl-dashboard {
-  text-align: center;
-  padding: 8px;
-  margin: 0 auto;
-  height: calc((100% - 227px) / 2);
-}
-
-.tbl-dashboard td:first-child {
-  text-align: left;
-  padding: 0px;
-}
-
-.tbl-dashboard td {
-  text-align: center;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
 .text-btn {
   text-align: center;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .btn-view-more {
@@ -61,14 +31,43 @@
   background-color: #ff5c5c;
 }
 
+/* Left Column */
+.left {
+  position: relative;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  width: calc((100% - 32px) / 3);
+  height: calc(100%);
+  overflow: scroll;
+  float: left;
+}
+
+.left .dashboard-heading {
+  text-align: center;
+}
+
+.left .tbl-dashboard {
+  text-align: center;
+  padding: 8px;
+  margin: 0 auto;
+  height: calc((100% - 227px) / 2);
+}
+
+.left .tbl-dashboard td:first-child {
+  text-align: left;
+  padding: 0px;
+}
+
+.left .tbl-dashboard td {
+  text-align: center;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .left .btn-view-more {
   margin: 0 auto;
   display: block;
-}
-
-.text-btn {
-  font-weight: 500;
-  font-size: 16px;
 }
 
 .left .text-btn {
@@ -77,6 +76,7 @@
   text-align: center;
 }
 
+/* Right Column */
 .right {
   float: left;
   position: relative;
@@ -94,6 +94,7 @@
   margin-bottom: 32px;
   overflow: scroll;
 }
+
 
 .right .dashboard-heading {
   text-align: left;
@@ -167,4 +168,26 @@
 
 .right .result {
   padding-left: 16px;
+}
+
+.row-half .dashboard-heading{
+	 margin: 0 auto;
+	text-align: center;
+	
+}
+
+.row-half{
+	 text-align: center;
+  background: white;
+  float: left;
+  width: calc(50% - 8px);
+  height: calc((100% - 64px) / 3);
+  border-radius: 20px;
+  padding: 32px;
+  margin-bottom: 32px;
+  overflow: scroll;
+}
+
+.second-half {
+	margin-left: 16px;
 }

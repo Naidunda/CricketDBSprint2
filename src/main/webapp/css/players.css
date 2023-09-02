@@ -4,6 +4,7 @@
   height: 100vh;
 }
 
+/* Tab Links & Tab Content */
 .tabs {
   background-color: #ffffff;
   height: 90px;
@@ -44,6 +45,7 @@
   padding-bottom: 32px;
 }
 
+/* Filters */
 .filters {
   height: auto;
   width: 100%;
@@ -105,6 +107,7 @@
   margin: 16px;
 }
 
+/* Drop-Down Menu */
 .select-menu {
 	float:left;
 	width: 380px;
@@ -181,6 +184,8 @@
   background-color: #ff5c5c;
 }
 
+
+/* Tab-Content*/
 .tbl-statistics {
   border-collapse: collapse;
   margin: 0 auto;

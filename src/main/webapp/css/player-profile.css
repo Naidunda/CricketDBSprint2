@@ -4,14 +4,7 @@
 	height: 100vh;
 	padding: 48px;
 }
-
-.tab-content {
-	display: none;
-	overflow: hidden;
-	overflow-y: scroll;
-	height: calc(100% - 240px);
-}
-
+/* Profile Heading */
 .profile-heading {
 	height: 180px;
 	width: 100%;
@@ -38,7 +31,7 @@
 	font-weight: 500;
 	font-size: 24px;
 }
-
+/* Tab Links */
 .tabs {
 	overflow: hidden;
 	height: 90px;
@@ -72,7 +65,34 @@
 	border-bottom: #ff5c5c solid 3px;
 	font-weight: bold;
 }
+/* Tab Content */
+.tab-content {
+	display: none;
+	overflow: hidden;
+	overflow-y: scroll;
+	height: calc(100% - 240px);
+}
 
+.tab-content h2 {
+	float: left;
+}
+
+.tab-content h2 .team-name {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.tab-content h2 .age-group {
+	font-weight: 500;
+	font-size: 24px;
+}
+
+.tab-content h2 .location {
+	font-weight: 500;
+	font-size: 24px;
+}
+
+/* Teams Tab-Content */
 .tbl-team {
 	float: left;
 	height: 150px;
@@ -112,25 +132,6 @@
 	height: 118px;
 }
 
-.tab-content h2 {
-	float: left;
-}
-
-.tab-content h2 .team-name {
-	font-weight: bold;
-	font-size: 30px;
-}
-
-.tab-content h2 .age-group {
-	font-weight: 500;
-	font-size: 24px;
-}
-
-.tab-content h2 .location {
-	font-weight: 500;
-	font-size: 24px;
-}
-
 .btn-view-team {
 	height: 75px;
 	width: 200px;
@@ -146,6 +147,7 @@
 	background-color: #ff5c5c;
 }
 
+/* Matches Tab-Content */
 .tbl-matches {
 	background: white;
 	width: calc(100% - 128px);
@@ -238,6 +240,7 @@
 	background-color: #ff5c5c;
 }
 
+/* Statistics Tab-Content & Drop-Down Menu*/
 .select-menu {
 	width: 380px;
 	margin: 0px auto;
