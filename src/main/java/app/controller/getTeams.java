@@ -48,21 +48,21 @@ public class getTeams extends HttpServlet {
 			if (sortBy.equals("Team Name")) {
 	
 				if(direction.equals("fa-arrow-down-a-z")) {
-					teams.sort((o1, o2) -> o1.getT_team_name().compareTo(o2.getT_team_name()));
+					teams.sort((o1, o2) -> o1.getTeamName().compareTo(o2.getTeamName()));
 				} else {
-					teams.sort((o1, o2) -> o2.getT_team_name().compareTo(o1.getT_team_name()));
+					teams.sort((o1, o2) -> o2.getTeamName().compareTo(o1.getTeamName()));
 				}
 			}else if(sortBy.equals("Age Group")){
 				if(direction.equals("fa-arrow-down-a-z")) {
-					teams.sort((o1, o2) -> o1.getT_age_group().compareTo(o2.getT_age_group()));
+					teams.sort((o1, o2) -> o1.getAgeGroup().compareTo(o2.getAgeGroup()));
 				} else {
-					teams.sort((o1, o2) -> o2.getT_age_group().compareTo(o1.getT_age_group()));
+					teams.sort((o1, o2) -> o2.getAgeGroup().compareTo(o1.getAgeGroup()));
 				}
 			} else if (sortBy.equals("Location")) {
 				if(direction.equals("fa-arrow-down-a-z")) {
-					teams.sort((o1, o2) -> o1.getT_location().compareTo(o2.getT_location()));
+					teams.sort((o1, o2) -> o1.getLocation().compareTo(o2.getLocation()));
 				} else {
-					teams.sort((o1, o2) -> o2.getT_location().compareTo(o1.getT_location()));
+					teams.sort((o1, o2) -> o2.getLocation().compareTo(o1.getLocation()));
 				}
 			}
 				
