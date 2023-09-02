@@ -23,7 +23,7 @@ public class DBConnect {
 		try {
 			String driver = "jdbc:ucanaccess://C:/Users/joshu/eclipse-workspace/CricketDB/CricketDB.accdb";
 			conn = DriverManager.getConnection(driver);
-			System.out.print("Connection successful");
+			System.out.print("Connection successful!\n");
 //			JOptionPane.showMessageDialog(null, "Connection successful");
 
 		} catch (Exception e) {
@@ -38,8 +38,7 @@ public class DBConnect {
 
 		try {
 			Statement stmt = conn.createStatement();
-			String selectSql = query;
-			resultSet = stmt.executeQuery(selectSql);
+			resultSet = stmt.executeQuery(query);
 		} catch (SQLException e) {
 			System.out.print("Error:.\n" + e);
 //			JOptionPane.showMessageDialog(null, "Error:.\n"+e);
