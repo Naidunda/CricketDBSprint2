@@ -40,22 +40,21 @@ public class getPlayerProfile extends HttpServlet {
 		String season = request.getParameter("season");
 		
 		request.setAttribute("player_id", playerID);
-		
 		request.setAttribute("season", season);
 		
 		try {
-			ArrayList<PlayersDTO> players = new PlayersDAO().getPlayerProfile(playerID);
-			request.setAttribute("playerprofile", players);
+			PlayersDTO player = new PlayersDAO().getPlayerProfile(playerID);
+			request.setAttribute("playerprofile", player);
 			
 			ArrayList<TeamPlayersDTO> teams = new PlayersDAO().getPlayerTeams(playerID);
 			request.setAttribute("playerteams", teams);
 			
 			if (season.equals("All-Time")) {
 				ArrayList<PlayerStatisticsDTO> playerStats = new PlayersDAO().getAllPlayerStatistics(playerID);
-				request.setAttribute("playerStats", playerStats);
+				request.setAttribute("playerstats", playerStats);
 			} else {
 				ArrayList<PlayerStatisticsDTO> playerStats = new PlayersDAO().getSeasonPlayerStatistics(playerID, season);
-				request.setAttribute("playerStats", playerStats);
+				request.setAttribute("playerstats", playerStats);
 			}
 			
 			ArrayList<PlayerSeasonsDTO> seasonsPlayed = new PlayersDAO().getSeasonsPlayed(playerID);
