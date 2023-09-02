@@ -1,98 +1,96 @@
 package app.model.dto;
 
 public class BowlingScorecardDTO {
-	private String s_match_id;
-	private int s_innings;
-	private String s_bowler_id;
-	private String s_bowler_name;
-	private String s_overs;
-	private int s_maidens;
-	private int s_runs_conceded;
-	private int s_wickets_taken;
-	private String s_economy;
-	private String s_average;
-	private int s_wide;
-	private int s_no_ball;
+	private String matchID;
+	private int innings;
+	private String bowlerID;
+	private String bowlerName;
+	private String overs;
+	private int maidens;
+	private int runsConceded;
+	private int wicketsTaken;
+	private String economy;
+	private String average;
+	private int wide;
+	private int noBalls;
 	
-	
-	public String getS_match_id() {
-		return s_match_id;
+	public String getMatchID() {
+		return matchID;
 	}
-	public void setS_match_id(String s_match_id) {
-		this.s_match_id = s_match_id;
+	public void setMatchID(String matchID) {
+		this.matchID = matchID;
 	}
-	public int getS_innings() {
-		return s_innings;
+	public int getInnings() {
+		return innings;
 	}
-	public void setS_innings(int s_innings) {
-		this.s_innings = s_innings;
+	public void setInnings(int innings) {
+		this.innings = innings;
 	}
-	public String getS_bowler_id() {
-		return s_bowler_id;
+	public String getBowlerID() {
+		return bowlerID;
 	}
-	public void setS_bowler_id(String s_bowler_id) {
-		this.s_bowler_id = s_bowler_id;
+	public void setBowlerID(String bowlerID) {
+		this.bowlerID = bowlerID;
 	}
-	public String getS_bowler_name() {
-		return s_bowler_name;
+	public String getBowlerName() {
+		return bowlerName;
 	}
-	public void setS_bowler_name(String s_bowler_name) {
-		this.s_bowler_name = s_bowler_name;
+	public void setBowlerName(String bowlerName) {
+		this.bowlerName = bowlerName;
 	}
-	public String getS_overs() {
-		return s_overs;
+	public String getOvers() {
+		return overs;
 	}
-	public void setS_overs(String s_overs) {
-		this.s_overs = s_overs;
+	public void setOvers(String overs) {
+		this.overs = overs;
 	}
-	public int getS_maidens() {
-		return s_maidens;
+	public int getMaidens() {
+		return maidens;
 	}
-	public void setS_maidens(int s_maidens) {
-		this.s_maidens = s_maidens;
+	public void setMaidens(int maidens) {
+		this.maidens = maidens;
 	}
-	public int getS_runs_conceded() {
-		return s_runs_conceded;
+	public int getRunsConceded() {
+		return runsConceded;
 	}
-	public void setS_runs_conceded(int s_runs_conceded) {
-		this.s_runs_conceded = s_runs_conceded;
+	public void setRunsConceded(int runsConceded) {
+		this.runsConceded = runsConceded;
 	}
-	public int getS_wickets_taken() {
-		return s_wickets_taken;
+	public int getWicketsTaken() {
+		return wicketsTaken;
 	}
-	public void setS_wickets_taken(int s_wickets_taken) {
-		this.s_wickets_taken = s_wickets_taken;
+	public void setWicketsTaken(int wicketsTaken) {
+		this.wicketsTaken = wicketsTaken;
 	}
-	public String getS_economy() {
-		return s_economy;
+	public String getEconomy() {
+		return economy;
 	}
-	public void setS_economy(String s_economy) {
-		this.s_economy = s_economy;
+	public void setEconomy(String economy) {
+		this.economy = economy;
 	}
-	public String getS_average() {
-		return s_average;
+	public String getAverage() {
+		return average;
 	}
-	public void setS_average(String s_average) {
-		this.s_average = s_average;
+	public void setAverage(String average) {
+		this.average = average;
 	}
-	public int getS_wide() {
-		return s_wide;
+	public int getWide() {
+		return wide;
 	}
-	public void setS_wide(int s_wide) {
-		this.s_wide = s_wide;
+	public void setWide(int wide) {
+		this.wide = wide;
 	}
-	public int getS_no_ball() {
-		return s_no_ball;
+	public int getNoBalls() {
+		return noBalls;
 	}
-	public void setS_no_ball(int s_no_ball) {
-		this.s_no_ball = s_no_ball;
+	public void setNoBalls(int noBalls) {
+		this.noBalls = noBalls;
 	}
 	@Override
 	public String toString() {
-		return "BowlingScorecardDTO [s_match_id=" + s_match_id + ", s_innings=" + s_innings + ", s_bowler_id="
-				+ s_bowler_id + ", s_bowler_name=" + s_bowler_name + ", s_overs=" + s_overs + ", s_maidens=" + s_maidens
-				+ ", s_runs_conceded=" + s_runs_conceded + ", s_wickets_taken=" + s_wickets_taken + ", s_economy="
-				+ s_economy + ", s_average=" + s_average + ", s_wide=" + s_wide + ", s_no_ball=" + s_no_ball + "]";
+		return "BowlingScorecardDTO [matchID=" + matchID + ", innings=" + innings + ", bowlerID=" + bowlerID
+				+ ", bowlerName=" + bowlerName + ", overs=" + overs + ", maidens=" + maidens + ", runsConceded="
+				+ runsConceded + ", wicketsTaken=" + wicketsTaken + ", economy=" + economy + ", average=" + average
+				+ ", wide=" + wide + ", noBalls=" + noBalls + "]";
 	}
-
 }

@@ -5,179 +5,170 @@ import java.sql.Date;
 
 public class MatchesDTO implements Serializable{
 	
-	private String m_match_id;
-	private Date m_match_date;
-	private String m_format;
+	private String matchID;
+	private Date matchDate;
+	private String format;
+	private String teamID1;
+	private String teamName1;
+	private String teamAgeGroup1;
+	private String teamID2;
+	private String teamName2;
+	private String teamAgeGroup2;
+	private String tossWinnerID;
+	private String tossDecision;
+	private Boolean isResult;
+	private String winType;
+	private int wonBy;
+	private String matchWinnerID;
+	private String winMessage;
+	private int inningsTotal1;
+	private String inningsOvers1;
+	private int inningsWickets1;
+	private int inningsTotal2;
+	private String inningsOvers2;
+	private int inningsWickets2;
 	
-	private String m_team_1_id;
-	private String m_team_1_team_name;
-	private String m_team_1_age_group;
-	
-	private String m_team_2_id;
-	private String m_team_2_team_name;
-	private String m_team_2_age_group;
-	
-	private String m_toss_winner_id;
-	private String m_toss_decision;
-	
-	private Boolean m_is_result;
-	private String m_win_type;
-	private int m_won_by;
-	private String m_match_winner_id;
-	private String m_win_message;
-	
-	private int m_innings_1_total;
-	private String m_innings_1_overs;
-	private int m_innings_1_wickets;
-	
-	private int m_innings_2_total;
-	private String m_innings_2_overs;
-	private int m_innings_2_wickets;
-	
-	public String getM_match_id() {
-		return m_match_id;
+	public String getMatchID() {
+		return matchID;
 	}
-	public void setM_match_id(String m_match_id) {
-		this.m_match_id = m_match_id;
+	public void setMatchID(String matchID) {
+		this.matchID = matchID;
 	}
-	public Date getM_match_date() {
-		return m_match_date;
+	public Date getMatchDate() {
+		return matchDate;
 	}
-	public void setM_match_date(Date m_match_date) {
-		this.m_match_date = m_match_date;
+	public void setMatchDate(Date matchDate) {
+		this.matchDate = matchDate;
 	}
-	public String getM_format() {
-		return m_format;
+	public String getFormat() {
+		return format;
 	}
-	public void setM_format(String m_format) {
-		this.m_format = m_format;
+	public void setFormat(String format) {
+		this.format = format;
 	}
-	public String getM_team_1_id() {
-		return m_team_1_id;
+	public String getTeamID1() {
+		return teamID1;
 	}
-	public void setM_team_1_id(String m_team_1_id) {
-		this.m_team_1_id = m_team_1_id;
+	public void setTeamID1(String teamID1) {
+		this.teamID1 = teamID1;
 	}
-	public String getM_team_1_team_name() {
-		return m_team_1_team_name;
+	public String getTeamName1() {
+		return teamName1;
 	}
-	public void setM_team_1_team_name(String m_team_1_team_name) {
-		this.m_team_1_team_name = m_team_1_team_name;
+	public void setTeamName1(String teamName1) {
+		this.teamName1 = teamName1;
 	}
-	public String getM_team_1_age_group() {
-		return m_team_1_age_group;
+	public String getTeamAgeGroup1() {
+		return teamAgeGroup1;
 	}
-	public void setM_team_1_age_group(String m_team_1_age_group) {
-		this.m_team_1_age_group = m_team_1_age_group;
+	public void setTeamAgeGroup1(String teamAgeGroup1) {
+		this.teamAgeGroup1 = teamAgeGroup1;
 	}
-	public String getM_team_2_id() {
-		return m_team_2_id;
+	public String getTeamID2() {
+		return teamID2;
 	}
-	public void setM_team_2_id(String m_team_2_id) {
-		this.m_team_2_id = m_team_2_id;
+	public void setTeamID2(String teamID2) {
+		this.teamID2 = teamID2;
 	}
-	public String getM_team_2_team_name() {
-		return m_team_2_team_name;
+	public String getTeamName2() {
+		return teamName2;
 	}
-	public void setM_team_2_team_name(String m_team_2_team_name) {
-		this.m_team_2_team_name = m_team_2_team_name;
+	public void setTeamName2(String teamName2) {
+		this.teamName2 = teamName2;
 	}
-	public String getM_team_2_age_group() {
-		return m_team_2_age_group;
+	public String getTeamAgeGroup2() {
+		return teamAgeGroup2;
 	}
-	public void setM_team_2_age_group(String m_team_2_age_group) {
-		this.m_team_2_age_group = m_team_2_age_group;
+	public void setTeamAgeGroup2(String teamAgeGroup2) {
+		this.teamAgeGroup2 = teamAgeGroup2;
 	}
-	public String getM_toss_winner_id() {
-		return m_toss_winner_id;
+	public String getTossWinnerID() {
+		return tossWinnerID;
 	}
-	public void setM_toss_winner_id(String m_toss_winner_id) {
-		this.m_toss_winner_id = m_toss_winner_id;
+	public void setTossWinnerID(String tossWinnerID) {
+		this.tossWinnerID = tossWinnerID;
 	}
-	public String getM_toss_decision() {
-		return m_toss_decision;
+	public String getTossDecision() {
+		return tossDecision;
 	}
-	public void setM_toss_decision(String m_toss_decision) {
-		this.m_toss_decision = m_toss_decision;
+	public void setTossDecision(String tossDecision) {
+		this.tossDecision = tossDecision;
 	}
-	public Boolean getM_is_result() {
-		return m_is_result;
+	public Boolean isResult() {
+		return isResult;
 	}
-	public void setM_is_result(Boolean m_is_result) {
-		this.m_is_result = m_is_result;
+	public void setResult(Boolean isResult) {
+		this.isResult = isResult;
 	}
-	public String getM_win_type() {
-		return m_win_type;
+	public String getWinType() {
+		return winType;
 	}
-	public void setM_win_type(String m_win_type) {
-		this.m_win_type = m_win_type;
+	public void setWinType(String winType) {
+		this.winType = winType;
 	}
-	public int getM_won_by() {
-		return m_won_by;
+	public int getWonBy() {
+		return wonBy;
 	}
-	public void setM_won_by(int m_won_by) {
-		this.m_won_by = m_won_by;
+	public void setWonBy(int wonBy) {
+		this.wonBy = wonBy;
 	}
-	public String getM_match_winner_id() {
-		return m_match_winner_id;
+	public String getMatchWinnerID() {
+		return matchWinnerID;
 	}
-	public void setM_match_winner_id(String m_match_winner) {
-		this.m_match_winner_id = m_match_winner;
+	public void setMatchWinnerID(String matchWinnerID) {
+		this.matchWinnerID = matchWinnerID;
 	}
-	public String getM_win_message() {
-		return m_win_message;
+	public String getWinMessage() {
+		return winMessage;
 	}
-	public void setM_win_message(String m_win_message) {
-		this.m_win_message = m_win_message;
+	public void setWinMessage(String winMessage) {
+		this.winMessage = winMessage;
 	}
-	public int getM_innings_1_total() {
-		return m_innings_1_total;
+	public int getInningsTotal1() {
+		return inningsTotal1;
 	}
-	public void setM_innings_1_total(int m_innings_1_total) {
-		this.m_innings_1_total = m_innings_1_total;
+	public void setInningsTotal1(int inningsTotal1) {
+		this.inningsTotal1 = inningsTotal1;
 	}
-	public String getM_innings_1_overs() {
-		return m_innings_1_overs;
+	public String getInningsOvers1() {
+		return inningsOvers1;
 	}
-	public void setM_innings_1_overs(String m_innings_1_overs) {
-		this.m_innings_1_overs = m_innings_1_overs;
+	public void setInningsOvers1(String inningsOvers1) {
+		this.inningsOvers1 = inningsOvers1;
 	}
-	public int getM_innings_1_wickets() {
-		return m_innings_1_wickets;
+	public int getInningsWickets1() {
+		return inningsWickets1;
 	}
-	public void setM_innings_1_wickets(int m_innings_1_wickets) {
-		this.m_innings_1_wickets = m_innings_1_wickets;
+	public void setInningsWickets1(int inningsWickets1) {
+		this.inningsWickets1 = inningsWickets1;
 	}
-	public int getM_innings_2_total() {
-		return m_innings_2_total;
+	public int getInningsTotal2() {
+		return inningsTotal2;
 	}
-	public void setM_innings_2_total(int m_innings_2_total) {
-		this.m_innings_2_total = m_innings_2_total;
+	public void setInningsTotal2(int inningsTotal2) {
+		this.inningsTotal2 = inningsTotal2;
 	}
-	public String getM_innings_2_overs() {
-		return m_innings_2_overs;
+	public String getInningsOvers2() {
+		return inningsOvers2;
 	}
-	public void setM_innings_2_overs(String m_innings_2_overs) {
-		this.m_innings_2_overs = m_innings_2_overs;
+	public void setInningsOvers2(String inningsOvers2) {
+		this.inningsOvers2 = inningsOvers2;
 	}
-	public int getM_innings_2_wickets() {
-		return m_innings_2_wickets;
+	public int getInningsWickets2() {
+		return inningsWickets2;
 	}
-	public void setM_innings_2_wickets(int m_innings_2_wickets) {
-		this.m_innings_2_wickets = m_innings_2_wickets;
+	public void setInningsWickets2(int inningsWickets2) {
+		this.inningsWickets2 = inningsWickets2;
 	}
 	@Override
 	public String toString() {
-		return "MatchesDTO [m_match_id=" + m_match_id + ", m_match_date=" + m_match_date + ", m_format=" + m_format
-				+ ", m_team_1_id=" + m_team_1_id + ", m_team_1_team_name=" + m_team_1_team_name
-				+ ", m_team_1_age_group=" + m_team_1_age_group + ", m_team_2_id=" + m_team_2_id
-				+ ", m_team_2_team_name=" + m_team_2_team_name + ", m_team_2_age_group=" + m_team_2_age_group
-				+ ", m_toss_winner_id=" + m_toss_winner_id + ", m_toss_decision=" + m_toss_decision + ", m_is_result="
-				+ m_is_result + ", m_win_type=" + m_win_type + ", m_won_by=" + m_won_by + ", m_match_winner_id="
-				+ m_match_winner_id + ", m_win_message=" + m_win_message + ", m_innings_1_total=" + m_innings_1_total
-				+ ", m_innings_1_overs=" + m_innings_1_overs + ", m_innings_1_wickets=" + m_innings_1_wickets
-				+ ", m_innings_2_total=" + m_innings_2_total + ", m_innings_2_overs=" + m_innings_2_overs
-				+ ", m_innings_2_wickets=" + m_innings_2_wickets + "]";
+		return "MatchesDTO [matchID=" + matchID + ", matchDate=" + matchDate + ", format=" + format + ", teamID1="
+				+ teamID1 + ", teamName1=" + teamName1 + ", teamAgeGroup1=" + teamAgeGroup1 + ", teamID2=" + teamID2
+				+ ", teamName2=" + teamName2 + ", teamAgeGroup2=" + teamAgeGroup2 + ", tossWinnerID=" + tossWinnerID
+				+ ", tossDecision=" + tossDecision + ", isResult=" + isResult + ", winType=" + winType + ", wonBy="
+				+ wonBy + ", matchWinnerID=" + matchWinnerID + ", winMessage=" + winMessage + ", inningsTotal1="
+				+ inningsTotal1 + ", inningsOvers1=" + inningsOvers1 + ", inningsWickets1=" + inningsWickets1
+				+ ", inningsTotal2=" + inningsTotal2 + ", inningsOvers2=" + inningsOvers2 + ", inningsWickets2="
+				+ inningsWickets2 + "]";
 	}
-
 }

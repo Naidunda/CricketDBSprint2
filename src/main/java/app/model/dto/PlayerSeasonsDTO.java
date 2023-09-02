@@ -1,23 +1,23 @@
 package app.model.dto;
 
 public class PlayerSeasonsDTO {
-	private String p_player_id;
-	private String p_season;
+	private String playerID;
+	private String season;
 	
-	public String getP_player_id() {
-		return p_player_id;
+	public String getPlayerID() {
+		return playerID;
 	}
-	public void setP_player_id(String p_player_id) {
-		this.p_player_id = p_player_id;
+	public void setPlayerID(String playerID) {
+		this.playerID = playerID;
 	}
-	public String getP_season() {
-		return p_season;
+	public String getSeason() {
+		return season;
 	}
-	public void setP_season(String p_season) {
-		this.p_season = p_season;
+	public void setSeason(String season) {
+		this.season = season;
 	}
 	@Override
 	public String toString() {
-		return "PlayerSeasonsDTO [p_player_id=" + p_player_id + ", p_season=" + p_season + "]";
+		return "PlayerSeasonsDTO [playerID=" + playerID + ", season=" + season + "]";
 	}
 }

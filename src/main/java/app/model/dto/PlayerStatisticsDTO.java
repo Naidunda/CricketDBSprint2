@@ -3,202 +3,199 @@ package app.model.dto;
 import java.io.Serializable;
 
 public class PlayerStatisticsDTO implements Serializable {
-	private String p_player_id;
-	private String p_player_name;
-	private int p_matches;
-	private int p_batting_innings;
-	private int p_not_outs;
-	private int p_runs_scored;
-	private int p_balls_faced;
-	private String p_batting_strike_rate;
-	private String p_high_score;
-	private String p_batting_average;
-	private int p_fifties;
-	private int p_hundreds;
-	private int p_fours;
-	private int p_sixes;
-	private int p_bowling_innings;
-	private int p_balls_bowled;
-	private int p_runs_conceded;
-	private int p_wickets_taken;
-	private String p_best_figures;
-	private String p_bowling_average;
-	private String p_economy;
-	private String p_bowling_strike_rate;
-	private int p_five_wickets;
-	private int p_run_outs;
-	private int p_catches;
-	private int p_stumpings;
+	private String playerID;
+	private String playerName;
+	private int matches;
+	private int battingInnings;
+	private int notOuts;
+	private int runsScored;
+	private int ballsFaced;
+	private String battingStrikeRate;
+	private String highScore;
+	private String battingAverage;
+	private int fifties;
+	private int hundreds;
+	private int fours;
+	private int sixes;
+	private int bowlingInnings;
+	private int ballsBowled;
+	private int runsConceded;
+	private int wicketsTaken;
+	private String bestFigures;
+	private String bowlingAverage;
+	private String economy;
+	private String bowlingStrikeRate;
+	private int fiveWickets;
+	private int runOuts;
+	private int catches;
+	private int stumpings;
 	
-	public String getP_player_id() {
-		return p_player_id;
+	public String getPlayerID() {
+		return playerID;
 	}
-	public void setP_player_id(String p_player_id) {
-		this.p_player_id = p_player_id;
+	public void setPlayerID(String playerID) {
+		this.playerID = playerID;
 	}
-	public String getP_player_name() {
-		return p_player_name;
+	public String getPlayerName() {
+		return playerName;
 	}
-	public void setP_player_name(String p_player_name) {
-		this.p_player_name = p_player_name;
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
 	}
-	public int getP_matches() {
-		return p_matches;
+	public int getMatches() {
+		return matches;
 	}
-	public void setP_matches(int p_matches) {
-		this.p_matches = p_matches;
+	public void setMatches(int matches) {
+		this.matches = matches;
 	}
-	public int getP_batting_innings() {
-		return p_batting_innings;
+	public int getBattingInnings() {
+		return battingInnings;
 	}
-	public void setP_batting_innings(int p_batting_innings) {
-		this.p_batting_innings = p_batting_innings;
+	public void setBattingInnings(int battingInnings) {
+		this.battingInnings = battingInnings;
 	}
-	public int getP_not_outs() {
-		return p_not_outs;
+	public int getNotOuts() {
+		return notOuts;
 	}
-	public void setP_not_outs(int p_not_outs) {
-		this.p_not_outs = p_not_outs;
+	public void setNotOuts(int notOuts) {
+		this.notOuts = notOuts;
 	}
-	public int getP_runs_scored() {
-		return p_runs_scored;
+	public int getRunsScored() {
+		return runsScored;
 	}
-	public void setP_runs_scored(int p_runs_scored) {
-		this.p_runs_scored = p_runs_scored;
+	public void setRunsScored(int runsScored) {
+		this.runsScored = runsScored;
 	}
-	public int getP_balls_faced() {
-		return p_balls_faced;
+	public int getBallsFaced() {
+		return ballsFaced;
 	}
-	public void setP_balls_faced(int p_balls_faced) {
-		this.p_balls_faced = p_balls_faced;
+	public void setBallsFaced(int ballsFaced) {
+		this.ballsFaced = ballsFaced;
 	}
-	public String getP_batting_strike_rate() {
-		return p_batting_strike_rate;
+	public String getBattingStrikeRate() {
+		return battingStrikeRate;
 	}
-	public void setP_batting_strike_rate(String p_batting_strike_rate) {
-		this.p_batting_strike_rate = p_batting_strike_rate;
+	public void setBattingStrikeRate(String battingStrikeRate) {
+		this.battingStrikeRate = battingStrikeRate;
 	}
-	public String getP_high_score() {
-		return p_high_score;
+	public String getHighScore() {
+		return highScore;
 	}
-	public void setP_high_score(String p_high_score) {
-		this.p_high_score = p_high_score;
+	public void setHighScore(String highScore) {
+		this.highScore = highScore;
 	}
-	public String getP_batting_average() {
-		return p_batting_average;
+	public String getBattingAverage() {
+		return battingAverage;
 	}
-	public void setP_batting_average(String p_batting_average) {
-		this.p_batting_average = p_batting_average;
+	public void setBattingAverage(String battingAverage) {
+		this.battingAverage = battingAverage;
 	}
-	public int getP_fifties() {
-		return p_fifties;
+	public int getFifties() {
+		return fifties;
 	}
-	public void setP_fifties(int p_fifties) {
-		this.p_fifties = p_fifties;
+	public void setFifties(int fifties) {
+		this.fifties = fifties;
 	}
-	public int getP_hundreds() {
-		return p_hundreds;
+	public int getHundreds() {
+		return hundreds;
 	}
-	public void setP_hundreds(int p_hundreds) {
-		this.p_hundreds = p_hundreds;
+	public void setHundreds(int hundreds) {
+		this.hundreds = hundreds;
 	}
-	public int getP_fours() {
-		return p_fours;
+	public int getFours() {
+		return fours;
 	}
-	public void setP_fours(int p_fours) {
-		this.p_fours = p_fours;
+	public void setFours(int fours) {
+		this.fours = fours;
 	}
-	public int getP_sixes() {
-		return p_sixes;
+	public int getSixes() {
+		return sixes;
 	}
-	public void setP_sixes(int p_sixes) {
-		this.p_sixes = p_sixes;
+	public void setSixes(int sixes) {
+		this.sixes = sixes;
 	}
-	public int getP_bowling_innings() {
-		return p_bowling_innings;
+	public int getBowlingInnings() {
+		return bowlingInnings;
 	}
-	public void setP_bowling_innings(int p_bowling_innings) {
-		this.p_bowling_innings = p_bowling_innings;
+	public void setBowlingInnings(int bowlingInnings) {
+		this.bowlingInnings = bowlingInnings;
 	}
-	public int getP_balls_bowled() {
-		return p_balls_bowled;
+	public int getBallsBowled() {
+		return ballsBowled;
 	}
-	public void setP_balls_bowled(int p_balls_bowled) {
-		this.p_balls_bowled = p_balls_bowled;
+	public void setBallsBowled(int ballsBowled) {
+		this.ballsBowled = ballsBowled;
 	}
-	public int getP_runs_conceded() {
-		return p_runs_conceded;
+	public int getRunsConceded() {
+		return runsConceded;
 	}
-	public void setP_runs_conceded(int p_runs_conceded) {
-		this.p_runs_conceded = p_runs_conceded;
+	public void setRunsConceded(int runsConceded) {
+		this.runsConceded = runsConceded;
 	}
-	public int getP_wickets_taken() {
-		return p_wickets_taken;
+	public int getWicketsTaken() {
+		return wicketsTaken;
 	}
-	public void setP_wickets_taken(int p_wickets_taken) {
-		this.p_wickets_taken = p_wickets_taken;
+	public void setWicketsTaken(int wicketsTaken) {
+		this.wicketsTaken = wicketsTaken;
 	}
-	public String getP_best_figures() {
-		return p_best_figures;
+	public String getBestFigures() {
+		return bestFigures;
 	}
-	public void setP_best_figures(String p_best_figures) {
-		this.p_best_figures = p_best_figures;
+	public void setBestFigures(String bestFigures) {
+		this.bestFigures = bestFigures;
 	}
-	public String getP_bowling_average() {
-		return p_bowling_average;
+	public String getBowlingAverage() {
+		return bowlingAverage;
 	}
-	public void setP_bowling_average(String p_bowling_average) {
-		this.p_bowling_average = p_bowling_average;
+	public void setBowlingAverage(String bowlingAverage) {
+		this.bowlingAverage = bowlingAverage;
 	}
-	public String getP_economy() {
-		return p_economy;
+	public String getEconomy() {
+		return economy;
 	}
-	public void setP_economy(String p_economy) {
-		this.p_economy = p_economy;
+	public void setEconomy(String economy) {
+		this.economy = economy;
 	}
-	public String getP_bowling_strike_rate() {
-		return p_bowling_strike_rate;
+	public String getBowlingStrikeRate() {
+		return bowlingStrikeRate;
 	}
-	public void setP_bowling_strike_rate(String p_bowling_strike_rate) {
-		this.p_bowling_strike_rate = p_bowling_strike_rate;
+	public void setBowlingStrikeRate(String bowlingStrikeRate) {
+		this.bowlingStrikeRate = bowlingStrikeRate;
 	}
-	public int getP_five_wickets() {
-		return p_five_wickets;
+	public int getFiveWickets() {
+		return fiveWickets;
 	}
-	public void setP_five_wickets(int p_five_wickets) {
-		this.p_five_wickets = p_five_wickets;
+	public void setFiveWickets(int fiveWickets) {
+		this.fiveWickets = fiveWickets;
 	}
-	public int getP_run_outs() {
-		return p_run_outs;
+	public int getRunOuts() {
+		return runOuts;
 	}
-	public void setP_run_outs(int p_run_outs) {
-		this.p_run_outs = p_run_outs;
+	public void setRunOuts(int runOuts) {
+		this.runOuts = runOuts;
 	}
-	public int getP_catches() {
-		return p_catches;
+	public int getCatches() {
+		return catches;
 	}
-	public void setP_catches(int p_catches) {
-		this.p_catches = p_catches;
+	public void setCatches(int catches) {
+		this.catches = catches;
 	}
-	public int getP_stumpings() {
-		return p_stumpings;
+	public int getStumpings() {
+		return stumpings;
 	}
-	public void setP_stumpings(int p_stumpings) {
-		this.p_stumpings = p_stumpings;
+	public void setStumpings(int stumpings) {
+		this.stumpings = stumpings;
 	}
-	
 	@Override
 	public String toString() {
-		return "PlayerStatisticsDTO [p_player_id=" + p_player_id + ", p_player_name=" + p_player_name + ", p_matches=" + p_matches
-				+ ", p_batting_innings=" + p_batting_innings + ", p_not_outs=" + p_not_outs + ", p_runs_scored="
-				+ p_runs_scored + ", p_balls_faced=" + p_balls_faced + ", p_batting_strike_rate="
-				+ p_batting_strike_rate + ", p_high_score=" + p_high_score + ", p_batting_average=" + p_batting_average
-				+ ", p_fifties=" + p_fifties + ", p_hundreds=" + p_hundreds + ", p_fours=" + p_fours + ", p_sixes="
-				+ p_sixes + ", p_bowling_innings=" + p_bowling_innings + ", p_balls_bowled=" + p_balls_bowled
-				+ ", p_runs_conceded=" + p_runs_conceded + ", p_wickets_taken=" + p_wickets_taken + ", p_best_figures="
-				+ p_best_figures + ", p_bowling_average=" + p_bowling_average + ", p_economy=" + p_economy
-				+ ", p_bowling_strike_rate=" + p_bowling_strike_rate + ", p_five_wickets=" + p_five_wickets
-				+ ", p_run_outs=" + p_run_outs + ", p_catches=" + p_catches + ", p_stumpings=" + p_stumpings + "]";
+		return "PlayerStatisticsDTO [playerID=" + playerID + ", playerName=" + playerName + ", matches=" + matches
+				+ ", battingInnings=" + battingInnings + ", notOuts=" + notOuts + ", runsScored=" + runsScored
+				+ ", ballsFaced=" + ballsFaced + ", battingStrikeRate=" + battingStrikeRate + ", highScore=" + highScore
+				+ ", battingAverage=" + battingAverage + ", fifties=" + fifties + ", hundreds=" + hundreds + ", fours="
+				+ fours + ", sixes=" + sixes + ", bowlingInnings=" + bowlingInnings + ", ballsBowled=" + ballsBowled
+				+ ", runsConceded=" + runsConceded + ", wicketsTaken=" + wicketsTaken + ", bestFigures=" + bestFigures
+				+ ", bowlingAverage=" + bowlingAverage + ", economy=" + economy + ", bowlingStrikeRate="
+				+ bowlingStrikeRate + ", fiveWickets=" + fiveWickets + ", runOuts=" + runOuts + ", catches=" + catches
+				+ ", stumpings=" + stumpings + "]";
 	}
-	
 }

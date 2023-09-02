@@ -3,45 +3,46 @@ package app.model.dto;
 import java.io.Serializable;
 
 public class TeamsDTO implements Serializable{
-	private String t_team_id;
-	private String t_team_name;
-	private String t_age_group;
-	private String t_location;
-	private boolean t_is_club;
+	private String teamID;
+	private String teamName;
+	private String ageGroup;
+	private String location;
+	private boolean club;
 	
-	public String getT_team_id() {
-		return t_team_id;
+	public String getTeamID() {
+		return teamID;
 	}
-	public void setT_team_id(String t_team_id) {
-		this.t_team_id = t_team_id;
+	public void setTeamID(String teamID) {
+		this.teamID = teamID;
 	}
-	public String getT_team_name() {
-		return t_team_name;
+	public String getTeamName() {
+		return teamName;
 	}
-	public void setT_team_name(String t_team_name) {
-		this.t_team_name = t_team_name;
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
-	public String getT_age_group() {
-		return t_age_group;
+	public String getAgeGroup() {
+		return ageGroup;
 	}
-	public void setT_age_group(String t_age_group) {
-		this.t_age_group = t_age_group;
+	public void setAgeGroup(String ageGroup) {
+		this.ageGroup = ageGroup;
 	}
-	public String getT_location() {
-		return t_location;
+	public String getLocation() {
+		return location;
 	}
-	public void setT_location(String t_location) {
-		this.t_location = t_location;
+	public void setLocation(String location) {
+		this.location = location;
 	}
-	public boolean isT_is_club() {
-		return t_is_club;
+	public boolean isClub() {
+		return club;
 	}
-	public void setT_is_club(boolean t_is_club) {
-		this.t_is_club = t_is_club;
+	public void setClub(boolean club) {
+		this.club = club;
 	}
+	
 	@Override
 	public String toString() {
-		return "TeamsDTO [t_team_id=" + t_team_id + ", t_team_name=" + t_team_name + ", t_age_group=" + t_age_group
-				+ ", t_location=" + t_location + ", t_is_club=" + t_is_club + "]";
+		return "TeamsDTO [teamID=" + teamID + ", teamName=" + teamName + ", ageGroup=" + ageGroup + ", location="
+				+ location + ", club=" + club + "]";
 	}
 }
