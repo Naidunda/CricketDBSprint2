@@ -87,4 +87,77 @@
 		<servlet-name>GetMatchScorecard</servlet-name>
 		<url-pattern>/Match-Scorecard</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetPlayerManagement</servlet-name>
+		<servlet-class>app.controller.getPlayerManagement</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetPlayerManagement</servlet-name>
+		<url-pattern>/Player-Management</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>PostCreatePlayer</servlet-name>
+		<servlet-class>app.controller.postCreatePlayer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PostCreatePlayer</servlet-name>
+		<url-pattern>/PostCreatePlayer</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PostEditPlayer</servlet-name>
+		<servlet-class>app.controller.postEditPlayer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PostEditPlayer</servlet-name>
+		<url-pattern>/PostEditPlayer</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PostCreateTeam</servlet-name>
+		<servlet-class>app.controller.postCreateTeam</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PostCreateTeam</servlet-name>
+		<url-pattern>/PostCreateTeam</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PostEditTeam</servlet-name>
+		<servlet-class>app.controller.postEditTeam</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PostEditTeam</servlet-name>
+		<url-pattern>/PostEditTeam</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PostAddTeamPlayers</servlet-name>
+		<servlet-class>app.controller.postAddTeamPlayers</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PostAddTeamPlayers</servlet-name>
+		<url-pattern>/PostAddTeamPlayers</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PostDeleteTeamPlayers</servlet-name>
+		<servlet-class>app.controller.postDeleteTeamPlayers</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PostDeleteTeamPlayers</servlet-name>
+		<url-pattern>/PostDeleteTeamPlayers</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetTeamManagement</servlet-name>
+		<servlet-class>app.controller.getTeamManagement</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetTeamManagement</servlet-name>
+		<url-pattern>/Team-Management</url-pattern>
+	</servlet-mapping>
 </web-app>
