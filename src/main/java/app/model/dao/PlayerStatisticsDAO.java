@@ -26,130 +26,127 @@ public class PlayerStatisticsDAO {
 					"SELECT * FROM tblPlayerStatistics WHERE Player_ID = \"" + rs1.getString("Player_ID") + "\"");
 
 			if (rs2.next()) {
-				player.setP_player_id(rs1.getString("Player_ID"));
-				player.setP_player_name(rs1.getString("Player_Name"));
-				player.setP_matches(rs2.getInt("Matches"));
-				player.setP_batting_innings(rs2.getInt("Batting_Innings"));
-				player.setP_not_outs(rs2.getInt("Not_Outs"));
-				player.setP_runs_scored(rs2.getInt("Runs_Scored"));
-				player.setP_balls_faced(rs2.getInt("Balls_Faced"));
-				player.setP_high_score(rs2.getString("High_Score"));
-				player.setP_fifties(rs2.getInt("Fifties"));
-				player.setP_hundreds(rs2.getInt("Hundreds"));
-				player.setP_fours(rs2.getInt("Fours"));
-				player.setP_sixes(rs2.getInt("Sixes"));
-				player.setP_bowling_innings(rs2.getInt("Bowling_Innings"));
-				player.setP_balls_bowled(rs2.getInt("Balls_Bowled"));
-				player.setP_runs_conceded(rs2.getInt("Runs_Conceded"));
-				player.setP_wickets_taken(rs2.getInt("Wickets_Taken"));
-				player.setP_best_figures(rs2.getString("Best_Figures"));
-				player.setP_five_wickets(rs2.getInt("Five_Wicket_Hauls"));
-				player.setP_run_outs(rs2.getInt("Run_Outs"));
-				player.setP_catches(rs2.getInt("Catches"));
-				player.setP_stumpings(rs2.getInt("Stumpings"));
-
+				player.setPlayerID(rs1.getString("Player_ID"));
+				player.setPlayerName(rs1.getString("Player_Name"));
+				
+				player.setMatches(rs2.getInt("Matches"));
+				player.setBattingInnings(rs2.getInt("Batting_Innings"));
+				player.setNotOuts(rs2.getInt("Not_Outs"));
+				player.setRunsScored(rs2.getInt("Runs_Scored"));
+				player.setBallsFaced(rs2.getInt("Balls_Faced"));
+				player.setHighScore(rs2.getString("High_Score"));
+				player.setFifties(rs2.getInt("Fifties"));
+				player.setHundreds(rs2.getInt("Hundreds"));
+				player.setFours(rs2.getInt("Fours"));
+				player.setSixes(rs2.getInt("Sixes"));
+				player.setBowlingInnings(rs2.getInt("Bowling_Innings"));
+				player.setBallsBowled(rs2.getInt("Balls_Bowled"));
+				player.setRunsConceded(rs2.getInt("Runs_Conceded"));
+				player.setWicketsTaken(rs2.getInt("Wickets_Taken"));
+				player.setBestFigures(rs2.getString("Best_Figures"));
+				player.setFiveWickets(rs2.getInt("Five_Wicket_Hauls"));
+				player.setRunOuts(rs2.getInt("Run_Outs"));
+				player.setCatches(rs2.getInt("Catches"));
+				player.setStumpings(rs2.getInt("Stumpings"));
 			}
 
 			while (rs2.next()) {
-				player.setP_matches(rs2.getInt("Matches") + player.getP_matches());
-				player.setP_batting_innings(rs2.getInt("Batting_Innings") + player.getP_batting_innings());
-				player.setP_not_outs(rs2.getInt("Not_Outs") + player.getP_not_outs());
-				player.setP_runs_scored(rs2.getInt("Runs_Scored") + player.getP_runs_scored());
-				player.setP_balls_faced(rs2.getInt("Balls_Faced") + player.getP_balls_faced());
-				player.setP_fifties(rs2.getInt("Fifties") + player.getP_fifties());
-				player.setP_hundreds(rs2.getInt("Hundreds") + player.getP_hundreds());
-				player.setP_fours(rs2.getInt("Fours") + player.getP_fours());
-				player.setP_sixes(rs2.getInt("Sixes") + player.getP_sixes());
-				player.setP_bowling_innings(rs2.getInt("Bowling_Innings") + player.getP_bowling_innings());
-				player.setP_balls_bowled(rs2.getInt("Balls_Bowled") + player.getP_balls_bowled());
-				player.setP_runs_conceded(rs2.getInt("Runs_Conceded") + player.getP_runs_conceded());
-				player.setP_wickets_taken(rs2.getInt("Wickets_Taken") + player.getP_wickets_taken());
-				player.setP_five_wickets(rs2.getInt("Five_Wicket_Hauls") + player.getP_five_wickets());
-				player.setP_run_outs(rs2.getInt("Run_Outs") + player.getP_run_outs());
-				player.setP_catches(rs2.getInt("Catches") + player.getP_catches());
-				player.setP_stumpings(rs2.getInt("Stumpings") + player.getP_stumpings());
+				player.setMatches(rs2.getInt("Matches") + player.getMatches());
+				player.setBattingInnings(rs2.getInt("Batting_Innings") + player.getBattingInnings());
+				player.setNotOuts(rs2.getInt("Not_Outs") + player.getNotOuts());
+				player.setRunsScored(rs2.getInt("Runs_Scored") + player.getRunsScored());
+				player.setBallsFaced(rs2.getInt("Balls_Faced") + player.getBallsFaced());
+				player.setFifties(rs2.getInt("Fifties") + player.getFifties());
+				player.setHundreds(rs2.getInt("Hundreds") + player.getHundreds());
+				player.setFours(rs2.getInt("Fours") + player.getFours());
+				player.setSixes(rs2.getInt("Sixes") + player.getSixes());
+				player.setBowlingInnings(rs2.getInt("Bowling_Innings") + player.getBowlingInnings());
+				player.setBallsBowled(rs2.getInt("Balls_Bowled") + player.getBallsBowled());
+				player.setRunsConceded(rs2.getInt("Runs_Conceded") + player.getRunsConceded());
+				player.setWicketsTaken(rs2.getInt("Wickets_Taken") + player.getWicketsTaken());
+				player.setFiveWickets(rs2.getInt("Five_Wicket_Hauls") + player.getFiveWickets());
+				player.setRunOuts(rs2.getInt("Run_Outs") + player.getRunOuts());
+				player.setCatches(rs2.getInt("Catches") + player.getCatches());
+				player.setStumpings(rs2.getInt("Stumpings") + player.getStumpings());
 				
-				if (rs2.getString("Best_Figures").equals("NA") || player.getP_best_figures().equals("NA")) {
-					if (!(rs2.getString("Best_Figures").equals("NA")) && player.getP_best_figures().equals("NA")) {
-						player.setP_best_figures(rs2.getString("Best_Figures"));
+				if (rs2.getString("Best_Figures").equals("NA") || player.getBestFigures().equals("NA")) {
+					if (!(rs2.getString("Best_Figures").equals("NA")) && player.getBestFigures().equals("NA")) {
+						player.setBestFigures(rs2.getString("Best_Figures"));
 					}
-				} else if (!(rs2.getString("Best_Figures").equals("NA")
-						&& player.getP_best_figures().equals("NA"))) {
+				} else if (!(rs2.getString("Best_Figures").equals("NA") && player.getBestFigures().equals("NA"))) {
 
 					Scanner newBestFigure = new Scanner(rs2.getString("Best_Figures")).useDelimiter("/");
 
 					int newWickets = Integer.parseInt(newBestFigure.next());
 					int newRuns = Integer.parseInt(newBestFigure.next());
 
-					Scanner oldBestFigure = new Scanner(player.getP_best_figures()).useDelimiter("/");
+					Scanner oldBestFigure = new Scanner(player.getBestFigures()).useDelimiter("/");
 
 					int oldWickets = Integer.parseInt(oldBestFigure.next());
 					int oldRuns = Integer.parseInt(oldBestFigure.next());
 
 					if (newWickets > oldWickets) {
-						player.setP_best_figures(rs2.getString("Best_Figures"));
+						player.setBestFigures(rs2.getString("Best_Figures"));
 					} else if (oldWickets == newWickets) {
 						if (newRuns < oldRuns) {
-							player.setP_best_figures(rs2.getString("Best_Figures"));
+							player.setBestFigures(rs2.getString("Best_Figures"));
 						}
 					}
 				}
 
-				if (rs2.getString("High_Score").equals("NA") || player.getP_high_score().equals("NA")) {
-					if (!(rs2.getString("High_Score").equals("NA")) && player.getP_high_score().equals("NA")) {
-						player.setP_high_score(rs2.getString("High_Score"));
+				if (rs2.getString("High_Score").equals("NA") || player.getHighScore().equals("NA")) {
+					if (!(rs2.getString("High_Score").equals("NA")) && player.getHighScore().equals("NA")) {
+						player.setHighScore(rs2.getString("High_Score"));
 					}
-				} else if (!(rs2.getString("High_Score").equals("NA") && player.getP_high_score().equals("NA"))) {
-					int oldHighScore = Integer.parseInt(player.getP_high_score().replace("*", ""));
+				} else if (!(rs2.getString("High_Score").equals("NA") && player.getHighScore().equals("NA"))) {
+					int oldHighScore = Integer.parseInt(player.getHighScore().replace("*", ""));
 					int newHighScore = Integer.parseInt(rs2.getString("High_Score").replace("*", ""));
 
 					if (newHighScore > oldHighScore) {
-						player.setP_high_score(rs2.getString("High_Score"));
+						player.setHighScore(rs2.getString("High_Score"));
 					} else if (newHighScore == oldHighScore) {
 						if (rs2.getString("High_Score").contains("*")) {
-							player.setP_high_score(rs2.getString("High_Score"));
+							player.setHighScore(rs2.getString("High_Score"));
 						}
 					}
 				}
-
 			}
 			
 			DecimalFormat f = new DecimalFormat("##.0");
 
-			if (player.getP_balls_faced() != 0) {
-				player.setP_batting_strike_rate(
-						f.format((double) player.getP_runs_scored() / player.getP_balls_faced() * 100) + "");
+			if (player.getBallsFaced() != 0) {
+				player.setBattingStrikeRate(
+						f.format((double) player.getRunsScored() / player.getBallsFaced() * 100) + "");
 			} else {
-				player.setP_batting_strike_rate("NA");
+				player.setBattingStrikeRate("NA");
 			}
 
-			if ((player.getP_batting_innings() - player.getP_not_outs()) != 0) {
-				player.setP_batting_average(f.format(
-						(double) player.getP_runs_scored() / (player.getP_batting_innings() - player.getP_not_outs()))
+			if ((player.getBattingInnings() - player.getNotOuts()) != 0) {
+				player.setBattingAverage(f.format(
+						(double) player.getRunsScored() / (player.getBattingInnings() - player.getNotOuts()))
 						+ "");
 			} else {
-				player.setP_batting_average("NA");
+				player.setBattingAverage("NA");
 			}
 
-			if (player.getP_wickets_taken() != 0) {
-				player.setP_bowling_average(
-						f.format((double) player.getP_runs_conceded() / player.getP_wickets_taken()) + "");
+			if (player.getWicketsTaken() != 0) {
+				player.setBowlingAverage(
+						f.format((double) player.getRunsConceded() / player.getWicketsTaken()) + "");
 			} else {
-				player.setP_bowling_average("NA");
+				player.setBowlingAverage("NA");
 			}
 
-			if ((player.getP_balls_bowled() / 6) != 0) {
-				player.setP_economy(
-						f.format((double) player.getP_runs_conceded() / (player.getP_balls_bowled() / 6)) + "");
+			if ((player.getBallsBowled() / 6) != 0) {
+				player.setEconomy(f.format((double) player.getRunsConceded() / (player.getBallsBowled() / 6)) + "");
 			} else {
-				player.setP_economy("NA");
+				player.setEconomy("NA");
 			}
 
-			if (player.getP_wickets_taken() != 0) {
-				player.setP_bowling_strike_rate(
-						f.format((double) player.getP_balls_bowled() / player.getP_wickets_taken()) + "");
+			if (player.getWicketsTaken() != 0) {
+				player.setBowlingStrikeRate(
+						f.format((double) player.getBallsBowled() / player.getWicketsTaken()) + "");
 			} else {
-				player.setP_bowling_strike_rate("NA");
+				player.setBowlingStrikeRate("NA");
 			}
 
 			players.add(player);

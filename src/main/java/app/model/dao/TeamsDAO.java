@@ -19,11 +19,11 @@ public class TeamsDAO {
 		while (rs.next()) {
 			TeamsDTO team = new TeamsDTO();
 			
-			team.setT_team_id(rs.getString("Team_ID"));
-			team.setT_team_name(rs.getString("Team_Name"));
-			team.setT_age_group(rs.getString("Age_Group"));
-			team.setT_location(rs.getString("Location"));
-			team.setT_is_club(rs.getBoolean("isClub"));
+			team.setTeamID(rs.getString("Team_ID"));
+			team.setTeamName(rs.getString("Team_Name"));
+			team.setAgeGroup(rs.getString("Age_Group"));
+			team.setLocation(rs.getString("Location"));
+			team.setClub(rs.getBoolean("isClub"));
 			
 			teams.add(team);
 		}
