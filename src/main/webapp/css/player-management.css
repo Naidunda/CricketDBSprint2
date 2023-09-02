@@ -1,0 +1,186 @@
+.main {
+  position: relative;
+  width: calc(100vw - 280px);
+  height: 100vh;
+}
+
+
+.select-menu {
+	float:left;
+	width: 100%;
+	margin:0 auto;
+	margin-top: 16px;
+	margin-bottom: 32px;
+}
+
+.select-menu .select-btn {
+	display: flex;
+	height: 75px;
+	width: 100%;
+	background: #fff;
+	padding: 20px;
+	font-size: 18px;
+	font-weight: 400;
+	border-radius: 8px;
+	align-items: center;
+	cursor: pointer;
+	justify-content: space-between;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-btn i {
+	font-size: 18px;
+	transition: 0.3s;
+}
+
+.select-menu.active .select-btn i {
+	transform: rotate(-180deg);
+}
+
+.select-menu .options {
+	position: relative;
+	padding: 20px;
+	margin-top: 10px;
+	border-radius: 8px;
+	background: #fff;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	display: none;
+}
+
+.select-menu.active .options {
+	display: block;
+}
+
+.options .option {
+	display: flex;
+	height: 55px;
+	cursor: pointer;
+	border-radius: 8px;
+	align-items: center;
+	background: #fff;
+}
+
+.options .option:hover {
+	background: #f2f2f2;
+}
+
+.option .option-text {
+	font-size: 18px;
+	color: #333;
+} 
+
+.players h1{
+	text-align: center;
+	font-size: 40px;
+}
+
+.players h2{
+	font-weight: 500;
+	font-size: 20px;
+}
+
+#player-name {
+	background-color: #fff;
+	  border: rgb(85, 83, 85) solid 2px;
+	  height: 75px;
+	  width: 100%;
+	  padding: 16px;
+	  font-size: 20px;
+	  margin-top: 32px;
+	  margin-bottom: 32px;
+}
+
+#submitQuery {
+  height: 75px;
+  width: 100%;
+  border-radius: 10px;
+  border: #ff5c5c 2px solid;
+  color: #ff5c5c;
+  background-color: white;
+  cursor: pointer;
+}
+
+#submitQuery:hover {
+  color: #ffffff;
+  background-color: #ff5c5c;
+}
+
+input[type="date"]{
+	background-color: rgb(85, 83, 85);
+    padding: 15px;
+	 position: relative;
+             display: block;
+             margin : 0 auto;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-bottom: 32px;
+}
+
+.left {
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 64px;
+  margin-right: 16px;
+  padding: 32px;
+  width: calc((100% - 160px) / 3);
+  height: calc(100vh - 128px);
+  overflow: scroll;
+  float: left;
+}
+
+.right {
+  background-color: #fff;
+  border-radius: 20px;
+   padding: 32px;
+  margin: 64px;
+   margin-left: 16px;
+  width: calc((100% - 160px) / 3 * 2);
+  height: calc(100vh - 128px);
+  overflow: scroll;
+  float: left;
+}
+
+.right .float-child{
+	width: 50%;
+  	float: left;
+}
+
+#myInput {
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 14px 20px 12px 14px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {outline: 3px solid #ddd;}
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+	background-color: #ddd;
+}
