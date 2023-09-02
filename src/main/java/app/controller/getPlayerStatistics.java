@@ -44,66 +44,66 @@ public class getPlayerStatistics extends HttpServlet {
 
 			if (sortBy.equals("Player Name")) {
 				if (direction.equals("fa-arrow-down-a-z")) {
-					players.sort((o1, o2) -> o1.getP_player_name().compareTo(o2.getP_player_name()));
+					players.sort((o1, o2) -> o1.getPlayerName().compareTo(o2.getPlayerName()));
 				} else {
-					players.sort((o1, o2) -> o2.getP_player_name().compareTo(o1.getP_player_name()));
+					players.sort((o1, o2) -> o2.getPlayerName().compareTo(o1.getPlayerName()));
 				}
 			} else if (sortBy.equals("Matches")) {
 				if (direction.equals("fa-arrow-down-a-z")) {
-					players.sort((o1, o2) -> Integer.compare(o1.getP_matches(), o2.getP_matches()));
+					players.sort((o1, o2) -> Integer.compare(o1.getMatches(), o2.getMatches()));
 				} else {
-					players.sort((o1, o2) -> Integer.compare(o2.getP_matches(), o1.getP_matches()));
+					players.sort((o1, o2) -> Integer.compare(o2.getMatches(), o1.getMatches()));
 				}
 			} else if (sortBy.equals("Runs Scored")) {
 				if (direction.equals("fa-arrow-down-a-z")) {
-					players.sort((o1, o2) -> Integer.compare(o1.getP_runs_scored(), o2.getP_runs_scored()));
+					players.sort((o1, o2) -> Integer.compare(o1.getRunsScored(), o2.getRunsScored()));
 				} else {
-					players.sort((o1, o2) -> Integer.compare(o2.getP_runs_scored(), o1.getP_runs_scored()));
+					players.sort((o1, o2) -> Integer.compare(o2.getRunsScored(), o1.getRunsScored()));
 				}
 			} else if (sortBy.equals("High Score")) {
 				if (direction.equals("fa-arrow-down-a-z")) {
-					players.sort((o1, o2) -> Integer.compare(Integer.parseInt(o1.getP_high_score().replace("*", "")),
-							Integer.parseInt(o2.getP_high_score().replace("*", ""))));
+					players.sort((o1, o2) -> Integer.compare(Integer.parseInt(o1.getHighScore().replace("*", "")),
+							Integer.parseInt(o2.getHighScore().replace("*", ""))));
 				} else {
-					players.sort((o1, o2) -> Integer.compare(Integer.parseInt(o2.getP_high_score().replace("*", "")),
-							Integer.parseInt(o1.getP_high_score().replace("*", ""))));
+					players.sort((o1, o2) -> Integer.compare(Integer.parseInt(o2.getHighScore().replace("*", "")),
+							Integer.parseInt(o1.getHighScore().replace("*", ""))));
 				}
 			} else if (sortBy.equals("Batting Average")) {
 				if (direction.equals("fa-arrow-down-a-z")) {
 					players.sort((o1, o2) -> {
-						if (o1.getP_batting_average().equals("NA")) {
+						if (o1.getBattingAverage().equals("NA")) {
 							return -1;
-						} else if (o2.getP_batting_average().equals("NA")) {
+						} else if (o2.getBattingAverage().equals("NA")) {
 							return 1;
 						} else {
-							return Double.compare(Double.parseDouble(o1.getP_batting_average()),
-									Double.parseDouble(o2.getP_batting_average()));
+							return Double.compare(Double.parseDouble(o1.getBattingAverage()),
+									Double.parseDouble(o2.getBattingAverage()));
 						}
 					});
 
 				} else {
 					players.sort((o1, o2) -> {
-						if (o1.getP_batting_average().equals("NA")) {
+						if (o1.getBattingAverage().equals("NA")) {
 							return 1;
-						} else if (o2.getP_batting_average().equals("NA")) {
+						} else if (o2.getBattingAverage().equals("NA")) {
 							return -1;
 						} else {
-							return Double.compare(Double.parseDouble(o2.getP_batting_average()),
-									Double.parseDouble(o1.getP_batting_average()));
+							return Double.compare(Double.parseDouble(o2.getBattingAverage()),
+									Double.parseDouble(o1.getBattingAverage()));
 						}
 					});
 				}
 			} else if (sortBy.equals("Wickets Taken")) {
 				if (direction.equals("fa-arrow-down-a-z")) {
-					players.sort((o1, o2) -> Integer.compare(o1.getP_wickets_taken(), o2.getP_wickets_taken()));
+					players.sort((o1, o2) -> Integer.compare(o1.getWicketsTaken(), o2.getWicketsTaken()));
 				} else {
-					players.sort((o1, o2) -> Integer.compare(o2.getP_wickets_taken(), o1.getP_wickets_taken()));
+					players.sort((o1, o2) -> Integer.compare(o2.getWicketsTaken(), o1.getWicketsTaken()));
 				}
 			} else if (sortBy.equals("Best Figures")) {
 
 				players.sort((o1, o2) -> {
-					Scanner best_figure_o1 = new Scanner(o1.getP_best_figures()).useDelimiter("/");
-					Scanner best_figure_o2 = new Scanner(o2.getP_best_figures()).useDelimiter("/");
+					Scanner best_figure_o1 = new Scanner(o1.getBestFigures()).useDelimiter("/");
+					Scanner best_figure_o2 = new Scanner(o2.getBestFigures()).useDelimiter("/");
 
 					String temp = best_figure_o1.next();
 
@@ -152,43 +152,44 @@ public class getPlayerStatistics extends HttpServlet {
 
 						}
 					}
+					
 				});
 			} else if (sortBy.equals("Bowling Average")) {
 				if (direction.equals("fa-arrow-down-a-z")) {
 					players.sort((o1, o2) -> {
-						if (o1.getP_bowling_average().equals("NA")) {
+						if (o1.getBowlingAverage().equals("NA")) {
 							return -1;
-						} else if (o2.getP_bowling_average().equals("NA")) {
+						} else if (o2.getBowlingAverage().equals("NA")) {
 							return 1;
 						} else {
-							return Double.compare(Double.parseDouble(o1.getP_bowling_average()),
-									Double.parseDouble(o2.getP_bowling_average()));
+							return Double.compare(Double.parseDouble(o1.getBowlingAverage()),
+									Double.parseDouble(o2.getBowlingAverage()));
 						}
 					});
 
 				} else {
 					players.sort((o1, o2) -> {
-						if (o1.getP_bowling_average().equals("NA")) {
+						if (o1.getBowlingAverage().equals("NA")) {
 							return 1;
-						} else if (o2.getP_bowling_average().equals("NA")) {
+						} else if (o2.getBowlingAverage().equals("NA")) {
 							return -1;
 						} else {
-							return Double.compare(Double.parseDouble(o2.getP_bowling_average()),
-									Double.parseDouble(o1.getP_bowling_average()));
+							return Double.compare(Double.parseDouble(o2.getBowlingAverage()),
+									Double.parseDouble(o1.getBowlingAverage()));
 						}
 					});
 				}
 			} else if (sortBy.equals("Catches")) {
 				if (direction.equals("fa-arrow-down-a-z")) {
-					players.sort((o1, o2) -> Integer.compare(o1.getP_catches(), o2.getP_catches()));
+					players.sort((o1, o2) -> Integer.compare(o1.getCatches(), o2.getCatches()));
 				} else {
-					players.sort((o1, o2) -> Integer.compare(o2.getP_catches(), o1.getP_catches()));
+					players.sort((o1, o2) -> Integer.compare(o2.getCatches(), o1.getCatches()));
 				}
 			} else if (sortBy.equals("Stumpings")) {
 				if (direction.equals("fa-arrow-down-a-z")) {
-					players.sort((o1, o2) -> Integer.compare(o1.getP_stumpings(), o2.getP_stumpings()));
+					players.sort((o1, o2) -> Integer.compare(o1.getStumpings(), o2.getStumpings()));
 				} else {
-					players.sort((o1, o2) -> Integer.compare(o2.getP_stumpings(), o1.getP_stumpings()));
+					players.sort((o1, o2) -> Integer.compare(o2.getStumpings(), o1.getStumpings()));
 				}
 			}
 
