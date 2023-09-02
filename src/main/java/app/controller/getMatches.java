@@ -11,10 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import app.model.dao.MatchesDAO;
-import app.model.dao.PlayerStatisticsDAO;
 import app.model.dto.FixturesDTO;
 import app.model.dto.MatchesDTO;
-import app.model.dto.PlayerStatisticsDTO;
 
 /**
  * Servlet implementation class getMatches
@@ -47,19 +45,19 @@ public class getMatches extends HttpServlet {
 			
 			if (sortBy.equals("Date")) {
 				if (direction.equals("fa-arrow-down-a-z")) {
-					matches.sort((o1, o2) -> o1.getM_match_date().compareTo(o2.getM_match_date()));
-					fixtures.sort((o1, o2) -> o1.getF_match_date().compareTo(o2.getF_match_date()));
+					matches.sort((o1, o2) -> o1.getMatchDate().compareTo(o2.getMatchDate()));
+					fixtures.sort((o1, o2) -> o1.getMatchDate().compareTo(o2.getMatchDate()));
 				} else {
-					matches.sort((o1, o2) -> o2.getM_match_date().compareTo(o1.getM_match_date()));
-					fixtures.sort((o1, o2) -> o2.getF_match_date().compareTo(o1.getF_match_date()));
+					matches.sort((o1, o2) -> o2.getMatchDate().compareTo(o1.getMatchDate()));
+					fixtures.sort((o1, o2) -> o2.getMatchDate().compareTo(o1.getMatchDate()));
 				}
 			} else {
 				if (direction.equals("fa-arrow-down-a-z")) {
-					matches.sort((o1, o2) -> o1.getM_format().compareTo(o2.getM_format()));
-					fixtures.sort((o1, o2) -> o1.getF_format().compareTo(o2.getF_format()));
+					matches.sort((o1, o2) -> o1.getFormat().compareTo(o2.getFormat()));
+					fixtures.sort((o1, o2) -> o1.getFormat().compareTo(o2.getFormat()));
 				} else {
-					matches.sort((o1, o2) -> o2.getM_format().compareTo(o1.getM_format()));
-					fixtures.sort((o1, o2) -> o2.getF_format().compareTo(o1.getF_format()));
+					matches.sort((o1, o2) -> o2.getFormat().compareTo(o1.getFormat()));
+					fixtures.sort((o1, o2) -> o2.getFormat().compareTo(o1.getFormat()));
 				}
 			}
 			

@@ -41,18 +41,18 @@ public class getDashboard extends HttpServlet {
 			ArrayList<PlayerStatisticsDTO> batsmen = new PlayerStatisticsDAO().getPlayerStatistics("");
 			ArrayList<PlayerStatisticsDTO> bowlers = new PlayerStatisticsDAO().getPlayerStatistics("");
 			
-			batsmen.sort((o1, o2) -> Integer.compare(o2.getP_runs_scored(),o1.getP_runs_scored()));
+			batsmen.sort((o1, o2) -> Integer.compare(o2.getRunsScored(),o1.getRunsScored()));
 			request.setAttribute("topscorers", batsmen);
 			
-			bowlers.sort((o1, o2) -> Integer.compare(o2.getP_wickets_taken(),o1.getP_wickets_taken()));
+			bowlers.sort((o1, o2) -> Integer.compare(o2.getWicketsTaken(),o1.getWicketsTaken()));
 			request.setAttribute("topwickettakers", bowlers);
 			
 			
 			ArrayList<MatchesDTO> matches = new MatchesDAO().getMatchInformation("");
 			ArrayList<FixturesDTO> fixtures = new MatchesDAO().getFixtureInformation("");
 			
-			matches.sort((o1, o2) -> o2.getM_match_date().compareTo(o1.getM_match_date()));
-			fixtures.sort((o1, o2) -> o1.getF_match_date().compareTo(o2.getF_match_date()));
+			matches.sort((o1, o2) -> o2.getMatchDate().compareTo(o1.getMatchDate()));
+			fixtures.sort((o1, o2) -> o1.getMatchDate().compareTo(o2.getMatchDate()));
 			
 			
 			request.setAttribute("matchinformation", matches);
