@@ -11,12 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import app.model.dao.MatchScorecardDAO;
-import app.model.dao.MatchesDAO;
-import app.model.dao.PlayersDAO;
 import app.model.dto.BattingScorecardDTO;
 import app.model.dto.BowlingScorecardDTO;
 import app.model.dto.MatchesDTO;
-import app.model.dto.PlayersDTO;
 
 /**
  * Servlet implementation class getMatchScorecard
