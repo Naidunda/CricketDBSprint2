@@ -3,11 +3,9 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set value="${requestScope.matchsummary}" var="a"></c:set>
-
 <c:set value="${requestScope.battinginnings1}" var="b"></c:set>
 <c:set value="${requestScope.dnbinnings1}" var="c"></c:set>
 <c:set value="${requestScope.bowlinginnings1}" var="d"></c:set>
-
 <c:set value="${requestScope.battinginnings2}" var="e"></c:set>
 <c:set value="${requestScope.dnbinnings2}" var="f"></c:set>
 <c:set value="${requestScope.bowlinginnings2}" var="g"></c:set>
@@ -25,12 +23,12 @@
 
 <script src="https://kit.fontawesome.com/1374555d03.js"
 	crossorigin="anonymous"></script>
-<script src="scripts/match-scorecard.js"></script>
+<script src="scripts/scripts.js"></script>
 </head>
 
 <body>
 	<div class="container">
-		<nav>
+		<nav> <!-- Navigation Bar -->
 			<ul>
 				<li><a href="Dashboard" class="logo"> <span
 						class="nav-item">CricketDB</span>
@@ -53,65 +51,65 @@
 					class="nav-list"> <i class="fas fa-solid fa-calendar-days"></i>
 						<span class="nav-item">Matches</span>
 				</a></li>
-				<li><a href="management" class="nav-list"> <i
-						class="fas fa-solid fa-chart-line"></i> <span class="nav-item">Management</span>
+				<li><a href="Player-Management?playerID=" class="nav-list"> <i
+						class="fas fa-solid fa-chart-line"></i> <span class="nav-item">Player Management</span>
+				</a></li>
+				<li><a href="Team-Management?teamID=" class="nav-list"> <i
+						class="fas fa-solid fa-chart-line"></i> <span class="nav-item">Team Management</span>
 				</a></li>
 			</ul>
-		</nav>
-		<section class="main">
-			<h1>Match Summary</h1>
-
+		</nav><!-- Navigation Bar End -->
+		
+		<section class="main">  <!-- Main-Content -->
+			<h1>Match Summary</h1>  <!-- Match Summary -->
 			<div class="scorecard-content float-container">
 				<div class="float-child left-align">
 					<p>
-						<a href="Team-Profile?teamID=<c:out value="${a.m_team_1_id}"/>"><c:out
-								value="${a.m_team_1_team_name}" /> (<c:out
-								value="${a.m_team_1_age_group}" />)</a>
+						<a href="Team-Profile?teamID=<c:out value="${a.teamName1}"/>"><c:out
+								value="${a.teamName1}" /> (<c:out
+								value="${a.teamAgeGroup1}" />)</a>
 					</p>
 				</div>
 				<div class="float-child right-align">
 					<p>
-						<c:out value="${a.m_innings_1_wickets}" />
+						<c:out value="${a.inningsWickets1}" />
 						/
-						<c:out value="${a.m_innings_1_total}" />
+						<c:out value="${a.inningsTotal1}" />
 						(
-						<c:out value="${a.m_innings_1_overs}" />
+						<c:out value="${a.inningsOvers1}" />
 						ov)
 					</p>
 				</div>
-			</div>
+			</div> 
 
 			<div class="scorecard-content float-container">
 				<div class="float-child left-align">
 					<p>
-						<a href="Team-Profile?teamID=<c:out value="${a.m_team_2_id}"/>"><c:out
-								value="${a.m_team_2_team_name}" />(<c:out
-								value="${a.m_team_1_age_group}" />)</a>
+						<a href="Team-Profile?teamID=<c:out value="${a.teamID2}"/>"><c:out
+								value="${a.teamName2}" />(<c:out
+								value="${a.teamAgeGroup2}" />)</a>
 					</p>
 				</div>
 				<div class="float-child right-align">
 					<p>
-						<c:out value="${a.m_innings_2_wickets}" />
+						<c:out value="${a.inningsWickets2}" />
 						/
-						<c:out value="${a.m_innings_2_total}" />
+						<c:out value="${a.inningsTotal2}" />
 						(
-						<c:out value="${a.m_innings_2_overs}" />
+						<c:out value="${a.inningsOvers2}" />
 						ov)
 					</p>
 				</div>
-			</div>
+			</div> <!-- Match Summary End -->
 
-			<div class="tabs">
-				<button class="tab-links active"
-					onclick="openTab(event, 'First-Innings')">1st Innings</button>
-				<button class="tab-links" onclick="openTab(event, 'Second-Innings')">2nd
-					Innings</button>
-			</div>
+			<div class="tabs"> <!-- Tab Links -->
+				<button class="tab-links active" onclick="openTab(event, 'First-Innings')">1st Innings</button>
+				<button class="tab-links" onclick="openTab(event, 'Second-Innings')">2nd Innings</button>
+			</div> <!-- Tab Links End -->
 
-
-			<div id="First-Innings" class="tab-content" style="display: block">
+			<div id="First-Innings" class="tab-content" style="display: block"> <!-- Tab-Content (1) -->
 				<h1>
-					<c:out value="${a.m_team_1_team_name}" />
+					<c:out value="${a.teamName1}" />
 				</h1>
 				<h2>50 ovs maximum</h2>
 				<table class="scorecard">
@@ -125,30 +123,30 @@
 						<th>SR</th>
 					</tr>
 					<tbody>
-						<c:forEach var="item" items="${b}">
+						<c:forEach var="item" items="${b}"> <!-- Creates table row for each batsman who batted ("battinginnings1") -->
 							<tr>
 								<td><a
-									href="Player-Profile?playerID=${item.s_batsman_id}&season=All-Time">${item.s_batsman_name}</a></td>
-								<td>${item.s_dismissal_message}</td>
-								<td>${item.s_runs_scored}</td>
-								<td>${item.s_balls_faced}</td>
-								<td>${item.s_fours}</td>
-								<td>${item.s_sixes}</td>
-								<td>${item.s_strike_rate}</td>
+									href="Player-Profile?playerID=${item.batsmanID}&season=All-Time">${item.batsmanName}</a></td>
+								<td>${item.dismissalMessage}</td>
+								<td>${item.runsScored}</td>
+								<td>${item.ballsFaced}</td>
+								<td>${item.fours}</td>
+								<td>${item.sixes}</td>
+								<td>${item.strikeRate}</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 				<p>
 					Did not bat:
-					<c:forEach var="item" items="${c}">
+					<c:forEach var="item" items="${c}"> <!-- Lists the batsman which did not bat ("bowlinginnings1") -->
 						<a
-							href="Player-Profile?playerID=${item.s_batsman_id}&season=All-Time">${item.s_batsman_name}</a>, 
+							href="Player-Profile?playerID=${item.batsmanID}&season=All-Time">${item.batsmanName}</a>, 
 						</c:forEach>
 				</p>
 
 				<h1>
-					<c:out value="${a.m_team_2_team_name}" />
+					<c:out value="${a.teamName2}" />
 				</h1>
 				<table class="scorecard">
 					<tr>
@@ -162,26 +160,27 @@
 						<th>Wi</th>
 						<th>NB</th>
 					</tr>
-					<c:forEach var="item" items="${d}">
+					<c:forEach var="item" items="${d}"> <!-- Creates table row for each bowler ("battinginnings1") -->
 						<tr>
 							<td><a
-								href="Player-Profile?playerID=${item.s_bowler_id}&season=All-Time">${item.s_bowler_name}</a></td>
-							<td>${item.s_overs}</td>
-							<td>${item.s_maidens}</td>
-							<td>${item.s_runs_conceded}</td>
-							<td>${item.s_wickets_taken}</td>
-							<td>${item.s_economy}</td>
-							<td>${item.s_average}</td>
-							<td>${item.s_wide}</td>
-							<td>${item.s_no_ball}</td>
+								href="Player-Profile?playerID=${item.bowlerID}&season=All-Time">${item.bowlerName}</a></td>
+							<td>${item.overs}</td>
+							<td>${item.maidens}</td>
+							<td>${item.runsConceded}</td>
+							<td>${item.wicketsTaken}</td>
+							<td>${item.economy}</td>
+							<td>${item.average}</td>
+							<td>${item.wide}</td>
+							<td>${item.noBalls}</td>
 
 						</tr>
 					</c:forEach>
 				</table>
-			</div>
-			<div id="Second-Innings" class="tab-content">
+			</div> <!-- Tab-Content (1) End -->
+			
+			<div id="Second-Innings" class="tab-content"> <!-- Tab-Content (2) -->
 				<h1>
-					<c:out value="${a.m_team_2_team_name}" />
+					<c:out value="${a.teamName2}" />
 				</h1>
 				<h2>50 ovs maximum</h2>
 				<table class="scorecard">
@@ -195,29 +194,29 @@
 						<th>SR</th>
 					</tr>
 					<tbody>
-						<c:forEach var="item" items="${e}">
+						<c:forEach var="item" items="${e}"> <!-- Creates table row for each batsman who batted ("battinginnings2") -->
 							<tr>
 								<td><a
-									href="Player-Profile?playerID=${item.s_batsman_id}&season=All-Time">${item.s_batsman_name}</a></td>
-								<td>${item.s_dismissal_message}</td>
-								<td>${item.s_runs_scored}</td>
-								<td>${item.s_balls_faced}</td>
-								<td>${item.s_fours}</td>
-								<td>${item.s_sixes}</td>
-								<td>${item.s_strike_rate}</td>
+									href="Player-Profile?playerID=${item.batsmanID}&season=All-Time">${item.batsmanName}</a></td>
+								<td>${item.dismissalMessage}</td>
+								<td>${item.runsScored}</td>
+								<td>${item.ballsFaced}</td>
+								<td>${item.fours}</td>
+								<td>${item.sixes}</td>
+								<td>${item.strikeRate}</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 				<p>
 					Did not bat:
-					<c:forEach var="item" items="${f}">
+					<c:forEach var="item" items="${f}"> <!-- Lists the batsman which did not bat ("bowlinginnings2") -->
 						<a
-							href="Player-Profile?playerID=${item.s_batsman_id}&season=All-Time">${item.s_batsman_name}</a>, 
+							href="Player-Profile?playerID=${item.batsmanID}&season=All-Time">${item.batsmanName}</a>, 
 						</c:forEach>
 				</p>
 				<h1>
-					<c:out value="${a.m_team_1_team_name}" />
+					<c:out value="${a.teamName1}" />
 				</h1>
 				<table class="scorecard">
 					<tr>
@@ -227,27 +226,27 @@
 						<th>R</th>
 						<th>W</th>
 						<th>Eco</th>
+						<th>Avg</th>
 						<th>Wi</th>
 						<th>NB</th>
 					</tr>
-					<c:forEach var="item" items="${g}">
+					<c:forEach var="item" items="${g}"> <!-- Creates table row for each bowler ("battinginnings2") -->
 						<tr>
 							<td><a
-								href="Player-Profile?playerID=${item.s_bowler_id}&season=All-Time">${item.s_bowler_name}</a></td>
-							<td>${item.s_overs}</td>
-							<td>${item.s_maidens}</td>
-							<td>${item.s_runs_conceded}</td>
-							<td>${item.s_wickets_taken}</td>
-							<td>${item.s_economy}</td>
-							<td>${item.s_average}</td>
-							<td>${item.s_wide}</td>
-							<td>${item.s_no_ball}</td>
-
+								href="Player-Profile?playerID=${item.bowlerID}&season=All-Time">${item.bowlerName}</a></td>
+							<td>${item.overs}</td>
+							<td>${item.maidens}</td>
+							<td>${item.runsConceded}</td>
+							<td>${item.wicketsTaken}</td>
+							<td>${item.economy}</td>
+							<td>${item.average}</td>
+							<td>${item.wide}</td>
+							<td>${item.noBalls}</td>
 						</tr>
 					</c:forEach>
 				</table>
-			</div>
-		</section>
+			</div> <!-- Tab-Content (2) End -->
+		</section> <!-- Main-Content End -->
 	</div>
 </body>
 
