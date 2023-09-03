@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>CricketDB | Matches</title>
+<title>CricketDB | Team Management</title>
 
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/nav-bar.css" />

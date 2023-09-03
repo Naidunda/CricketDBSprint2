@@ -65,7 +65,7 @@
 			<div class="scorecard-content float-container">
 				<div class="float-child left-align">
 					<p>
-						<a href="Team-Profile?teamID=<c:out value="${a.teamName1}"/>"><c:out
+						<a href="Team-Profile?teamID=<c:out value="${a.teamID1}"/>"><c:out
 								value="${a.teamName1}" /> (<c:out
 								value="${a.teamAgeGroup1}" />)</a>
 					</p>
