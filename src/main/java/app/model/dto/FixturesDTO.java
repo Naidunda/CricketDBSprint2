@@ -13,6 +13,7 @@ public class FixturesDTO implements Serializable{
 	private String teamName2;
 	private String teamAgeGroup2;
 	
+	// Getters and setters for all the fields
 	public String getFixtureID() {
 		return fixtureID;
 	}

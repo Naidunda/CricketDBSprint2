@@ -28,6 +28,7 @@ public class MatchesDTO implements Serializable{
 	private String inningsOvers2;
 	private int inningsWickets2;
 	
+	// Getters and setters for all the fields
 	public String getMatchID() {
 		return matchID;
 	}

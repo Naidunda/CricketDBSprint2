@@ -32,19 +32,21 @@ public class getTeams extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String sortBy = request.getParameter("sortBy");
-		String direction = request.getParameter("direction");
-		String search = request.getParameter("search");
+		String sortBy = request.getParameter("sortBy"); // Get the sorting by criteria.
+		String direction = request.getParameter("direction"); // Get the sorting direction.
+		String search = request.getParameter("search"); // Get the search keyword.
+
 		
 		
 		try {
 			ArrayList<TeamsDTO> teams = new TeamsDAO().getTeamsInformation(search);
 			
-			request.setAttribute("teamsinformation", teams);
+			//Sets the sort criteria as attributes in the requests
 			request.setAttribute("sortby", sortBy);
 			request.setAttribute("direction", direction);
 			request.setAttribute("search", search);
 			
+			// Sorts the teams based on the specified sorting criteria and direction.
 			if (sortBy.equals("Team Name")) {
 	
 				if(direction.equals("fa-arrow-down-a-z")) {
@@ -65,8 +67,11 @@ public class getTeams extends HttpServlet {
 					teams.sort((o1, o2) -> o2.getLocation().compareTo(o1.getLocation()));
 				}
 			}
+			
+			// Set the sorted list as attributes in the request.
+			request.setAttribute("teamsinformation", teams);
 				
-		
+			// Forward the request to the "teams.jsp" page for rendering.
 			request.getRequestDispatcher("WEB-INF/pages/teams.jsp").forward(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -26,15 +26,17 @@ public class postDeleteTeamPlayers extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		// Retrieve player's ID and team's ID from HTTP POST request parameters.
 		String playerID =  request.getParameter("playerID");
 		String teamID =  request.getParameter("teamID");
-		String playerName =  request.getParameter("playerName");
 		
+		// Create a DBConnect instance for database interaction.
 		DBConnect dbconnect = new DBConnect();
 		
+		// Constructs a SQL query to delete the player from the team in the database
 		String query = String.format("DELETE FROM tblTeamPlayers WHERE Player_ID = \"%s\" AND Team_ID = \"%s\";", playerID, teamID);
 		
+		// Executes the SQL query to delete the player from the team in the database
 		dbconnect.executeQuery(query);
 	}
 

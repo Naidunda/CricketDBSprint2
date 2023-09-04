@@ -14,6 +14,7 @@ public class BowlingScorecardDTO {
 	private int wide;
 	private int noBalls;
 	
+	// Getters and setters for all the fields
 	public String getMatchID() {
 		return matchID;
 	}

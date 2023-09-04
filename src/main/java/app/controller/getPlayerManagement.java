@@ -14,9 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import app.connection.DBConnect;
 import app.model.dao.PlayerManagementDAO;
-import app.model.dao.PlayersDAO;
 import app.model.dto.PlayersDTO;
-import app.model.dto.TeamPlayersDTO;
 
 /**
  * Servlet implementation class getManagement
@@ -35,11 +33,12 @@ public class getPlayerManagement extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String playerID =  request.getParameter("playerID");
+		String playerID =  request.getParameter("playerID"); // Gets the player's ID from the request.
 		
+		
+		//If there is no playerID in the request, retrieves the player whose ID has the lowest value.
 		if (playerID.equals("")){
 			DBConnect dbconnect = new DBConnect();
-
 			ResultSet rs = dbconnect.executeSelect("SELECT TOP 1 Player_ID FROM tblPlayers");
 			
 			try {
@@ -51,17 +50,18 @@ public class getPlayerManagement extends HttpServlet {
 			}
 		}
 		
-		
+		 // Set the player's ID as an attribute for request.
 		request.setAttribute("playerid", playerID);
 		
 		try {
 			PlayersDTO player = new PlayerManagementDAO().getPlayerInformation(playerID);
-		
+			
+			// Extract bowling skill details
 			Scanner scBowlingSkill =  new Scanner(player.getBowlingSkill());
-
 			String bowlingArm = scBowlingSkill.next();
 			
-			if (bowlingArm.equals("NA")) {
+			//Makes a singular string containing all the player's bowling details and sets it as an attribute for the request.
+			if (bowlingArm.equals("NA")) { 
 				request.setAttribute("bowlingarm", "NA");
 				request.setAttribute("bowlingskill", "NA");
 			} else {
@@ -79,7 +79,7 @@ public class getPlayerManagement extends HttpServlet {
 				request.setAttribute("bowlingskill", bowlingSkill);
 			}
 			
-			if(player.isKeeper() == true) {
+			if(player.isKeeper() == true) { //Sets "Yes or "No" as an attribute based of if the player is a keeper.
 				request.setAttribute("iskeeper", "Yes");
 			} else {
 				request.setAttribute("iskeeper", "No");
@@ -87,14 +87,18 @@ public class getPlayerManagement extends HttpServlet {
 			
 			ArrayList<PlayersDTO> players = new PlayerManagementDAO().getAllPlayerInformation(playerID);
 			
+			// Sort the player list by player name.
 			players.sort((o1, o2) -> o1.getPlayerName().compareTo(o2.getPlayerName()));
 			
+			// Set the player's information and the full list of players as an attribute for request.
 			request.setAttribute("player", player);
 			request.setAttribute("players", players);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		// Forward the request to the "player-management.jsp" page for rendering.
 		request.getRequestDispatcher("WEB-INF/pages/player-management.jsp").forward(request, response);
 	}
 }

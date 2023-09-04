@@ -4,7 +4,7 @@
   height: 100vh;
 }
 
-
+/*Drop-Down Menu*/
 .select-menu {
 	float:left;
 	width: 100%;
@@ -69,6 +69,7 @@
 	color: #333;
 } 
 
+/*Headings*/
 .players h1{
 	text-align: center;
 	font-size: 40px;
@@ -79,6 +80,7 @@
 	font-size: 20px;
 }
 
+/*Form*/
 #player-name {
 	background-color: #fff;
 	  border: rgb(85, 83, 85) solid 2px;
@@ -119,6 +121,7 @@ input[type="date"]{
     margin-bottom: 32px;
 }
 
+/*Columns*/
 .left {
   background-color: #fff;
   border-radius: 20px;
@@ -148,6 +151,7 @@ input[type="date"]{
   	float: left;
 }
 
+/*Search Drop-down */
 #myInput {
   box-sizing: border-box;
   font-size: 16px;
@@ -156,9 +160,9 @@ input[type="date"]{
   border-bottom: 1px solid #ddd;
 }
 
-#myInput:focus {outline: 3px solid #ddd;}
-
-
+#myInput:focus {
+	outline: 3px solid #ddd;
+}
 
 .dropdown {
   position: relative;

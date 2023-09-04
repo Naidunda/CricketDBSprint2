@@ -25,8 +25,7 @@
 </head>
 <body>
 	<div class="container">
-		<nav>
-			<!-- Navigation Bar -->
+		<nav> <!-- Navigation Bar -->
 			<ul>
 				<li><a href="Dashboard" class="logo"> <span
 						class="nav-item">CricketDB</span>
@@ -58,14 +57,12 @@
 						class="nav-item">Team Management</span>
 				</a></li>
 			</ul>
-		</nav>
-		<!-- Navigation Bar End -->
+		</nav> <!-- Navigation Bar End -->
 
-		<section class="main">
-			<!-- Main-Content -->
+		<section class="main"> <!-- Main-Content -->
 
 			<div class="teams">
-				<div class="left">
+				<div class="left"> <!-- Left Column -->
 					<iframe name="teams" style="display: none;"></iframe>
 
 					<h1>Create A Team</h1>
@@ -78,7 +75,7 @@
 							placeholder="Enter Team's Location..." required />
 
 						<h2>Select Team's Age Group:</h2>
-						<div class="select-menu age-group">
+						<div class="select-menu age-group"> <!-- Drop-down Menu -->
 							<div class="select-btn"
 								onclick="selectionMenu(event, 'age-group')">
 								<span class="sBtn-text">Open</span> <i
@@ -92,9 +89,10 @@
 								<li class="option"><span class="option-text">U13</span></li>
 								<li class="option"><span class="option-text">U11</span></li>
 							</ul>
-						</div>
+						</div> <!-- Drop-down Menu End -->
+						
 						<h2>Is the team a club:</h2>
-						<div class="select-menu is-club">
+						<div class="select-menu is-club"> <!-- Drop-down Menu -->
 							<div class="select-btn" onclick="selectionMenu(event, 'is-club')">
 								<span class="sBtn-text">No</span> <i
 									class="fa-solid fa-chevron-down"></i>
@@ -103,13 +101,13 @@
 								<li class="option"><span class="option-text">Yes</span></li>
 								<li class="option"><span class="option-text">No</span></li>
 							</ul>
-						</div>
+						</div> <!-- Drop-down Menu End -->
 
 						<input type="hidden" id="age-group" name="age-group" value="Open" />
 						<input type="hidden" id="is-club" name="is-club" value="No" /> <input
 							type="submit" id="submitQuery" />
 					</form>
-				</div>
+				</div> <!-- Left Column End-->
 
 				<div class="right">
 					<h1>Edit Team</h1>
@@ -120,16 +118,14 @@
 								<input type="text" placeholder="Search for team.." id="myInput"
 									onkeyup="filterFunction()">
 								<c:forEach var="item" items="${b}">
-									<a href="Team-Management?teamID=<c:out value = "${item.teamID}"/>">
+									<a
+										href="Team-Management?teamID=<c:out value = "${item.teamID}"/>">
 										<span class="option-text">${item.teamName}</span>
 									</a>
 								</c:forEach>
 							</div>
 
 						</div>
-
-
-
 
 						<form action="PostEditTeam" method="post" target="teams">
 
@@ -139,6 +135,7 @@
 								type="text" id="location" name="location"
 								placeholder="Enter Team's Location"
 								value="<c:out value = "${a.location}"/>" required />
+								
 							<h2>Select Team's Age Group:</h2>
 							<div class="select-menu age-group-edit">
 								<div class="select-btn"
@@ -154,7 +151,8 @@
 									<li class="option"><span class="option-text">U13</span></li>
 									<li class="option"><span class="option-text">U11</span></li>
 								</ul>
-							</div>
+							</div> <!-- Drop-down Menu End -->
+							
 							<h2>Is the team a club:</h2>
 							<div class="select-menu is-club-edit">
 								<div class="select-btn"
@@ -166,7 +164,8 @@
 									<li class="option"><span class="option-text">Yes</span></li>
 									<li class="option"><span class="option-text">No</span></li>
 								</ul>
-							</div>
+							</div> <!-- Drop-down Menu End -->
+							
 							<input type="hidden" id="teamID" name="teamID"
 								value="<c:out value = "${a.teamID}"/>" /> <input type="hidden"
 								id="age-group-edit" name="age-group-edit"
@@ -176,6 +175,7 @@
 								id="submitQuery" />
 						</form>
 					</div>
+					
 					<div class="float-child remove-players">
 						<h2>Remove Players</h2>
 						<div class="dropdown">
@@ -183,16 +183,14 @@
 								<input type="text" placeholder="Search for team.."
 									id="myInputRP" onkeyup="filterFormFunction('RP')">
 								<c:forEach var="item" items="${c}">
-									<form action="PostDeleteTeamPlayers" id="${item.playerID}"
-										method="post" target="teams">
-										<input type="hidden" name="playerID" id="playerID"
-											value="${item.playerID}"> <input type="hidden"
-											name="teamID" id="teamID"
-											value="<c:out value = "${teamid}"/>"> <input
-											type="hidden" name="playerName" id="playerName"
-											value="${item.playerName}">
+									<form action="PostDeleteTeamPlayers" id="${item.playerID}" method="post" target="teams">
+										<input type="hidden" name="playerID" id="playerID" value="${item.playerID}"> 
+										<input type="hidden" name="teamID" id="teamID" value="<c:out value = "${teamid}"/>"> 
+										<input type="hidden" name="playerName" id="playerName" value="${item.playerName}">
 									</form>
-									<a onClick="deleteForm('${item.playerID}', '<c:out value = "${teamid}"/>'); return confirm('Do want to add this player to the team (You will have to refresh to see changes)')"> <span class="option-text">${item.playerName}</span>
+									<a
+										onClick="deleteForm('${item.playerID}', '<c:out value = "${teamid}"/>'); return confirm('Do want to add this player to the team (You will have to refresh to see changes)')">
+										<span class="option-text">${item.playerName}</span>
 									</a>
 								</c:forEach>
 							</div>
@@ -207,25 +205,25 @@
 									id="myInputAP" onkeyup="filterFormFunction('AP')">
 								<c:forEach var="item" items="${d}">
 
-									<form action="PostAddTeamPlayers" id="${item.playerID}" method="post"
-										target="teams">
+									<form action="PostAddTeamPlayers" id="${item.playerID}"
+										method="post" target="teams">
 										<input type="hidden" name="playerID" id="playerID"
-											value="${item.playerID}"> 
-										<input type="hidden"
+											value="${item.playerID}"> <input type="hidden"
 											name="teamID" id="teamID"
-											value="<c:out value = "${teamid}"/>"> 
-										<input
+											value="<c:out value = "${teamid}"/>"> <input
 											type="hidden" name="playerName" id="playerName"
-											value="${item.playerName}">
-											<a onClick="addForm('${item.playerID}', '<c:out value = "${teamid}"/>'); return confirm('Do want to add this player to the team (You will have to refresh to see changes)')"> <span class="option-text">${item.playerName}</span>
-									</a>
+											value="${item.playerName}"> <a
+											onClick="addForm('${item.playerID}', '<c:out value = "${teamid}"/>'); return confirm('Do want to add this player to the team (You will have to refresh to see changes)')">
+											<span class="option-text">${item.playerName}</span>
+										</a>
 									</form>
 								</c:forEach>
 							</div>
 						</div>
 					</div>
 				</div>
-		</section>
+			</div>
+		</section> <!-- Main-Content End -->
 	</div>
 </body>
 </html>

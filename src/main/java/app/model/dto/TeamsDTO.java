@@ -9,6 +9,7 @@ public class TeamsDTO implements Serializable{
 	private String location;
 	private boolean club;
 	
+	// Getters and setters for all the fields
 	public String getTeamID() {
 		return teamID;
 	}

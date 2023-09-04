@@ -4,6 +4,7 @@ public class PlayerSeasonsDTO {
 	private String playerID;
 	private String season;
 	
+	// Getters and setters for all the fields
 	public String getPlayerID() {
 		return playerID;
 	}

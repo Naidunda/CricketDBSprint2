@@ -35,13 +35,15 @@ public class getPlayerStatistics extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String sortBy = request.getParameter("sortBy");
-		String direction = request.getParameter("direction");
-		String search = request.getParameter("search");
+		String sortBy = request.getParameter("sortBy"); // Get the sorting by criteria.
+		String direction = request.getParameter("direction"); // Get the sorting direction.
+		String search = request.getParameter("search"); // Get the search keyword.
 
 		try {
+			// Retrieve player statistics for players matching the search a using a DAO class.
 			ArrayList<PlayerStatisticsDTO> players = new PlayerStatisticsDAO().getPlayerStatistics(search);
 
+			 // Sort the players based on the specified sorting criteria and direction.
 			if (sortBy.equals("Player Name")) {
 				if (direction.equals("fa-arrow-down-a-z")) {
 					players.sort((o1, o2) -> o1.getPlayerName().compareTo(o2.getPlayerName()));
@@ -192,12 +194,16 @@ public class getPlayerStatistics extends HttpServlet {
 					players.sort((o1, o2) -> Integer.compare(o2.getStumpings(), o1.getStumpings()));
 				}
 			}
-
+			
+			 // Set the sorted list as attributes in the request.
 			request.setAttribute("playerstatistics", players);
+			
+			//Sets the sort criteria as attributes in the requests
 			request.setAttribute("sortby", sortBy);
 			request.setAttribute("direction", direction);
 			request.setAttribute("search", search);
-
+			
+			// Forwards the request to the "players.jsp" page for rendering.
 			request.getRequestDispatcher("WEB-INF/pages/players.jsp").forward(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();

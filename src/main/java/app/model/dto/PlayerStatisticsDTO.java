@@ -30,6 +30,7 @@ public class PlayerStatisticsDTO implements Serializable {
 	private int catches;
 	private int stumpings;
 	
+	// Getters and setters for all the fields
 	public String getPlayerID() {
 		return playerID;
 	}

@@ -12,6 +12,7 @@ public class PlayersDTO implements Serializable{
 	private boolean keeper;
 	private String role;
 	
+	// Getters and setters for all the fields
 	public String getPlayerID() {
 		return playerID;
 	}

@@ -25,24 +25,28 @@ public class postCreateTeam extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		// Retrieves team information from HTTP POST request parameters
 		String name = request.getParameter("team-name");
 		String location= request.getParameter("location");
 		String ageGroup = request.getParameter("age-group");
 		String club = request.getParameter("is-club");
 		
+		 // Converts the club parameter to a boolean
 		boolean isClub;
-		
 		if(club.equals("Yes")) {
 			isClub = true;
 		} else {
 			isClub = false;
 		}
-		
+
+		// Creates a DBConnect instance for database interaction.
 		DBConnect dbconnect = new DBConnect();
 		
+		// Constructs a SQL query to insert the team into the databases.
 		String query = String.format("INSERT INTO tblTeams(Team_Name, Age_Group, Location, isClub) VALUES(\"%s\",\"%s\",\"%s\",%s)", name, ageGroup, location, isClub);
 		
+		// Execute the SQL query to add the team into the database.
 		dbconnect.executeQuery(query);
 				
 	}

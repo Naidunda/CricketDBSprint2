@@ -1,8 +1,6 @@
 package app.controller;
 
 import java.io.IOException;
-import java.time.Year;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,6 +26,8 @@ public class postEditPlayer extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		 // Retrieves player information from HTTP POST request parameters
 		String playerID = request.getParameter("playerID");
 		String name = request.getParameter("player-name");
 		String dob = request.getParameter("dob");
@@ -36,15 +36,7 @@ public class postEditPlayer extends HttpServlet {
 		String bowlingSkill = request.getParameter("bowling-skill-edit");
 		String keeper = request.getParameter("is-keeper-edit");
 		
-		System.out.println(playerID);
-		System.out.println(name);
-		System.out.println(dob);
-		System.out.println(battingHand);
-		System.out.println(bowlingArm);
-		System.out.println(bowlingSkill);
-		System.out.println(keeper);
-		 
-
+		 // Contructs the bowling information into a singular string.
 		String bowlingMess;
 		if(bowlingArm.equals("NA") || bowlingSkill.equals("NA")) {
 			bowlingMess = "NA";
@@ -52,23 +44,22 @@ public class postEditPlayer extends HttpServlet {
 			bowlingMess = bowlingArm + " " + bowlingSkill;
 		}
 		
+		 // Converts the keeper value to a boolean
 		boolean isKeeper;
-		
 		if(keeper.equals("Yes")) {
 			isKeeper = true;
 		} else {
 			isKeeper = false;
 		}
-		
+		// Creates a DBConnect instance for database interaction
 		DBConnect dbconnect = new DBConnect();
 		
-		
+		// Construct a SQL query to update the player's information in the database
 		String query = String.format("UPDATE tblPlayers "
 				+ "SET Player_Name = \"%s\", dob = DateValue(\"%s\"), Batting_Hand = \"%s\", Bowling_Skill = \"%s\", Is_Keeper = %s "
 				+ "WHERE Player_ID = %s;", name, dob, battingHand, bowlingMess, isKeeper, Integer.parseInt(playerID));
 		
+		// Executes SQL query to update the player's information in the database
 		dbconnect.executeQuery(query);
-		
-		
 	}
 }

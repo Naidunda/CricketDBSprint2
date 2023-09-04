@@ -16,11 +16,14 @@ import app.model.dto.PlayersDTO;
 import app.model.dto.TeamPlayersDTO;
 
 public class PlayersDAO {
+	// Method to retrieve player information based on player ID
 	public PlayersDTO getPlayerProfile(String player_id) throws SQLException {
 
 		PlayersDTO player = new PlayersDTO();
 
 		DBConnect dbconnect = new DBConnect();
+		
+		// Executes a query to retrieve player information.
 		ResultSet rs = dbconnect.executeSelect("SELECT * FROM tblPlayers WHERE Player_ID = \"" + player_id + "\";");
 
 		if (rs.next()) {
@@ -33,27 +36,31 @@ public class PlayersDAO {
 			player.setBattingHand(rs.getString("Batting_Hand"));
 			player.setBowlingSkill(rs.getString("Bowling_Skill"));
 			player.setKeeper(rs.getBoolean("Is_Keeper"));
+			
+			// Generate a role description based on batting hand, bowling skill, and wicket-keeping status
 			String mess = player.getBattingHand() + " | " + player.getBowlingSkill();
-
 			if (player.isKeeper()) {
 				mess += " | Wicket-Keeper";
 			}
-
 			player.setRole(mess);
 		}
 		return player;
 	}
-
+	
+	// Method to retrieve a list of teams a player has been associated with
 	public ArrayList<TeamPlayersDTO> getPlayerTeams(String player_id) throws SQLException {
 		ArrayList<TeamPlayersDTO> teams = new ArrayList<TeamPlayersDTO>();
 
 		DBConnect dbconnect = new DBConnect();
+		
+		 // Execute a query to retrieve team associations for the player
 		ResultSet rs1 = dbconnect
 				.executeSelect("SELECT * FROM tblTeamPlayers WHERE Player_ID = \"" + player_id + "\";");
 
 		while (rs1.next()) {
 			TeamPlayersDTO team = new TeamPlayersDTO();
-
+			
+			// Retrieve team details for each association
 			ResultSet rs2 = dbconnect
 					.executeSelect("SELECT * FROM tblTeams WHERE Team_ID = \"" + rs1.getString("Team_ID") + "\";");
 
@@ -68,19 +75,22 @@ public class PlayersDAO {
 
 		return teams;
 	}
-
+	
+	// Method to retrieve all a player's statistic
 	public ArrayList<PlayerStatisticsDTO> getAllPlayerStatistics(String player_id) throws SQLException {
 
 		ArrayList<PlayerStatisticsDTO> players = new ArrayList<PlayerStatisticsDTO>();
 
 		DBConnect dbconnect = new DBConnect();
-
+		
+		 // Execute a query to retrieve player's statistics.
 		ResultSet rs1 = dbconnect
 				.executeSelect("SELECT * FROM tblPlayerStatistics WHERE Player_ID = \"" + player_id + "\"");
-
+		
 		PlayerStatisticsDTO player = new PlayerStatisticsDTO();
 		player.setPlayerID(player_id);
 
+		// Retrieve the player's name based on their ID
 		ResultSet rs2 = dbconnect
 				.executeSelect("SELECT Player_Name FROM tblPlayers WHERE Player_ID = \"" + player_id + "\"");
 
@@ -89,6 +99,7 @@ public class PlayersDAO {
 		}
 
 		if (rs1.next()) {
+			 // Set initial statistics from the first query result
 			player.setMatches(rs1.getInt("Matches"));
 			player.setBattingInnings(rs1.getInt("Batting_Innings"));
 			player.setNotOuts(rs1.getInt("Not_Outs"));
@@ -109,7 +120,9 @@ public class PlayersDAO {
 			player.setCatches(rs1.getInt("Catches"));
 			player.setStumpings(rs1.getInt("Stumpings"));
 		}
-
+		
+		
+		 // Loop through additional query results
 		while (rs1.next()) {
 			player.setMatches(rs1.getInt("Matches") + player.getMatches());
 			player.setBattingInnings(rs1.getInt("Batting_Innings") + player.getBattingInnings());
@@ -128,7 +141,8 @@ public class PlayersDAO {
 			player.setRunOuts(rs1.getInt("Run_Outs") + player.getRunOuts());
 			player.setCatches(rs1.getInt("Catches") + player.getCatches());
 			player.setStumpings(rs1.getInt("Stumpings") + player.getStumpings());
-
+			
+			// Update the best figures if a new best is found
 			if (rs1.getString("Best_Figures").equals("NA") || player.getBestFigures().equals("NA")) {
 				if (!(rs1.getString("Best_Figures").equals("NA")) && player.getBestFigures().equals("NA")) {
 					player.setBestFigures(rs1.getString("Best_Figures"));
@@ -153,7 +167,8 @@ public class PlayersDAO {
 					}
 				}
 			}
-
+			
+			// Update the high score if a new high score is found
 			if (rs1.getString("High_Score").equals("NA") || player.getHighScore().equals("NA")) {
 				if (!(rs1.getString("High_Score").equals("NA")) && player.getHighScore().equals("NA")) {
 					player.setHighScore(rs1.getString("High_Score"));
@@ -171,17 +186,19 @@ public class PlayersDAO {
 				}
 			}
 		}
-
+		
+		// Calculate additional statistics such as batting strike rate, batting average,
+		// bowling average, bowling strike rate and economy.
 		DecimalFormat f = new DecimalFormat("##.0");
 
-		if (player.getBallsFaced() != 0) {
+		if (player.getBallsFaced() != 0) { //Prevents divide by zero error.
 			player.setBattingStrikeRate(
 					f.format((double) player.getRunsScored() / player.getBallsFaced() * 100) + "");
 		} else {
-			player.setBattingStrikeRate("NA");
+			player.setBattingStrikeRate("NA"); 
 		}
 
-		if ((player.getBattingInnings() - player.getNotOuts()) != 0) {
+		if ((player.getBattingInnings() - player.getNotOuts()) != 0) { //Prevents divide by zero error.
 			player.setBattingAverage(f.format(
 					(double) player.getRunsScored() / (player.getBattingInnings() - player.getNotOuts()))
 					+ "");
@@ -189,20 +206,20 @@ public class PlayersDAO {
 			player.setBattingAverage("NA");
 		}
 
-		if (player.getWicketsTaken() != 0) {
+		if (player.getWicketsTaken() != 0) { //Prevents divide by zero error.
 			player.setBowlingAverage(
 					f.format((double) player.getRunsConceded() / player.getWicketsTaken()) + "");
 		} else {
 			player.setBowlingAverage("NA");
 		}
 
-		if ((player.getBallsBowled() / 6) != 0) {
+		if ((player.getBallsBowled() / 6) != 0) { //Prevents divide by zero error.
 			player.setEconomy(f.format((double) player.getRunsConceded() / (player.getBallsBowled() / 6)) + "");
 		} else {
 			player.setEconomy("NA");
 		}
 
-		if (player.getWicketsTaken() != 0) {
+		if (player.getWicketsTaken() != 0) { //Prevents divide by zero error.
 			player.setBowlingStrikeRate(
 					f.format((double) player.getBallsBowled() / player.getWicketsTaken()) + "");
 		} else {
@@ -213,26 +230,33 @@ public class PlayersDAO {
 
 		return players;
 	}
-
+	
+	// Method to retrieve player statistics for a specific season
 	public ArrayList<PlayerStatisticsDTO> getSeasonPlayerStatistics(String player_id, String p_season)
 			throws SQLException {
 		ArrayList<PlayerStatisticsDTO> players = new ArrayList<PlayerStatisticsDTO>();
-
+		
+		 // Create a new database connection
 		DBConnect dbconnect = new DBConnect();
+		
+		// Execute a SQL query to retrieve player statistics for the specified player and season
 		ResultSet rs1 = dbconnect.executeSelect("SELECT * FROM tblPlayerStatistics WHERE Player_ID = \"" + player_id
 				+ "\" AND Season = \"" + p_season + "\";");
 
 		PlayerStatisticsDTO player = new PlayerStatisticsDTO();
 		player.setPlayerID(player_id);
-
+		
+		// Execute a SQL query to retrieve the player's name based on their ID
 		ResultSet rs2 = dbconnect
 				.executeSelect("SELECT Player_Name FROM tblPlayers WHERE Player_ID = \"" + player_id + "\"");
-
+		
+		// Set the player's name
 		if (rs2.next()) {
 			player.setPlayerName(rs2.getString("Player_Name"));
 		}
 
 		if (rs1.next()) {
+			 // Set player statistics based on the query results
 			player.setMatches(rs1.getInt("Matches"));
 			player.setBattingInnings(rs1.getInt("Batting_Innings"));
 			player.setNotOuts(rs1.getInt("Not_Outs"));
@@ -253,17 +277,19 @@ public class PlayersDAO {
 			player.setCatches(rs1.getInt("Catches"));
 			player.setStumpings(rs1.getInt("Stumpings"));
 		}
-
+		
+		// Calculate additional statistics such as batting strike rate, batting average,
+		// bowling average, bowling strike rate and economy
 		DecimalFormat f = new DecimalFormat("##.0");
 
-		if (player.getBallsFaced() != 0) {
+		if (player.getBallsFaced() != 0) { //Prevents divide by zero error.
 			player.setBattingStrikeRate(
 					f.format((double) player.getRunsScored() / player.getBallsFaced() * 100) + "");
 		} else {
 			player.setBattingStrikeRate("NA");
 		}
 
-		if ((player.getBattingInnings() - player.getNotOuts()) != 0) {
+		if ((player.getBattingInnings() - player.getNotOuts()) != 0) { //Prevents divide by zero error.
 			player.setBattingAverage(f.format(
 					(double) player.getRunsScored() / (player.getBattingInnings() - player.getNotOuts()))
 					+ "");
@@ -271,20 +297,20 @@ public class PlayersDAO {
 			player.setBattingAverage("NA");
 		}
 
-		if (player.getWicketsTaken() != 0) {
+		if (player.getWicketsTaken() != 0) { //Prevents divide by zero error.
 			player.setBowlingAverage(
 					f.format((double) player.getRunsConceded() / player.getWicketsTaken()) + "");
 		} else {
 			player.setBowlingAverage("NA");
 		}
-
-		if ((player.getBallsBowled() / 6) != 0) {
+ 
+		if ((player.getBallsBowled() / 6) != 0) { //Prevents divide by zero error.
 			player.setEconomy(f.format((double) player.getRunsConceded() / (player.getBallsBowled() / 6)) + "");
 		} else {
 			player.setEconomy("NA");
 		}
 
-		if (player.getWicketsTaken() != 0) {
+		if (player.getWicketsTaken() != 0) { //Prevents divide by zero error.
 			player.setBowlingStrikeRate(
 					f.format((double) player.getBallsBowled() / player.getWicketsTaken()) + "");
 		} else {
@@ -295,28 +321,44 @@ public class PlayersDAO {
 
 		return players;
 	}
-
+	
+	//Method to retrieve the seasons played by a player based on player ID
 	public ArrayList<PlayerSeasonsDTO> getSeasonsPlayed(String player_id) throws SQLException {
 		ArrayList<PlayerSeasonsDTO> seasons = new ArrayList<PlayerSeasonsDTO>();
-
+		
+		// Create a new database connection
 		DBConnect dbconnect = new DBConnect();
+		
+		// Execute a SQL query to retrieve the player's ID and seasons played, ordered by season in descending order
 		ResultSet rs = dbconnect.executeSelect("SELECT Player_ID, Season FROM tblPlayerStatistics WHERE Player_ID = \"" + player_id + "\" ORDER BY Season DESC;");
 
 		while (rs.next()) {
+			// Creates a PlayerSeasonsDTO object to store player ID and season information
 			PlayerSeasonsDTO season = new PlayerSeasonsDTO();
+			
+			  // Set the player's ID from the query result
 			season.setPlayerID(rs.getString("Player_ID"));
+			
+			// Set the season as a string (converted from int) from the query result
 			season.setSeason(rs.getInt("Season") + "");
-
+			
+			  // Add the PlayerSeasonsDTO object to the ArrayList
 			seasons.add(season);
 		}
+		
+		 // Return the ArrayList of seasons played by the player
 		return seasons;
 	}
-
+	
+	// Method to retrieve match information a player has played in based on player ID
 	public ArrayList<MatchesDTO> getMatchInforation(String player_id) throws SQLException {
 
 		ArrayList<MatchesDTO> matches = new ArrayList<MatchesDTO>();
 
+		  // Create a new database connection
 		DBConnect dbconnect = new DBConnect();
+		
+		 // Execute a SQL query to retrieve match information for the player
 		ResultSet rs = dbconnect.executeSelect(
 				"SELECT tblMatches.Match_ID, Match_Date, Format, Team_1_ID, Team_2_ID, Toss_Winner_ID, Toss_Decision, Is_Result, Win_Type, Won_By, Match_Winner_ID, Innings_1_Total, Innings_1_Overs, Innings_1_Wickets, Innings_2_Total, Innings_2_Overs, Innings_2_Wickets "
 						+ "FROM tblMatches, tblPlayerMatches "
@@ -324,7 +366,8 @@ public class PlayersDAO {
 
 		while (rs.next()) {
 			MatchesDTO match = new MatchesDTO();
-
+			
+			// Set match properties from the query results
 			match.setMatchID(rs.getString("Match_ID"));
 			match.setMatchDate(rs.getDate("Match_Date"));
 			match.setFormat(rs.getString("Format"));
@@ -342,10 +385,12 @@ public class PlayersDAO {
 			match.setInningsTotal2(rs.getInt("Innings_2_Total"));
 			match.setInningsOvers2(rs.getString("Innings_2_Overs"));
 			match.setInningsWickets2(rs.getInt("Innings_2_Wickets"));
-
+			
+			// Execute a SQL query to retrieves the team name of the match winner
 			ResultSet rs2 = dbconnect.executeSelect(
-					"SELECT Team_Name FROM tblTeams WHERE Team_ID = " + match.getTossWinnerID() + ";");
-
+					"SELECT Team_Name FROM tblTeams WHERE Team_ID = " + match.getMatchWinnerID() + ";");
+			
+			// Contructs a winner's message.
 			if (rs2.next() && match.isResult() == true) {
 				String tempStr = rs2.getString("Team_Name") + " won by " + match.getWonBy() + " ";
 				if (match.getWinType().equals("By runs")) {
@@ -358,18 +403,22 @@ public class PlayersDAO {
 				match.setWinMessage("Match Cancelled");
 			}
 
+			//Execute a SQL query to retrieves the team name and age group of the first team.
 			ResultSet rs3 = dbconnect.executeSelect(
 					"SELECT Team_Name, Age_Group FROM tblTeams WHERE Team_ID = " + match.getTeamID1());
 
 			if (rs3.next()) {
+				// Set team name and age group properties from the query results
 				match.setTeamName1(rs3.getString("Team_Name"));
 				match.setTeamAgeGroup1(rs3.getString("Age_Group"));
 			}
 
+			//Execute a SQL query to retrieves the team name and age group of the second team.
 			ResultSet rs4 = dbconnect.executeSelect(
 					"SELECT Team_Name, Age_Group FROM tblTeams WHERE Team_ID = " + match.getTeamID2());
 
 			if (rs4.next()) {
+				// Set team name and age group properties from the query results
 				match.setTeamName2(rs4.getString("Team_Name"));
 				match.setTeamAgeGroup2(rs4.getString("Age_Group"));
 			}

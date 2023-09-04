@@ -10,6 +10,7 @@ public class TeamPlayersDTO implements Serializable{
 	private String playerID;
 	private String playerName;
 	
+	// Getters and setters for all the fields
 	public String getTeamID() {
 		return teamID;
 	}

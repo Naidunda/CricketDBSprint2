@@ -24,8 +24,7 @@
 </head>
 <body>
 	<div class="container">
-		<nav>
-			<!-- Navigation Bar -->
+		<nav> <!-- Navigation Bar -->
 			<ul>
 				<li><a href="Dashboard" class="logo"> <span
 						class="nav-item">CricketDB</span>
@@ -55,14 +54,11 @@
 						class="fas fa-solid fa-chart-line"></i> <span class="nav-item">Team Management</span>
 				</a></li>
 			</ul>
-		</nav>
-		<!-- Navigation Bar End -->
+		</nav> <!-- Navigation Bar End -->
 
-		<section class="main">
-			<!-- Main-Content -->
-
+		<section class="main"> <!-- Main-Content -->
 			<div class="players">
-				<div class="left">
+				<div class="left">  <!-- Left Column -->
 					<iframe name="players" style="display: none;"></iframe>
 
 					<h1>Create A Player</h1>
@@ -74,7 +70,7 @@
 							name="dob" required />
 
 						<h2>Select Batting Hand:</h2>
-						<div class="select-menu batting-hand">
+						<div class="select-menu batting-hand"> <!-- Drop-down Menu -->
 							<div class="select-btn"
 								onclick="selectionMenu(event, 'batting-hand')">
 								<span class="sBtn-text">Right-Hand</span> <i
@@ -84,10 +80,10 @@
 								<li class="option"><span class="option-text">Right-Hand</span></li>
 								<li class="option"><span class="option-text">Left-Hand</span></li>
 							</ul>
-						</div>
+						</div> <!-- Drop-down Menu End -->
 
 						<h2>Select Bowling Arm:</h2>
-						<div class="select-menu bowling-arm">
+						<div class="select-menu bowling-arm"> <!-- Drop-down Menu -->
 							<div class="select-btn"
 								onclick="selectionMenu(event, 'bowling-arm')">
 								<span class="sBtn-text">Right Arm</span> <i
@@ -99,10 +95,10 @@
 								<li class="option"><span class="option-text">Left
 										Arm</span></li>
 							</ul>
-						</div>
+						</div> <!-- Drop-down Menu End -->
 
 						<h2>Select Bowling Skill:</h2>
-						<div class="select-menu bowling-skill">
+						<div class="select-menu bowling-skill"> <!-- Drop-down Menu -->
 							<div class="select-btn"
 								onclick="selectionMenu(event, 'bowling-skill')">
 								<span class="sBtn-text">Fast</span> <i
@@ -117,10 +113,10 @@
 								<li class="option"><span class="option-text">Legbreak</span></li>
 								<li class="option"><span class="option-text">NA</span></li>
 							</ul>
-						</div>
+						</div> <!-- Drop-down Menu End -->
 
 						<h2>Is the player a Keeper:</h2>
-						<div class="select-menu is-keeper">
+						<div class="select-menu is-keeper"> <!-- Drop-down Menu -->
 							<div class="select-btn"
 								onclick="selectionMenu(event, 'is-keeper')">
 								<span class="sBtn-text">No</span> <i
@@ -130,7 +126,7 @@
 								<li class="option"><span class="option-text">Yes</span></li>
 								<li class="option"><span class="option-text">No</span></li>
 							</ul>
-						</div>
+						</div>  <!-- Drop-down Menu End -->
 
 						<input type="hidden" id="batting-hand" name="batting-hand" value="Right-Hand" /> 
 						<input type="hidden" id="bowling-arm" name="bowling-arm" value="Right Arm" /> 
@@ -138,15 +134,15 @@
 						<input type="hidden" id="is-keeper" name="is-keeper" value="No" /> 
 						<input type="submit" id="submitQuery" onclick="return confirm('Do you want to add this player?')"/>
 					</form>
-				</div>
+				</div>  <!-- Left Column End -->
 
-				<div class="right">
+				<div class="right">  <!-- Left Column Right -->
 					<h1>Edit Player</h1>
 					<div class="float-child">
 						<div class="dropdown">
 							<div id="myDropdown" class="dropdown-content">
 								<input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-								<c:forEach var="item" items="${b}">
+								<c:forEach var="item" items="${b}"> <!-- Creates a drop-down option for every player -->
 										<a href = "Player-Management?playerID=<c:out value = "${item.playerID}"/>">
 										<span class="option-text">${item.playerName}</span>
 										</a>
@@ -164,8 +160,8 @@
 							<input type="date"
 								name="dob" value = "<c:out value = "${a.dob}"/>" required />
 
-							<h2>Select Batting Hand:</h2>
-							<div class="select-menu batting-hand-edit">
+							<h2>Select Batting Hand:</h2> 
+							<div class="select-menu batting-hand-edit"> <!-- Drop-down Menu -->
 								<div class="select-btn"
 									onclick="selectionMenu(event, 'batting-hand-edit')">
 									<span class="sBtn-text"><c:out value = "${a.battingHand}"/></span> <i
@@ -175,10 +171,10 @@
 									<li class="option"><span class="option-text">Right-Hand</span></li>
 									<li class="option"><span class="option-text">Left-Hand</span></li>
 								</ul>
-							</div>
+							</div> <!-- Drop-down Menu End -->
 
 							<h2>Select Bowling Arm:</h2>
-							<div class="select-menu bowling-arm-edit">
+							<div class="select-menu bowling-arm-edit"> <!-- Drop-down Menu -->
 								<div class="select-btn"
 									onclick="selectionMenu(event, 'bowling-arm-edit')">
 									<span class="sBtn-text"><c:out value = "${bowlingarm}"/></span> <i
@@ -191,10 +187,10 @@
 											Arm</span></li>
 									<li class="option"><span class="option-text">NA</span></li>
 								</ul>
-							</div>
+							</div> <!-- Drop-down Menu End -->
 
-							<h2>Select Bowling Skill:</h2>
-							<div class="select-menu bowling-skill-edit">
+							<h2>Select Bowling Skill:</h2> 
+							<div class="select-menu bowling-skill-edit"> <!-- Drop-down Menu -->
 								<div class="select-btn"
 									onclick="selectionMenu(event, 'bowling-skill-edit')">
 									<span class="sBtn-text"><c:out value = "${bowlingskill}"/></span> <i
@@ -209,10 +205,10 @@
 									<li class="option"><span class="option-text">Legbreak</span></li>
 									<li class="option"><span class="option-text">NA</span></li>
 								</ul>
-							</div>
+							</div> <!-- Drop-down Menu End -->
 
-							<h2>Is the player a Keeper:</h2>
-							<div class="select-menu is-keeper-edit">
+							<h2>Is the player a Keeper:</h2> 
+							<div class="select-menu is-keeper-edit"> <!-- Drop-down Menu -->
 								<div class="select-btn"
 									onclick="selectionMenu(event, 'is-keeper-edit')">
 									<span class="sBtn-text"><c:out value = "${iskeeper}"/></span> <i
@@ -222,7 +218,7 @@
 									<li class="option"><span class="option-text">Yes</span></li>
 									<li class="option"><span class="option-text">No</span></li>
 								</ul>
-							</div>
+							</div> <!-- Drop-down Menu End -->
 	
 							<input type="hidden" id = "playerID" name="playerID" value="<c:out value = "${a.playerID}"/>"/> 
 							<input type="hidden" id = "batting-hand-edit" name="batting-hand-edit" value="<c:out value = "${a.battingHand}"/>"/> 
@@ -232,10 +228,9 @@
 							<input type="submit" id="submitQuery" onclick="return confirm('Do you want to edit this player?')"/>
 						</form>
 					</div>
-				</div>
-
+				</div>  <!-- Right Column End -->
 			</div>
-		</section>
+		</section> <!-- Main-Content End -->
 	</div>
 </body>
 </html>

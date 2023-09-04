@@ -25,14 +25,18 @@ public class postAddTeamPlayers extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// Get the playerID, and teamID from the HTTP POST request parameters.
 		String playerID =  request.getParameter("playerID");
 		String teamID =  request.getParameter("teamID");
-		String playerName =  request.getParameter("playerName");
 		
+		 // Create a new DBConnect instance to interact with the database.
 		DBConnect dbconnect = new DBConnect();
 		
+		// Constructs an SQL query to insert the player into the team.
 		String query = String.format("INSERT INTO tblTeamPlayers(Team_ID, Player_ID) VALUES(\"%s\",\"%s\");", teamID, playerID);
 		
+		// Execute the SQL query to add the player to the team.
 		dbconnect.executeQuery(query);
 	}
 

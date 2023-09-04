@@ -18,6 +18,7 @@ public class BattingScorecardDTO {
 	private int sixes;
 	private String strikeRate;
 	
+	// Getters and setters for all the fields
 	public String getMatchID() {
 		return matchID;
 	}
